@@ -1,6 +1,8 @@
 # edubridge
 A website to choose college majors based on grades, skills, and hobbies
 
+I've been doing all of this thing wrongly. I've restarted development.
+
 ## todo list:
 ### login
 - login page
@@ -38,4 +40,4 @@ A website to choose college majors based on grades, skills, and hobbies
 ---
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
