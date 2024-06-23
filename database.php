@@ -12,4 +12,3 @@ if ($conn) {
 } else {
     echo "Koneksi Gagal";
 }
-?>
