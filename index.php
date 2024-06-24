@@ -1,3 +1,4 @@
+<?php include 'structure/check_conn.php'; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +18,8 @@
     </header>
     <main>
         <h1>Dashboard - for Admin</h1>
-
+        <p>Selamat datang, <?php echo $_SESSION['email']?></p>
+        <p>EduBridge adalah website untuk memilih jurusan. Silahkan pergi ke halaman yang tersedia untuk mengisi informasi yang diperlukan.</p>
     </main>
 <footer><?php include 'structure/footer.php'; ?></footer>
 </body>

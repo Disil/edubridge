@@ -8,10 +8,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
     $result = $conn->query($sql);
 
+
     if ($result->num_rows > 0) {
         echo "Login successful";
-        header(header: "Location: index.php"); // Redirect to index.php
+        session_start();
         $_SESSION["email"] = $email;
+        header("Location: index.php"); // Redirect to index.php
         exit;
     } else {
         echo "Login failed";
@@ -34,16 +36,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
     <body>
     <header>
-        <?php include 'structure/header-no-account.php'; ?>
+        <?php include 'structure/header.php'; ?>
     </header>
     <main>
     <h1>Login</h1>
+        <p>Untuk mengakses fitur Edubridge, silahkan login terlebih dahulu.</p>
         <form action="login.php" method="post">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" required>
-            <button type="submit">Login</button>
+            <fieldset>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+                <button type="submit">Login</button>
+            </fieldset>
         </form>
         <a href="register.php">Register</a>
         <?php

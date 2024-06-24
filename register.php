@@ -8,10 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tanggal_lahir = mysqli_real_escape_string($conn, $_POST["tanggal_lahir"]);
     $asal_sekolah = mysqli_real_escape_string($conn, $_POST["asal_sekolah"]);
     $kelas = mysqli_real_escape_string($conn, $_POST["kelas"]);
+    $gender = mysqli_real_escape_string($conn, $_POST["gender"]);
 
-    $sql = "INSERT INTO edubridge_mysql.users (nama, email, password, tanggal_lahir, asal_sekolah, kelas) VALUES ('$nama', '$email', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas')";
+    $sql = "INSERT INTO edubridge_mysql.users (nama, email, password, tanggal_lahir, asal_sekolah, kelas, gender) VALUES ('$nama', '$email', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$gender')";
     if ($conn->query($sql) === TRUE) {
-        echo "Registration successful";
+        echo "Registration successful. Silahkan login.";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <h1>Register</h1>
 <header>
-    <?php include 'structure/header-no-account.php'; ?>
+    <?php include 'structure/header.php'; ?>
 </header>
 <form action="register.php" method="post">
     <fieldset>
@@ -48,12 +49,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
         <label for="kelas">Kelas</label>
         <select name="kelas" id="kelas" required>
-            <option value="X">X</option>
-            <option value="XI">XI</option>
-            <option value="XII">XII</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
         </select>
         <label for="asal_sekolah">Asal Sekolah</label>
         <input type="text" name="asal_sekolah" id="asal_sekolah" required>
+        <label for="gender">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
         <button type="submit">Register</button>
     </fieldset>
 </form>
