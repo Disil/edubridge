@@ -3,6 +3,14 @@ include 'database.php';
 if ($conn === null) {
     die('Database connection is null');
 }
+$searchTerm = $_GET['search'] ?? '';
+
+if ($searchTerm) {
+    $searchTerm = mysqli_real_escape_string($conn, $searchTerm);
+    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_mysql.users WHERE nama LIKE '%$searchTerm%'");
+} else {
+    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_mysql.users");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +19,6 @@ if ($conn === null) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script type="text/javascript" src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
@@ -52,6 +59,8 @@ if ($conn === null) {
                 <td><?php echo $query['gender']; ?></td>
         <?php
         }  ?>
+            </tr>
+    </table>
 </main>
 </body>
 </html>
