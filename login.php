@@ -70,6 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
     </body>
     </html>
-<?php
+<?phphttps://www.reddit.com/r/debian/comments/qtdufw/aclaudy_other_ways_to_install_chromium_on_debian/
 
 ?>

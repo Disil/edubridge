@@ -1,9 +1,10 @@
 <?php
 include('structure/check_conn.php');
 include('database.php');
-echo $id_siswa;
-?>
+/** @var int $id_siswa */
+/** @var mysqli $conn */
 
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +18,8 @@ echo $id_siswa;
     <title>Input Nilai Rapot</title>
 </head>
 <body>
-    <header><?php include "structure/header.php"?></header>
-    <h1>Input Nilai rapor pelajaran</h1>
+<header><?php include "structure/header.php"?></header>
+<h1>Tabel nilai rapot siswa</h1>
 
 </body>
+</html>
