@@ -6,5 +6,6 @@
         <li><a href="#">Beranda</a></li>
         <li><a href="#">Kontak </a></li>
         <li class="float-right"><a href="../register.php">Daftar</a></li>
+
     </ul>
 </nav>
