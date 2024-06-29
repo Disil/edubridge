@@ -17,7 +17,7 @@
                 <li><a href="../list_siswa.php">Info Siswa</a></li>
             </ul>
         </li>
-        <li><a href="#">Hasil Rekomendasi </a></li>
+        <li><a href="../hasil_rekomendasi.php">Hasil Rekomendasi </a></li>
         <li class="float-right">Collapse</li>
     </ul>
 </nav>

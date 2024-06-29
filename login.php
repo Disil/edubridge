@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = mysqli_real_escape_string($conn, $_POST['password']);  // don't escape passwords
 
     // Look up the user in the database
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+    $result = mysqli_query($conn, "SELECT * FROM siswa WHERE email = '$email'");
     $user = mysqli_fetch_assoc($result);
 
     if ($user) {
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $email = $_POST["email"];
             $password = $_POST["password"];
-            $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+            $sql = "SELECT * FROM siswa WHERE email = '$email' AND password = '$password'";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 echo "Login successful";

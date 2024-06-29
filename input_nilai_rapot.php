@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         $message = "Grades submitted successfully!";
+        header("Location: nilai_rapot.php");
     } else {
         $message = "Error: " . $stmt->error;
     }
@@ -57,18 +58,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php endif; ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <?php
-    $subjects = [
-        'matematika', 'fisika', 'kimia', 'biologi', 'ekonomi', 'geografi', 'sosiologi',
-        'bahasa_indonesia', 'bahasa_inggris', 'pjok', 'prakarya', 'sejarah', 'ppkn', 'seni_budaya'
-    ];
+    <fieldset>
+        <?php
+        $subjects = [
+            'matematika', 'fisika', 'kimia', 'biologi', 'ekonomi', 'geografi', 'sosiologi',
+            'bahasa_indonesia', 'bahasa_inggris', 'pjok', 'prakarya', 'sejarah', 'ppkn', 'seni_budaya'
+        ];
 
-    foreach ($subjects as $subject) {
-        $display_subject = str_replace('_', ' ', $subject);
-        echo "<label for='$subject'>$display_subject:</label>";
-        echo "<input type='number' id='$subject' name='$subject' min='0' max='100' step='0.01' required><br>";
-    }
-    ?>
-    <input type="submit" value="Submit Grades">
+        foreach ($subjects as $subject) {
+            $display_subject = str_replace('_', ' ', $subject);
+            echo "<label for='$subject'>$display_subject:</label>";
+            echo "<input type='number' id='$subject' name='$subject' min='0' max='100' step='0.01' required><br>";
+        }
+        ?>
+    </fieldset>
+    <input type="submit" value="Submit Nilai">
+
 </form>
 </body>

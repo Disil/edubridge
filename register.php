@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kelas = mysqli_real_escape_string($conn, $_POST["kelas"]);
     $gender = mysqli_real_escape_string($conn, $_POST["gender"]);
 
-    $sql = "INSERT INTO edubridge_mysql.users (nama, email, password, tanggal_lahir, asal_sekolah, kelas, gender) VALUES ('$nama', '$email', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$gender')";
+    $sql = "INSERT INTO edubridge_mysql.siswa (nama, email, password, tanggal_lahir, asal_sekolah, kelas, gender) VALUES ('$nama', '$email', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$gender')";
     if ($conn->query($sql) === TRUE) {
         echo "Registration successful. Silahkan login.";
     } else {

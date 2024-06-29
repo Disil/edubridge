@@ -39,7 +39,8 @@
             <li>Enterprising</li>
             <li>Conventional</li>
         </ol>
-
+        <button></button>
+    <?php phpinfo(); ?>
     </main>
 </body>
 </html>
