@@ -1,9 +1,9 @@
 <?php
-    include 'structure/check_conn.php';
-    include('database.php');
-    global $conn;
+global $id_siswa;
+global $conn;
+include 'database.php';
+include 'structure/check_conn.php';
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,33 +14,110 @@
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>Tes RIASEC</title>
+    <title>EduBridge - Tes RIASEC</title>
+    <style>
+        .form-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+            background-color: var(--clight);
+            padding: 10px 10px 10px 10px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .options label {
+            margin: 0 10px;
+        }
+        input[type="submit"] {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .column {
+                flex-basis: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header><?php include 'structure/header.php'; ?></header>
-    <main>
-        <h1>Tes RIASEC</h1>
-        <h2>Apa itu tes RIASEC?</h2>
-        <p>Tes RIASEC adalah sebuah tes minat dan bakat berdasarkan tipe kepribadian seseorang. Jika belum pernah mengikuti tes RIASEC, silahkan jawab pertanyaan berikut ini untuk mengetahui nilai anda.</p>
-        <p>Tidak ada jawaban salah dan benar, jawablah sesuai keadaan anda.</p>
-        <h2>Cara mengerjakan Tes</h2>
-        <ul>
-            <li>Tes terbagi menjadi 6 bagian, masing-masing memiliki 15 pernyataan. Waktu pengerjaan adalah sekitar 5-10 menit.</li>
-            <li>Centang kotak di pernyataan yang menurutmu paling benar (tidak ada ketentuan maksimal atau minimal centang).</li>
-            <li>Setiap kotak yang dicentang bernilai 1 poin.</li>
-        </ul>
-        <h2>Apa saja yang diukur?</h2>
-        <p>ada 6 tipe kepribadian yang diukur dalam tes ini, yaitu:</p>
-        <ol>
-            <li>Realistic</li>
-            <li>Investigative</li>
-            <li>Artistic</li>
-            <li>Social</li>
-            <li>Enterprising</li>
-            <li>Conventional</li>
-        </ol>
-        <button></button>
-    <?php phpinfo(); ?>
-    </main>
+<header><?php include 'structure/header.php'; ?></header>
+<main>
+    <h1>Test RIASEC</h1>
+    <?php
+    if (isset($_SESSION['submission_status'])) {
+        if ($_SESSION['submission_status'] == "error") {
+            echo '<div class="message error">Terjadi masalah ketika mengirimkan jawaban. Silahkan dicek kembali, semua harus diisi.</div>';
+        }
+        unset($_SESSION['submission_status']);
+    }
+    ?>
+    <p>Cara pengisian soal:</p>
+    <ul>
+        <li>Tes berjumlah 90 soal. Tidak ada batas waktu dalam pengerjaan soal.</li>
+        <li>Soal memiliki jawaban berupa pilihan "Ya" atau "Tidak". Silahkan pilih salah satu, yang paling menggambarkan kondisi Anda saat ini.</li>
+        <li>Tidak ada jawaban yang benar/salah.</li>
+    </ul>
+    <p>Selamat mengerjakan!</p>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $categories = ['R', 'I', 'A', 'S', 'E', 'C'];
+        $scores = array_fill_keys($categories, 0);
+
+        foreach ($_POST as $key => $value) {
+            if (strpos($key, 'question_') === 0 && $value == '1') {
+                $category = substr($key, -1);
+                $scores[$category]++;
+            }
+        }
+
+        $stmt = $conn->prepare("INSERT INTO edubridge_db.nilai_riasec (id_siswa, nama, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("isiiiiii", $id_siswa, $nama, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
+        $stmt->execute();
+        $stmt->close();
+        echo "<p>Anda telah mengerjakan tes ini. Silahkan <a href='tes_riasec_hasil.php'>Lihat hasilnya disini.</a></p>";
+
+    } else {
+        $sql = "SELECT id_pertanyaan, pertanyaan, kategori FROM edubridge_db.pertanyaan_riasec ORDER BY id_pertanyaan ASC";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            echo '<div class="form-container">';
+            echo '<div class="column">';
+            echo '<form method="POST" action="">';
+            while($row = $result->fetch_assoc()) {
+                echo '<div class="question">';
+                echo '<p>' . $row["pertanyaan"] . '</p>';
+                echo '<div class="options">';
+                echo '<label><input type="radio" name="question_' . $row["id_pertanyaan"] . '_' . $row["kategori"] . '" value="1"> Iya</label>';
+                echo '<label><input type="radio" name="question_' . $row["id_pertanyaan"] . '_' . $row["kategori"] . '" value="0"> Tidak</label>';
+                echo '</div>';
+                echo '</div>';
+            }
+            echo '<br><input type="submit" value="Submit">';
+            echo '</form>';
+            echo '</div>';
+            echo '</div>';
+
+        } else {
+            echo "0 results";
+        }
+
+    } ?>
+</main>
+<?php include 'structure/footer.php'; ?>
 </body>
 </html>

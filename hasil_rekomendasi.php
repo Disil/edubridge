@@ -33,7 +33,7 @@ include 'database.php'
         </tr>
         </thead>
         <tbody>
-        <?php $result = mysqli_query($conn, "SELECT * FROM edubridge_mysql.hasil_rekomendasi");
+        <?php $result = mysqli_query($conn, "SELECT * FROM edubridge_db.hasil_rekomendasi");
         while ($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
                 <td><?php echo $row['Jurusan_1']; ?></td>

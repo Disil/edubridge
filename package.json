@@ -1,0 +1,19 @@
+{
+  "name": "edubridge",
+  "version": "1.0.0",
+  "description": "EduBridge adalah sistem pendukung keputusan yang membantu siswa sekolah menengah memilih jurusan kuliah mereka. Dengan memasukkan nilai rapor sekolah menengah dan mengikuti tes RIASEC, siswa dapat menerima rekomendasi yang dipersonalisasi berdasarkan algoritma fuzzy MCDM (Multi-Criteria Decision Making).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.1"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.3"
+  }
+}

@@ -8,10 +8,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tanggal_lahir = mysqli_real_escape_string($conn, $_POST["tanggal_lahir"]);
     $asal_sekolah = mysqli_real_escape_string($conn, $_POST["asal_sekolah"]);
     $kelas = mysqli_real_escape_string($conn, $_POST["kelas"]);
-    $gender = mysqli_real_escape_string($conn, $_POST["gender"]);
+    $jenis_kelamin = mysqli_real_escape_string($conn, $_POST["jenis_kelamin"]);
 
-    $sql = "INSERT INTO edubridge_mysql.siswa (nama, email, password, tanggal_lahir, asal_sekolah, kelas, gender) VALUES ('$nama', '$email', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$gender')";
+    $sql = "INSERT INTO edubridge_db.siswa (nama, email, password, tanggal_lahir, asal_sekolah, kelas, jenis_kelamin) VALUES ('$nama', '$email', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$jenis_kelamin')";
     if ($conn->query($sql) === TRUE) {
+        header("Location: login.php");
         echo "Registration successful. Silahkan login.";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -39,11 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form action="register.php" method="post">
     <fieldset>
         <label for="nama">Nama</label>
-        <input type="text" name="nama" id="nama" required>
+        <input type="text" name="nama" id="nama" required autocomplete="name">
         <label for="email">Alamat Email</label>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" required autocomplete="email">
         <label for="password">Sandi</label>
-        <input type="password" name="password" id="password" required>
+        <input type="password" name="password" id="password" required autocomplete="new-password">
         <label for="tanggal_lahir">Tanggal Lahir</label>
         <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
         <label for="kelas">Kelas</label>
@@ -54,11 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </select>
         <label for="asal_sekolah">Asal Sekolah</label>
         <input type="text" name="asal_sekolah" id="asal_sekolah" required>
-        <label for="gender">Gender:</label><br>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label><br>
+        <label for="jenis_kelamin">Jenis Kelamin</label><br>
+        <input type="radio" id="pria" name="jenis_kelamin" value="pria">
+        <label for="pria">Pria</label><br>
+        <input type="radio" id="wanita" name="jenis_kelamin" value="wanita">
+        <label for="wanita">Wanita</label><br>
         <button type="submit">Register</button>
     </fieldset>
 </form>

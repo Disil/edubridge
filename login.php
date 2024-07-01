@@ -47,9 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form action="login.php" method="post">
             <fieldset>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
+                <input type="email" name="email" id="email" required autocomplete="email">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="password" id="password" required autocomplete="current-password">
                 <button type="submit">Login</button>
             </fieldset>
         </form>

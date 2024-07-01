@@ -7,9 +7,9 @@ $searchTerm = $_GET['search'] ?? '';
 
 if ($searchTerm) {
     $searchTerm = mysqli_real_escape_string($conn, $searchTerm);
-    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_mysql.users WHERE nama LIKE '%$searchTerm%'");
+    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_db.siswa WHERE nama LIKE '%$searchTerm%'");
 } else {
-    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_mysql.users");
+    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_db.siswa");
 }
 ?>
 <!doctype html>
@@ -42,11 +42,11 @@ if ($searchTerm) {
             <th>Tanggal Lahir</th>
             <th>Asal Sekolah</th>
             <th>Kelas</th>
-            <th>Tgl Membuat</th>
+            <th>Tgl Buat Akun</th>
             <th>Gender</th>
         </tr>
         <?php
-        $list_user = mysqli_query($conn, "SELECT * FROM edubridge_mysql.users");
+        $list_user = mysqli_query($conn, "SELECT * FROM edubridge_db.siswa");
         while ($query = mysqli_fetch_array($list_user)) {
             ?>
             <tr>
@@ -55,8 +55,8 @@ if ($searchTerm) {
                 <td><?php echo $query['tanggal_lahir']; ?></td>
                 <td><?php echo $query['asal_sekolah']; ?></td>
                 <td><?php echo $query['kelas']; ?></td>
-                <td><?php echo $query['date_created']; ?></td>
-                <td><?php echo $query['gender']; ?></td>
+                <td><?php echo $query['tgl_buat_akun']; ?></td>
+                <td><?php echo $query['jenis_kelamin']; ?></td>
         <?php
         }  ?>
             </tr>

@@ -9,16 +9,23 @@
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>EduBridge - Dashboard for Admin</title>
+    <title>EduBridge - Dashboard</title>
 </head>
 <body>
     <header>
         <?php include 'structure/header.php'; ?>
     </header>
     <main>
-        <h1>Dashboard - for Admin</h1>
+        <h1>Dashboard</h1>
         <p>Selamat datang, <?php echo $_SESSION['email']?></p>
-        <p>EduBridge adalah website untuk memilih jurusan. Silahkan pergi ke halaman yang tersedia untuk mengisi informasi yang diperlukan.</p>
+        <p>EduBridge adalah sistem pendukung keputusan yang membantu siswa sekolah menengah memilih jurusan kuliah mereka. Dengan memasukkan nilai rapor sekolah menengah dan mengikuti tes RIASEC, siswa dapat menerima rekomendasi yang dipersonalisasi berdasarkan algoritma fuzzy MCDM (Multi-Criteria Decision Making).</p>
+        <h2> Latar Belakang dan Tujuan </h2>
+        <p>EduBridge lahir dari keresahan peneliti terhadap kondisi perkuliahan di Indonesia saat ini. Faktanya, banyak mahasiswa yang merasa tidak cocok dengan jurusan yang mereka pilih. Hal ini disebabkan oleh berbagai faktor, seperti kurangnya informasi, tekanan dari orang tua, atau kurangnya pemahaman tentang minat dan bakat mereka sendiri.</p>
+
+        <p>Oleh karena itu, kami tergerak untuk membuat situs EduBridge. Situs ini bertujuan untuk menyederhanakan proses ini dengan memberikan rekomendasi jurusan berdasarkan hasil analisis kinerja akademis siswa (dalam bentuk nilai rapot), menggabungkannya dengan hasil tes RIASEC (Realistic, Investigative, Artistic, Social, Enterprising, Conventional).</p>
+
+    <h2>OPSI 2024</h2>
+        <p>EduBridge dibuat dalam rangka <a href="https://sma.pusatprestasinasional.kemdikbud.go.id/opsi/">Olimpiade Penelitian Siswa Indonesia (OPSI) 2024</a>. Kami berharap dengan adanya situs ini, siswa dapat memilih jurusan kuliah mereka dengan lebih bijak dan sesuai dengan minat dan bakat mereka. Tentu, banyak faktor lain yang harus dipertimbangkan. Namun kami harap, situs ini dapat membantu meyakinkan diri sendiri jika <i>galau</i> terkait dengan pilihan jurusan.</p>
     </main>
 <footer><?php include 'structure/footer.php'; ?></footer>
 </body>
