@@ -13,7 +13,7 @@
             <ul>
                 <li><a href="../input_nilai_rapot.php">Input Nilai Rapot</a></li>
                 <li><a href="../nilai_rapot.php">Lihat Nilai Rapot</a></li>
-                <li><a href="../tes_riasec.php">Tes RIASEC</a></li>
+                <li><a href="../tes_riasec_info.php">Tes RIASEC</a></li>
                 <li><a href="../list_siswa.php">Info Siswa</a></li>
             </ul>
         </li>

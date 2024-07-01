@@ -19,10 +19,10 @@ menggabungkannya dengan hasil tes RIASEC (Realistic, Investigative, Artistic, So
 Teknologi yang digunakan dalam projek ini adalah sebagai berikut:
 
 - Frontend: HTML, CSS, JavaScript
+- Framework: NPM, Composer
 - Backend: PHP
-- Database: MySQL
+- Database: MariaDB
 - Algoritma: Fuzzy MCDM (Multi-Criteria Decision Making)
-  Kami tidak menggunakan framework karena projek ini bersifat sederhana dan tidak memerlukan teknologi yang kompleks.
 
 ## OPSI 2024
 
