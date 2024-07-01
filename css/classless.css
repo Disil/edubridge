@@ -10,7 +10,7 @@ Table of Contents:
 
 /* 1. Theme Settings ––––––––––––––––––––-–––––––––––––– */
 
-
+@import 'fonts/Raleway/Raleway-VariableFont_wght.ttf';
 :root, html[data-theme='light'] {
 	--rem: 12pt;
 	--width: 50rem;

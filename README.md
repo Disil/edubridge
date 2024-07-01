@@ -23,11 +23,11 @@ Teknologi yang digunakan dalam projek ini adalah sebagai berikut:
 - Backend: PHP
 - Database: MariaDB
 - Algoritma: Fuzzy MCDM (Multi-Criteria Decision Making)
+- IDE: PhpStorm (JetBrains IDE)
 
 ## OPSI 2024
 
-EduBridge dibuat dalam rangka
-mengikuti [Olimpiade Penelitian Siswa Indonesia (OPSI) 2024](https://sma.pusatprestasinasional.kemdikbud.go.id/opsi/).
+EduBridge dibuat dalam rangka [Olimpiade Penelitian Siswa Indonesia (OPSI) 2024](https://sma.pusatprestasinasional.kemdikbud.go.id/opsi/).
 Kami berharap dengan adanya situs ini, siswa dapat memilih jurusan kuliah mereka dengan lebih bijak dan sesuai dengan
 minat dan bakat mereka. Tentu, banyak faktor lain yang harus dipertimbangkan. Namun kami harap, situs ini dapat membantu
 meyakinkan diri sendiri jika _galau_ terkait dengan pilihan jurusan.
@@ -51,7 +51,7 @@ kepada orang tua, teman-teman, dan semua pihak yang telah membantu dalam proses 
 
 Selama masa pengembangan, peneliti menggunakan PHP-Builtin server dalam menjalankan website. Jikalau anda ingin
 menjalankannya, silahkan menggunakan XAMPP dan import database yang sudah disediakan ke dalam *data source* MySQL. Jika
-sudah, silahkan buka situs ini di browser dengan mengetikkan `localhost/EduBridge`.
+sudah, silahkan buka situs ini di browser dengan mengetikkan `localhost/edubridge`.
 
 ## Kontribusi
 
