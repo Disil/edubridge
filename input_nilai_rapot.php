@@ -1,52 +1,36 @@
 <?php
 
 include('structure/check_conn.php');
-
 include('database.php');
-
 global $id_siswa;
-
 global $conn;
+global $nama;
 
-
-// Prepare and bind
 
 $stmt = $conn->prepare("INSERT INTO edubridge_db.nilai_rapot_asli (id_siswa, nama, matematika, fisika, kimia, biologi, ekonomi, geografi, sosiologi, bahasa_indonesia, bahasa_inggris, pjok, prakarya, sejarah, ppkn, seni_budaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-
+//bandage for nama
+$nama = $_SESSION['nama'];
 $stmt->bind_param("issiiiiiiiiiiiii", $id_siswa, $nama, $matematika, $fisika, $kimia, $biologi, $ekonomi, $geografi, $sosiologi, $bahasa_indonesia, $bahasa_inggris, $pjok, $prakarya, $sejarah, $ppkn, $seni_budaya);
 
 
 // Set parameters and execute
 
+
 $matematika = $_POST['matematika'];
-
 $fisika = $_POST['fisika'];
-
 $kimia = $_POST['kimia'];
-
 $biologi = $_POST['biologi'];
-
 $ekonomi = $_POST['ekonomi'];
-
 $geografi = $_POST['geografi'];
-
 $sosiologi = $_POST['sosiologi'];
-
 $bahasa_indonesia = $_POST['bahasa_indonesia'];
-
 $bahasa_inggris = $_POST['bahasa_inggris'];
-
 $pjok = $_POST['pjok'];
-
 $prakarya = $_POST['prakarya'];
-
 $sejarah = $_POST['sejarah'];
-
 $ppkn = $_POST['ppkn'];
-
 $seni_budaya = $_POST['seni_budaya'];
-
 
 // Check if all required fields are filled
 // !empty($id_siswa) && !empty($nama) && !empty($fisika) && !empty($kimia) && !empty($biologi) && !empty($ekonomi) && !empty($geografi) && !empty($sosiologi)
