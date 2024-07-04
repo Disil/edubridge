@@ -17,7 +17,7 @@
     </header>
     <main>
         <h1>Dashboard</h1>
-        <p>Selamat datang, <?php echo $_SESSION['email']?></p>
+        <p>Selamat datang, <?php echo $_SESSION['nama']?>! Anda berasal dari <?php echo $_SESSION['asal_sekolah']?></p>
         <p>EduBridge adalah sistem pendukung keputusan yang membantu siswa sekolah menengah memilih jurusan kuliah mereka. Dengan memasukkan nilai rapor sekolah menengah dan mengikuti tes RIASEC, siswa dapat menerima rekomendasi yang dipersonalisasi berdasarkan algoritma fuzzy MCDM (Multi-Criteria Decision Making).</p>
         <h2> Latar Belakang dan Tujuan </h2>
         <p>EduBridge lahir dari keresahan peneliti terhadap kondisi perkuliahan di Indonesia saat ini. Faktanya, banyak mahasiswa yang merasa tidak cocok dengan jurusan yang mereka pilih. Hal ini disebabkan oleh berbagai faktor, seperti kurangnya informasi, tekanan dari orang tua, atau kurangnya pemahaman tentang minat dan bakat mereka sendiri.</p>

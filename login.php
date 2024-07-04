@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_start();
         $_SESSION['email'] = $user['email'];
         $_SESSION['id_siswa'] = $user['id_siswa'];
+        $_SESSION['nama'] = $user['nama'];
+        $_SESSION['asal_sekolah'] = $user['asal_sekolah'];
 
         // Redirect the user to the dashboard or wherever you want them to go after logging in
         header('Location: index.php');

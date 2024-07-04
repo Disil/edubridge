@@ -84,10 +84,8 @@ include 'structure/check_conn.php';
             }
         }
 
-        // bandage for nama
-        $nama = $_SESSION['nama'];
-        $stmt = $conn->prepare("INSERT INTO edubridge_db.nilai_riasec (id_siswa, nama, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isiiiiii", $id_siswa, $nama, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
+        $stmt = $conn->prepare("INSERT INTO edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("iiiiiii", $id_siswa, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
         $stmt->execute();
         $stmt->close();
         echo "<p>Anda telah mengerjakan tes ini. Silahkan <a href='tes_riasec_hasil.php'>Lihat hasilnya disini.</a></p>";

@@ -185,56 +185,127 @@ BEGIN
 END //
 DELIMITER ;
 
--- Trigger for nilai_rapot
-DELIMITER //
-CREATE TRIGGER ubah_nilai_rapot_ke_huruf
-    AFTER INSERT ON nilai_rapot
-    FOR EACH ROW
+create definer = root@localhost trigger ubah_nilai_ke_huruf_1
+    after insert
+    on nilai_rapot
+    for each row
 BEGIN
-    INSERT INTO nilai (id_siswa, ipa, ips, bahasa, praktek, politik, seni)
-    VALUES (
-               NEW.id_siswa,
-               ubah_nilai_rapot_ke_huruf(NEW.ipa),
-               ubah_nilai_rapot_ke_huruf(NEW.ips),
-               ubah_nilai_rapot_ke_huruf(NEW.bahasa),
-               ubah_nilai_rapot_ke_huruf(NEW.praktek),
-               ubah_nilai_rapot_ke_huruf(NEW.politik),
-               ubah_nilai_rapot_ke_huruf(NEW.seni)
-           )
-    ON DUPLICATE KEY UPDATE
-                         ipa = ubah_nilai_rapot_ke_huruf(NEW.ipa),
-                         ips = ubah_nilai_rapot_ke_huruf(NEW.ips),
-                         bahasa = ubah_nilai_rapot_ke_huruf(NEW.bahasa),
-                         praktek = ubah_nilai_rapot_ke_huruf(NEW.praktek),
-                         politik = ubah_nilai_rapot_ke_huruf(NEW.politik),
-                         seni = ubah_nilai_rapot_ke_huruf(NEW.seni);
-END //
+    DECLARE v_ipa FLOAT;
+    DECLARE v_ips FLOAT;
+    DECLARE v_bahasa FLOAT;
+    DECLARE v_praktek FLOAT;
+    DECLARE v_politik FLOAT;
+    DECLARE v_seni FLOAT;
+    DECLARE v_R INT;
+    DECLARE v_I INT;
+    DECLARE v_A INT;
+    DECLARE v_S INT;
+    DECLARE v_E INT;
+    DECLARE v_C INT;
+
+    SELECT ipa, ips, bahasa, praktek, politik, seni INTO v_ipa, v_ips, v_bahasa, v_praktek, v_politik, v_seni
+    FROM nilai_rapot
+    WHERE id_siswa = NEW.id_siswa;
+
+    SELECT R, I, A, S, E, C INTO v_R, v_I, v_A, v_S, v_E, v_C
+    FROM nilai_riasec
+    WHERE id_siswa = NEW.id_siswa;
+
+    IF v_R IS NOT NULL AND v_I IS NOT NULL AND v_A IS NOT NULL AND v_S IS NOT NULL AND v_E IS NOT NULL AND v_C IS NOT NULL THEN
+        INSERT INTO nilai (id_siswa, ipa, ips, bahasa, praktek, politik, seni, R, I, A, S, E, C)
+        VALUES (
+                   NEW.id_siswa,
+                   ubah_nilai_rapot_ke_huruf(v_ipa),
+                   ubah_nilai_rapot_ke_huruf(v_ips),
+                   ubah_nilai_rapot_ke_huruf(v_bahasa),
+                   ubah_nilai_rapot_ke_huruf(v_praktek),
+                   ubah_nilai_rapot_ke_huruf(v_politik),
+                   ubah_nilai_rapot_ke_huruf(v_seni),
+                   ubah_nilai_riasec_ke_huruf(v_R),
+                   ubah_nilai_riasec_ke_huruf(v_I),
+                   ubah_nilai_riasec_ke_huruf(v_A),
+                   ubah_nilai_riasec_ke_huruf(v_S),
+                   ubah_nilai_riasec_ke_huruf(v_E),
+                   ubah_nilai_riasec_ke_huruf(v_C)
+               )
+        ON DUPLICATE KEY UPDATE
+                             ipa = ubah_nilai_rapot_ke_huruf(v_ipa),
+                             ips = ubah_nilai_rapot_ke_huruf(v_ips),
+                             bahasa = ubah_nilai_rapot_ke_huruf(v_bahasa),
+                             praktek = ubah_nilai_rapot_ke_huruf(v_praktek),
+                             politik = ubah_nilai_rapot_ke_huruf(v_politik),
+                             seni = ubah_nilai_rapot_ke_huruf(v_seni),
+                             R = ubah_nilai_riasec_ke_huruf(v_R),
+                             I = ubah_nilai_riasec_ke_huruf(v_I),
+                             A = ubah_nilai_riasec_ke_huruf(v_A),
+                             S = ubah_nilai_riasec_ke_huruf(v_S),
+                             E = ubah_nilai_riasec_ke_huruf(v_E),
+                             C = ubah_nilai_riasec_ke_huruf(v_C);
+    END IF;
+END;
+
 DELIMITER ;
 
--- Trigger for nilai_riasec
-DELIMITER //
-CREATE TRIGGER ubah_nilai_riasec_ke_huruf
-    AFTER INSERT ON nilai_riasec
-    FOR EACH ROW
+create definer = root@localhost trigger ubah_nilai_ke_huruf_2
+    after insert
+    on nilai_riasec
+    for each row
 BEGIN
-    INSERT INTO nilai (id_siswa, R, I, A, S, E, C)
-    VALUES (
-               NEW.id_siswa,
-               ubah_nilai_riasec_ke_huruf(NEW.R),
-               ubah_nilai_riasec_ke_huruf(NEW.I),
-               ubah_nilai_riasec_ke_huruf(NEW.A),
-               ubah_nilai_riasec_ke_huruf(NEW.S),
-               ubah_nilai_riasec_ke_huruf(NEW.E),
-               ubah_nilai_riasec_ke_huruf(NEW.C)
-           )
-    ON DUPLICATE KEY UPDATE
-                         R = ubah_nilai_riasec_ke_huruf(NEW.R),
-                         I = ubah_nilai_riasec_ke_huruf(NEW.I),
-                         A = ubah_nilai_riasec_ke_huruf(NEW.A),
-                         S = ubah_nilai_riasec_ke_huruf(NEW.S),
-                         E = ubah_nilai_riasec_ke_huruf(NEW.E),
-                         C = ubah_nilai_riasec_ke_huruf(NEW.C);
-END //
+    DECLARE v_ipa FLOAT;
+    DECLARE v_ips FLOAT;
+    DECLARE v_bahasa FLOAT;
+    DECLARE v_praktek FLOAT;
+    DECLARE v_politik FLOAT;
+    DECLARE v_seni FLOAT;
+    DECLARE v_R INT;
+    DECLARE v_I INT;
+    DECLARE v_A INT;
+    DECLARE v_S INT;
+    DECLARE v_E INT;
+    DECLARE v_C INT;
+
+    SELECT ipa, ips, bahasa, praktek, politik, seni INTO v_ipa, v_ips, v_bahasa, v_praktek, v_politik, v_seni
+    FROM nilai_rapot
+    WHERE id_siswa = NEW.id_siswa;
+
+    SELECT R, I, A, S, E, C INTO v_R, v_I, v_A, v_S, v_E, v_C
+    FROM nilai_riasec
+    WHERE id_siswa = NEW.id_siswa;
+
+    IF v_ipa IS NOT NULL AND v_ips IS NOT NULL AND v_bahasa IS NOT NULL AND v_praktek IS NOT NULL AND v_politik IS NOT NULL AND v_seni IS NOT NULL THEN
+        INSERT INTO nilai (id_siswa, ipa, ips, bahasa, praktek, politik, seni, R, I, A, S, E, C)
+        VALUES (
+                   NEW.id_siswa,
+                   ubah_nilai_rapot_ke_huruf(v_ipa),
+                   ubah_nilai_rapot_ke_huruf(v_ips),
+                   ubah_nilai_rapot_ke_huruf(v_bahasa),
+                   ubah_nilai_rapot_ke_huruf(v_praktek),
+                   ubah_nilai_rapot_ke_huruf(v_politik),
+                   ubah_nilai_rapot_ke_huruf(v_seni),
+                   ubah_nilai_riasec_ke_huruf(v_R),
+                   ubah_nilai_riasec_ke_huruf(v_I),
+                   ubah_nilai_riasec_ke_huruf(v_A),
+                   ubah_nilai_riasec_ke_huruf(v_S),
+                   ubah_nilai_riasec_ke_huruf(v_E),
+                   ubah_nilai_riasec_ke_huruf(v_C)
+               )
+        ON DUPLICATE KEY UPDATE
+                             ipa = ubah_nilai_rapot_ke_huruf(v_ipa),
+                             ips = ubah_nilai_rapot_ke_huruf(v_ips),
+                             bahasa = ubah_nilai_rapot_ke_huruf(v_bahasa),
+                             praktek = ubah_nilai_rapot_ke_huruf(v_praktek),
+                             politik = ubah_nilai_rapot_ke_huruf(v_politik),
+                             seni = ubah_nilai_rapot_ke_huruf(v_seni),
+                             R = ubah_nilai_riasec_ke_huruf(v_R),
+                             I = ubah_nilai_riasec_ke_huruf(v_I),
+                             A = ubah_nilai_riasec_ke_huruf(v_A),
+                             S = ubah_nilai_riasec_ke_huruf(v_S),
+                             E = ubah_nilai_riasec_ke_huruf(v_E),
+                             C = ubah_nilai_riasec_ke_huruf(v_C);
+
+    END IF;
+END;
+
 DELIMITER ;
 
 DELIMITER //
@@ -242,31 +313,31 @@ CREATE FUNCTION konversi_ke_fuzzy(nilai VARCHAR(2), jenis VARCHAR(10)) RETURNS D
 BEGIN
     DECLARE hasil DECIMAL(3,2);
     CASE
-        WHEN nilai IN ('ST', 'SD') THEN
+        WHEN nilai IN ('ST') THEN
             SET hasil = CASE jenis
                             WHEN 'rendah' THEN 0.75
                             WHEN 'sedang' THEN 1.00
                             WHEN 'tinggi' THEN 1.00
                 END;
-        WHEN nilai IN ('T', 'D') THEN
+        WHEN nilai IN ('T') THEN
             SET hasil = CASE jenis
                             WHEN 'rendah' THEN 0.50
                             WHEN 'sedang' THEN 0.75
                             WHEN 'tinggi' THEN 1.00
                 END;
-        WHEN nilai IN ('CT', 'CD') THEN
+        WHEN nilai IN ('CT') THEN
             SET hasil = CASE jenis
                             WHEN 'rendah' THEN 0.25
                             WHEN 'sedang' THEN 0.50
                             WHEN 'tinggi' THEN 0.75
                 END;
-        WHEN nilai IN ('KT', 'KD') THEN
+        WHEN nilai IN ('KT') THEN
             SET hasil = CASE jenis
                             WHEN 'rendah' THEN 0.00
                             WHEN 'sedang' THEN 0.25
                             WHEN 'tinggi' THEN 0.50
                 END;
-        WHEN nilai IN ('TT', 'TD') THEN
+        WHEN nilai IN ('TT') THEN
             SET hasil = CASE jenis
                             WHEN 'rendah' THEN 0.00
                             WHEN 'sedang' THEN 0.00
@@ -413,12 +484,10 @@ CREATE TABLE hasil_perhitungan (
 );
 CREATE TABLE hasil_rekomendasi (
        id_siswa INT PRIMARY KEY,
-       nama VARCHAR(255),
        Jurusan_1 VARCHAR(255),
        Jurusan_2 VARCHAR(255),
        Jurusan_3 VARCHAR(255),
        foreign key (id_siswa) references nilai(id_siswa),
-       foreign key (nama) references nilai(nama),
        foreign key (Jurusan_1) references acuan_nilai_jurusan(Jurusan),
        foreign key (Jurusan_2) references acuan_nilai_jurusan(Jurusan),
        foreign key (Jurusan_3) references acuan_nilai_jurusan(Jurusan)
@@ -475,10 +544,9 @@ BEGIN
         hasil_agregasi;
 
     -- Cari desimal 3 terbesar untuk setiap siswa dan masukkan ke dalam tabel hasil_rekomendasi
-    INSERT INTO hasil_rekomendasi (id_siswa, nama, Jurusan_1, Jurusan_2, Jurusan_3)
+    INSERT INTO hasil_rekomendasi (id_siswa, Jurusan_1, Jurusan_2, Jurusan_3)
     SELECT
         n.id_siswa AS id_siswa,
-        n.nama AS nama,
         MAX(CASE WHEN rn = 1 THEN hp.Jurusan END) AS Jurusan_1,
         MAX(CASE WHEN rn = 2 THEN hp.Jurusan END) AS Jurusan_2,
         MAX(CASE WHEN rn = 3 THEN hp.Jurusan END) AS Jurusan_3
@@ -495,6 +563,6 @@ BEGIN
     WHERE
         hp.rn <= 3
     GROUP BY
-        n.id_siswa, n.nama;
+        n.id_siswa;
 END;
 DELIMITER ;
