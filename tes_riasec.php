@@ -78,7 +78,7 @@ include 'structure/check_conn.php';
         $scores = array_fill_keys($categories, 0);
 
         foreach ($_POST as $key => $value) {
-            if (strpos($key, 'question_') === 0 && $value == '1') {
+            if (str_starts_with($key, 'question_') && $value == '1') {
                 $category = substr($key, -1);
                 $scores[$category]++;
             }
