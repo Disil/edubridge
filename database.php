@@ -1,6 +1,6 @@
 <?php
 $db_server = "edubridge.my.id";
-$db_user = "root";
+$db_user = "wpcguvfn";
 $db_pass = "S@tri@2007";
 $db_name = "wpcguvn_edubridge_db";
 $conn = "";
