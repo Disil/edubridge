@@ -2,7 +2,7 @@
 include("database.php");
 global $conn;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nama = mysqli_real_escape_string($conn, $_POST["nama"]);
+    $nama_siswa = mysqli_real_escape_string($conn, $_POST["nama_siswa"]);
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
     $tanggal_lahir = mysqli_real_escape_string($conn, $_POST["tanggal_lahir"]);
@@ -10,7 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kelas = mysqli_real_escape_string($conn, $_POST["kelas"]);
     $jenis_kelamin = mysqli_real_escape_string($conn, $_POST["jenis_kelamin"]);
 
-    $sql = "INSERT INTO edubridge_db.siswa (nama, email, password, tanggal_lahir, asal_sekolah, kelas, jenis_kelamin) VALUES ('$nama', '$email', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$jenis_kelamin')";
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql = "INSERT INTO edubridge_db.siswa (nama_siswa, email, password, tanggal_lahir, asal_sekolah, kelas, jenis_kelamin) VALUES ('$nama_siswa', '$hashed_password', '$password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$jenis_kelamin')";
     if ($conn->query($sql) === TRUE) {
         header("Location: login.php");
         echo "Registration successful. Silahkan login.";
@@ -39,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </header>
 <form action="register.php" method="post">
     <fieldset>
-        <label for="nama">Nama</label>
-        <input type="text" name="nama" id="nama" required autocomplete="name">
+        <label for="nama_siswa">Nama</label>
+        <input type="text" name="nama_siswa" id="nama_siswa" required autocomplete="name">
         <label for="email">Alamat Email</label>
         <input type="email" name="email" id="email" required autocomplete="email">
         <label for="password">Sandi</label>

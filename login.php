@@ -3,25 +3,31 @@ include "database.php";
 global $conn;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);  // don't escape passwords
+    $password = $_POST['password']; // Don't escape passwords
 
     // Look up the user in the database
     $result = mysqli_query($conn, "SELECT * FROM siswa WHERE email = '$email'");
     $user = mysqli_fetch_assoc($result);
 
     if ($user) {
-        // The user exists and the password is correct, so start a session
-        session_start();
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['id_siswa'] = $user['id_siswa'];
-        $_SESSION['nama'] = $user['nama'];
-        $_SESSION['asal_sekolah'] = $user['asal_sekolah'];
+        // Verify the password using password_verify()
+        if (password_verify($password, $user['password'])) {
+            // The password is correct, so start a session
+            session_start();
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['id_siswa'] = $user['id_siswa'];
+            $_SESSION['nama'] = $user['nama'];
+            $_SESSION['asal_sekolah'] = $user['asal_sekolah'];
 
-        // Redirect the user to the dashboard or wherever you want them to go after logging in
-        header('Location: index.php');
-        exit;
+            // Redirect the user to the dashboard or wherever you want them to go after logging in
+            header('Location: index.php');
+            exit;
+        } else {
+            // The password is incorrect
+            echo "Invalid email or password";
+        }
     } else {
-        // The user doesn't exist or the password is incorrect
+        // The user doesn't exist
         echo "Invalid email or password";
     }
 }
@@ -56,19 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </fieldset>
         </form>
         <a href="register.php">Register</a>
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-            $sql = "SELECT * FROM siswa WHERE email = '$email' AND password = '$password'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                echo "Login successful";
-            } else {
-                echo "Login failed";
-            }
-        }
-        ?>
     </main>
     </body>
     </html>
