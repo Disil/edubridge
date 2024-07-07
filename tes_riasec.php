@@ -84,14 +84,14 @@ include 'structure/check_conn.php';
             }
         }
 
-        $stmt = $conn->prepare("INSERT INTO edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("iiiiiii", $id_siswa, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
         $stmt->execute();
         $stmt->close();
         echo "<p>Anda telah mengerjakan tes ini. Silahkan <a href='tes_riasec_hasil.php'>Lihat hasilnya disini.</a></p>";
 
     } else {
-        $sql = "SELECT id_pertanyaan, pertanyaan, kategori FROM edubridge_db.pertanyaan_riasec ORDER BY id_pertanyaan";
+        $sql = "SELECT id_pertanyaan, pertanyaan, kategori FROM wpcguvfn_edubridge_db.pertanyaan_riasec ORDER BY id_pertanyaan";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

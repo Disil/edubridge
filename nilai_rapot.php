@@ -4,7 +4,7 @@ include('database.php');
 /** @var int $id_siswa */
 /** @var mysqli $conn */
 // SQL query to fetch the nilai_rapot_asli for the current user
-$query = "SELECT * FROM edubridge_db.nilai_rapot_asli WHERE id_siswa = $id_siswa";
+$query = "SELECT * FROM wpcguvfn_edubridge_db.nilai_rapot_asli WHERE id_siswa = $id_siswa";
 $result = mysqli_query($conn, $query);
 $dataRapot = [];
 

@@ -7,9 +7,9 @@ $searchTerm = $_GET['search'] ?? '';
 
 if ($searchTerm) {
     $searchTerm = mysqli_real_escape_string($conn, $searchTerm);
-    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_db.siswa WHERE nama LIKE '%$searchTerm%'");
+    $list_user = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa WHERE nama LIKE '%$searchTerm%'");
 } else {
-    $list_user = mysqli_query($conn, "SELECT * FROM edubridge_db.siswa");
+    $list_user = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa");
 }
 ?>
 <!doctype html>
@@ -46,7 +46,7 @@ if ($searchTerm) {
             <th>Gender</th>
         </tr>
         <?php
-        $list_user = mysqli_query($conn, "SELECT * FROM edubridge_db.siswa");
+        $list_user = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa");
         while ($query = mysqli_fetch_array($list_user)) {
             ?>
             <tr>

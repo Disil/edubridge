@@ -1,7 +1,7 @@
 <?php include 'structure/check_conn.php';
     include 'database.php' ;
 // Execute SQL query
-$result = mysqli_query($conn, "SELECT * FROM edubridge_db.siswa WHERE id_siswa = $id_siswa");
+$result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa WHERE id_siswa = $id_siswa");
 
 // Fetch data
 $user = mysqli_fetch_assoc($result);

@@ -1,5 +1,5 @@
-CREATE DATABASE edubridge_db;
-USE edubridge_db;
+CREATE DATABASE wpcguvfn_edubridge_db;
+USE wpcguvfn_edubridge_db;
 CREATE TABLE siswa (
    id_siswa INT PRIMARY KEY AUTO_INCREMENT,
    nama VARCHAR(255) NULL,

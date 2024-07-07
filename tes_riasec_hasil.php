@@ -9,7 +9,7 @@ function getIdSiswa() {
 
 // Function to get RIASEC scores for a specific user
 function getRIASECScores($conn, $id_siswa) {
-    $sql = "SELECT R, I, A, S, E, C FROM edubridge_db.nilai_riasec WHERE id_siswa = ?";
+    $sql = "SELECT R, I, A, S, E, C FROM wpcguvfn_edubridge_db.nilai_riasec WHERE id_siswa = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_siswa);
     $stmt->execute();
