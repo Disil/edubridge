@@ -8,7 +8,7 @@
                 <li><a href="../logout.php">Log Out</a></li>
             </ul>
         </li>
-        <li><a href="../index.php">Dashboard</a></li>
+        <li><a href="../dashboard.php">Dashboard</a></li>
         <li><a href="#">Input ▾</a>
             <ul>
                 <li><a href="../input_nilai_rapot.php">Input Nilai Rapot</a></li>

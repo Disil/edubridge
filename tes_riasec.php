@@ -91,7 +91,7 @@ include 'structure/check_conn.php';
         echo "<p>Anda telah mengerjakan tes ini. Silahkan <a href='tes_riasec_hasil.php'>Lihat hasilnya disini.</a></p>";
 
     } else {
-        $sql = "SELECT id_pertanyaan, pertanyaan, kategori FROM wpcguvfn_edubridge_db.pertanyaan_riasec ORDER BY id_pertanyaan";
+        $sql = "SELECT id_soal, soal, kategori FROM wpcguvfn_edubridge_db.soal_riasec ORDER BY id_soal";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

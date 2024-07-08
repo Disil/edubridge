@@ -1,5 +1,6 @@
 <?php include 'structure/check_conn.php';
 include 'database.php';
+global $conn;
 if ($conn === null) {
     die('Database connection is null');
 }
@@ -32,7 +33,8 @@ if ($searchTerm) {
     <h1>List Siswa - for Admin</h1>
     <p>Daftar siswa yang terdaftar di EduBridge</p>
     <form method="get" action="list_siswa.php">
-        <input type="text" name="search" placeholder="Search...">
+        <label for="search">Search:</label>
+        <input type="text" name="search" id="search" placeholder="Search...">
         <input type="submit" value="Search">
     </form>
     <table>
@@ -50,7 +52,7 @@ if ($searchTerm) {
         while ($query = mysqli_fetch_array($list_user)) {
             ?>
             <tr>
-                <td><?php echo $query['nama']; ?></td>
+                <td><?php echo $query['nama_siswa']; ?></td>
                 <td><?php echo $query['email']; ?></td>
                 <td><?php echo $query['tanggal_lahir']; ?></td>
                 <td><?php echo $query['asal_sekolah']; ?></td>
