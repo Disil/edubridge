@@ -27,21 +27,26 @@ include 'database.php'
     <table>
         <thead>
         <tr>
-            <th>Jurusan 1</th>
-            <th>Jurusan 2</th>
-            <th>Jurusan 3</th>
+            <th>Jurusan</th>
+            <th>Value</th>
         </tr>
         </thead>
         <tbody>
         <?php $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.hasil_rekomendasi");
-        while ($row = mysqli_fetch_assoc($result)) { ?>
+        while ($row = mysqli_fetch_assoc($result)) {?>
             <tr>
-                <td><?php echo $row['Jurusan_1']; ?></td>
-                <td><?php echo $row['Jurusan_2']; ?></td>
-                <td><?php echo $row['Jurusan_3']; ?></td>
-                <td><?php echo $row['deskripsi']; ?></td>
+                <td>Jurusan 1</td>
+                <td><?php echo $row['Jurusan_1'];?></td>
             </tr>
-        <?php } ?>
+            <tr>
+                <td>Jurusan 2</td>
+                <td><?php echo $row['Jurusan_2'];?></td>
+            </tr>
+            <tr>
+                <td>Jurusan 3</td>
+                <td><?php echo $row['Jurusan_3'];?></td>
+            </tr>
+        <?php }?>
         </tbody>
     </table>
 </main>
