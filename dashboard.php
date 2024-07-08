@@ -19,7 +19,6 @@
     <main>
         <h1>Dashboard</h1>
         <p>Selamat datang, <?php echo $_SESSION['nama_siswa']?>! Anda berasal dari <?php echo $_SESSION['asal_sekolah']?></p>
-        <p>EduBridge adalah sistem pendukung keputusan yang membantu siswa sekolah menengah memilih jurusan kuliah mereka. Dengan memasukkan nilai rapor sekolah menengah dan mengikuti tes RIASEC, siswa dapat menerima rekomendasi yang dipersonalisasi berdasarkan algoritma fuzzy MCDM (Multi-Criteria Decision Making).</p>
         <p>Untuk mendapatkan rekomendasi jurusan, silahkan mulai dari mengisi nilai rapot berdasarkan semester terbaru, lalu dilanjutkan dengan tes RIASEC untuk mengukur bakat dan minat. Setelah itu, anda bisa melihat hasil rekomendasi jurusan beserta dengan penjelasannya.</p>
         <ul>
             <li><a href="nilai_rapot.php">Input Nilai Rapot</a></li>
