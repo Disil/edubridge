@@ -33,11 +33,11 @@ if ($result) {
 <header><?php include "structure/header.php"?></header>
 <main>
 <h1>Tabel nilai rapot siswa</h1>
-    <?php if (!empty($rapotData)) {
+    <?php if (!empty($dataRapot)) {
     echo '<table class="styled-table">';
     echo '<thead><tr><th>ID Siswa</th><th>Matematika</th><th>Bahasa Indonesia</th><th>IPA</th><th>IPS</th></tr></thead>';
     echo '<tbody>';
-    foreach ($rapotData as $row) {
+    foreach ($dataRapot as $row) {
         echo "<tr>";
         echo "<td>{$row['id_siswa']}</td>"; } }
         ?>
