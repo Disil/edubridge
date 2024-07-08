@@ -133,18 +133,11 @@ if (!$scores) {
         });
     </script>
     <script>
-
-
         const ctx = document.getElementById('riasecChart').getContext('2d');
-
         const riasecChart = new Chart(ctx, {
-
             type: 'bar',
-
             data: {
-
                 labels: ['Realistic', 'Investigative', 'Artistic', 'Social', 'Enterprising', 'Conventional'],
-
                 datasets: [{
 
                     label: 'RIASEC Scores',
@@ -152,34 +145,50 @@ if (!$scores) {
                     data: [<?php echo $scores['R']; ?>, <?php echo $scores['I']; ?>, <?php echo $scores['A']; ?>, <?php echo $scores['S']; ?>, <?php echo $scores['E']; ?>, <?php echo $scores['C']; ?>],
 
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
-
                     borderColor: 'rgba(54, 162, 235, 1)',
-
                     borderWidth: 1
-
                 }]
-
             },
-
             options: {
-
                 scale: {
-
                     ticks: {
-
                         beginAtZero: true,
-
                         max: 10
-
                     }
-
                 }
-
             }
-
         });
 
     </script>
+    <h2>Penjelasan</h2>
+    <p>Hasil tes RIASEC menunjukkan minat dan bakat kamu dalam berbagai bidang. Kamu dominan pada bidang:</p>
+    <?php $dominantType = array_keys($scores, max($scores))[0];
+    $deskripsi = "";
+    switch ($dominantType) {
+        case 'R':
+            $deskripsi = "Sebagai individu dengan tipe kepribadian realistik kamu cenderung menyukai aktivitas praktis dan fisik. Kamu memiliki keahlian dalam menggunakan alat dan mesin, serta menyelesaikan masalah konkret dalam lingkungan yang berbasis pada keterampilan, seperti perbaikan, konstruksi, atau aktivitas luar ruangan. Kamu praktis, terampil secara mekanis, dan suka menyelesaikan masalah yang bersifat konkrit.";
+            break;
+        case 'I':
+            $deskripsi = "Individu dengan tipe kepribadian ini memiliki minat dalam mengeksplorasi ide-ide baru dan dan memecahkan masalah yang kompleks menggunakan logika dan pengetahuan mendalam. Mereka suka melakukan penelitian, menganalisis data, dan menggunakan logika untuk memecahkan masalah. Kamu cenderung menyukai bidang-bidang ilmiah, teknis, dan penelitian, seperti sains, matematika, dan teknologi informasi.";
+            break;
+        case 'A':
+            $deskripsi = "Orang dengan tipe kepribadian artistik cenderung memiliki imajinasi yang kuat dan ekspresi kreatif yang tinggi. Kamu menikmati seni dalam berbagai bentuknya, seperti seni visual, musik, drama, atau tulisan kreatif. Mereka biasanya tidak menyukai rutinitas yang ketat dan lebih suka bekerja di lingkungan yang memungkinkan ekspresi diri jadi lebih sering menghindari lingkungan yang kaku dan merasa terkekang oleh aturan.";
+            break;
+        case 'S':
+            $deskripsi = "Social (S) - Kamu suka membantu orang lain, bekerja dalam tim, dan memberikan dukungan.";
+            break;
+        case 'E':
+            $deskripsi = "Enterprising (E) - Kamu suka memimpin, berbicara di depan umum, dan bekerja dalam bidang bisnis.";
+            break;
+        case 'C':
+            $deskripsi = "Conventional (C) - Kamu suka bekerja dengan data, mengikuti aturan, dan bekerja dalam bidang administrasi.";
+            break;
+    } ?>
+    <p><b><?php echo $dominantType; ?></b></p>
+    <p>Penjelasan: <?php echo $deskripsi; ?></p>
+    <p>Jika kamu sudah mengisi nilai rapot dan tes riasec, silahkan klik tombol dibawah atau pergi ke halaman "Hasil rekomendasi" untuk melihat jurusan apa yang sesuai dengan kemampuan dan sifat kamu.</p>
+    <button onclick="window.location.href='hasil_rekomendasi.php'">Lihat Hasil Rekomendasi Jurusan</button>
+    <p>Untuk informasi lebih lanjut, silakan kunjungi <a href="https://www.careerkey.org/choose-a-career/holland-codes.html">Career Key</a>.</p>
 </main>
 <?php include "structure/footer.php"?>
 </body>
