@@ -1,4 +1,3 @@
-<footer style="text-align: center;padding: 3px;background-color: lightgray;color: white;">
-    <p>Author: Satria N.<br>
-        <a href="mailto:satrianugraha2007@gmail.com">Email</a>. 2024 All RIghts Reserved.</p>
+<footer style="text-align: center;padding: 3px;background-color: lightgray;color: #433;">
+    <p>Author: Satria N. dan M. Rajaa G.<br>2024 - All rights reserved.</p>
 </footer>

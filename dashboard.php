@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>EduBridge - Dashboard</title>
+    <title>EduBridge - Dashboard Siswa</title>
 </head>
 <body>
     <header>
