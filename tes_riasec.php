@@ -91,7 +91,7 @@ include 'structure/check_conn.php';
         echo "<p>Anda telah mengerjakan tes ini. Silahkan <a href='tes_riasec_hasil.php'>Lihat hasilnya disini.</a></p>";
 
     } else {
-        $sql = "SELECT id_soal, soal, kategori FROM wpcguvfn_edubridge_db.soal_riasec ORDER BY id_soal";
+        $sql = "SELECT * FROM wpcguvfn_edubridge_db.soal_riasec ORDER BY id_soal";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -100,7 +100,7 @@ include 'structure/check_conn.php';
             echo '<form method="POST" action="">';
             while($row = $result->fetch_assoc()) {
                 echo '<div class="question">';
-                echo '<p>' . $row["pertanyaan"] . '</p>';
+                echo '<p>' . $row["soal"] . '</p>';
                 echo '<div class="options">';
                 echo '<label><input type="radio" name="question_' . $row["id_soal"] . '_' . $row["kategori"] . '" value="1"> Iya</label>';
                 echo '<label><input type="radio" name="question_' . $row["id_soal"] . '_' . $row["kategori"] . '" value="0"> Tidak</label>';

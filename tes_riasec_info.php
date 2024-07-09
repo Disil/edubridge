@@ -19,7 +19,7 @@
 <body>
     <header><?php include 'structure/header.php'; ?></header>
     <main>
-        <h1>Info Tes RIASEC</h1>
+        <h1>Sekilas Mengenai Tes RIASEC</h1>
         <h2>Apa itu tes RIASEC?</h2>
         <p>Tes RIASEC adalah sebuah tes minat dan bakat berdasarkan tipe kepribadian seseorang. Jika belum pernah mengikuti tes RIASEC, silahkan jawab pertanyaan berikut ini untuk mengetahui nilai anda.</p>
         <p>Tidak ada jawaban salah dan benar, jawablah sesuai keadaan anda.</p>
@@ -29,16 +29,52 @@
             <li>Jawaban berupa pilihan ganda dengan format "Ya" atau "Tidak". Silahkan pilih salah satu, yang paling menggambarkan kondisi Anda saat ini.</li>
             <li>Tidak ada jawaban yang benar/salah.</li>
         </ul>
-        <h2>Apa saja yang diukur?</h2>
-        <p>ada 6 tipe kepribadian yang diukur dalam tes ini, yaitu:</p>
-        <ol>
-            <li>Realistic</li>
-            <li>Investigative</li>
-            <li>Artistic</li>
-            <li>Social</li>
-            <li>Enterprising</li>
-            <li>Conventional</li>
-        </ol>
+        <h2>Penjelasan Tipe Kepribadian</h2>
+        <p>Ada 6 tipe kepribadian dalam tes RIASEC, yaitu:</p>
+        <div class="tabs">
+            <input type="radio" name="tabs" id="realistic" checked="checked">
+            <label for="realistic">Realistic</label>
+            <div class="tab">
+                <h4>Realistic</h4>
+                <p>Orang yang memiliki tipe kepribadian ini cenderung suka bekerja dengan hal-hal yang konkret dan praktis. Mereka biasanya menyukai aktivitas yang melibatkan keterampilan fisik dan mekanis.</p>
+            </div>
+
+            <input type="radio" name="tabs" id="investigative">
+            <label for="investigative">Investigative</label>
+            <div class="tab">
+                <h4>Investigatif</h4>
+                <p>Orang dengan tipe ini cenderung suka melakukan investigasi dan penelitian. Mereka menyukai kegiatan yang melibatkan pemecahan masalah kompleks dan penemuan ilmiah.</p>
+            </div>
+
+            <input type="radio" name="tabs" id="artistic">
+            <label for="artistic">Artistic</label>
+            <div class="tab">
+                <h4>Artistic</h4>
+                <p>Tipe ini menggambarkan orang yang memiliki kreativitas tinggi dan seni. Mereka biasanya menikmati kegiatan yang melibatkan ekspresi diri artistik, seperti seni visual atau musik</p>
+            </div>
+
+            <input type="radio" name="tabs" id="social">
+            <label for="social">Social</label>
+            <div class="tab">
+                <h4>Sosial</h4>
+                <p>Orang dengan tipe ini cenderung suka berinteraksi dengan orang lain dan membantu mereka. Mereka menyukai kegiatan yang melibatkan pelayanan masyarakat atau pekerjaan sosial.</p>
+            </div>
+
+            <input type="radio" name="tabs" id="enterprising">
+            <label for="enterprising">Enterprising</label>
+            <div class="tab">
+                <h4>Enterprising</h4>
+                <p>Tipe ini menggambarkan orang yang suka mengambil risiko dan berorientasi pada hasil. Mereka biasanya menikmati kegiatan yang melibatkan penjualan, kepemimpinan, atau pengembangan bisnis.</p>
+            </div>
+
+            <input type="radio" name="tabs" id="conventional">
+            <label for="conventional">Conventional</label>
+            <div class="tab">
+                <h4>Konvensional</h4>
+                <p>Orang dengan tipe ini cenderung suka kerapihan, keteraturan, dan prosedur yang terstruktur. Mereka biasanya menikmati kegiatan yang melibatkan administrasi, manajemen data, atau keuangan.</p>
+            </div>
+        </div>
+        <p>Ayo, tunggu apalagi, mulai tes riasec nya sekarang juga!</p>
         <button><a href="tes_riasec.php"> Mulai Tes Riasec </a></button>
     </main>
 </body>

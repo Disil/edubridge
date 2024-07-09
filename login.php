@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         } else {
             // The password is incorrect
-            echo "Password Salah";
+            echo '<div class="message error floating-message">Password salah, silahkan coba lagi</div>';
         }
     } else {
         // The user doesn't exist
-        echo "User tidak ditemukan, silahkan buat akun terlebih dahulu";
+        echo '<div class="message error floating-message">User tidak ditemukan</div>';
     }
 }
 ?>

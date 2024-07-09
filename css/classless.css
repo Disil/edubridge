@@ -343,6 +343,13 @@ p>select { padding: 0;      margin: 0 .5em; }
 	color: #721c24;
 	border: 1px solid #f5c6cb;
 }
+.floating-message {
+    position: fixed; /* or 'absolute' */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensure it floats above other content */
+}
 
 
 /* 5. Bootstrap-compatible classes ––––––––––––––––––––– */

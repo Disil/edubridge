@@ -5,7 +5,7 @@ global $conn;
 global $id_siswa;
 
 // SQL query to fetch the nilai_rapot_asli for the current user
-$query = "SELECT * FROM wpcguvfn_edubridge_db.nilai_rapot_asli WHERE id_siswa = $id_siswa";
+$query = "SELECT * FROM wpcguvfn_edubridge_db.nilai_rapot WHERE id_siswa = $id_siswa";
 $result = mysqli_query($conn, $query);
 $dataRapot = [];
 
@@ -27,13 +27,13 @@ if ($result) {
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>Input Nilai Rapot</title>
+    <title>EduBridge - Lihat Nilai Rapot</title>
 </head>
 <body>
 <header><?php include "structure/header.php"?></header>
 <main>
-    <h1>Tabel nilai rapot siswa</h1>
-    <p>Sedang dalam proses pengerjaan. <a href ="tes_riasec_info.php">Klik disini</a> untuk lanjut ke tahapan tes riasec.</p>
+    <h1>Lihat nilai rapot</h1>
+    <p></p>
     <?php if (!empty($dataRapot)): ?>
         <table class="styled-table">
             <thead>
@@ -43,10 +43,6 @@ if ($result) {
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Matematika</td>
-                <td><?php echo htmlspecialchars($dataRapot['matematika']); ?></td>
-            </tr>
             <tr>
                 <td>IPA</td>
                 <td><?php echo htmlspecialchars($dataRapot['ipa']); ?></td>
@@ -76,6 +72,7 @@ if ($result) {
     <?php else: ?>
         <p>No data found for the student.</p>
     <?php endif; ?>
+    <p><a href ="tes_riasec_info.php">Klik disini</a> untuk lanjut ke tahapan tes riasec.</p>
 </main>
 </body>
 </html>
