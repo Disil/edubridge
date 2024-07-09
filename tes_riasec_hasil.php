@@ -66,7 +66,7 @@ if (!$scores) {
     </style>
 </head>
 <body>
-<h1>Your RIASEC Test Results</h1>
+<h1>Hasil Tes RIASEC Kamu</h1>
 <?php include "structure/header.php"?>
 <main>
     <div class="chart-container">
@@ -188,7 +188,6 @@ if (!$scores) {
     <p>Penjelasan: <?php echo $deskripsi; ?></p>
     <p>Jika kamu sudah mengisi nilai rapot dan tes riasec, silahkan klik tombol dibawah atau pergi ke halaman "Hasil rekomendasi" untuk melihat jurusan apa yang sesuai dengan kemampuan dan sifat kamu.</p>
     <button onclick="window.location.href='hasil_rekomendasi.php'">Lihat Hasil Rekomendasi Jurusan</button>
-    <p>Untuk informasi lebih lanjut, silakan kunjungi <a href="https://www.careerkey.org/choose-a-career/holland-codes.html">Career Key</a>.</p>
 </main>
 <?php include "structure/footer.php"?>
 </body>

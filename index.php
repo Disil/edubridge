@@ -20,7 +20,6 @@ if (isset($_GET['logged_out'])) {
     <?php include 'structure/header_no_account.php'; ?>
 </header>
 <main>
-    <h1>Halaman Utama</h1>
     <figure><img alt = "edubridge logo" src="img/edubridge_logo1.png"></figure>
     <p>Selamat datang di EduBridge. Silahkan login atau register untuk melanjutkan.</p>
     <p>EduBridge adalah situs yang dirancang untuk membantu kamu dalam menentukan pilihan jurusan di perguruan tinggi. Caranya adalah dengan memasukkan nilai rapot serta melakukan tes minat bakat yang berbentuk tes RIASEC.</p>

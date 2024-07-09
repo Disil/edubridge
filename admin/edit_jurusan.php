@@ -2,31 +2,35 @@
 include '../database.php';
 global $conn;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nama_jurusan = $_POST['nama_jurusan'];
-    $ipa = $_POST['ipa'];
-    $ips = $_POST['ips'];
-    $bahasa = $_POST['bahasa'];
-    $praktek = $_POST['praktek'];
-    $politik = $_POST['politik'];
-    $seni = $_POST['seni'];
-    $R = $_POST['R'];
-    $I = $_POST['I'];
-    $A = $_POST['A'];
-    $S = $_POST['S'];
-    $E = $_POST['E'];
-    $C = $_POST['C'];
+$sql = "SELECT * FROM acuan_nilai_jurusan";
+$result = $conn->query($sql);
 
-    $query = "INSERT INTO acuan_nilai_jurusan (id_jurusan, nama_jurusan, ipa, ips, bahasa, praktek, politik, seni, R, I, A, S, E, C) VALUES (id_jurusan, '$nama_jurusan', '$ipa', '$ips', '$bahasa', '$praktek', '$politik', '$seni', '$R', '$I', '$A', '$S', '$E', '$C')";
-    $result = mysqli_query($conn, $query);
-    if ($result) {
-        echo "Data berhasil ditambahkan";
-    } else {
-        echo "Data gagal ditambahkan";
-    }
+// Prepare and bind
+$stmt = $conn->prepare("INSERT INTO acuan_nilai_jurusan (id_jurusan, nama_jurusan, ipa, ips, bahasa, praktek, politik, seni, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("isssssssssssss", $id_jurusan, $nama_jurusan, $ipa, $ips, $bahasa, $praktek, $politik, $seni, $R, $I, $A, $S, $E, $C);
+
+$nama_jurusan = $_POST['nama_jurusan'];
+$ipa = $_POST['ipa'];
+$ips = $_POST['ips'];
+$bahasa = $_POST['bahasa'];
+$praktek = $_POST['praktek'];
+$politik = $_POST['politik'];
+$seni = $_POST['seni'];
+$R = $_POST['R'];
+$I = $_POST['I'];
+$A = $_POST['A'];
+$S = $_POST['S'];
+$E = $_POST['E'];
+$C = $_POST['C'];
+
+$response = array();
+
+if ($stmt->execute()) {
+    $response['success'] = true;
+} else {
+    $response['success'] = false;
+    $response['message'] = $stmt->error;
 }
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,12 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include '../structure/header.php'; ?>
 </header>
 <main>
-    <h1>Kelola data jurusan</h1>
-    <h2>Daftar Jurusan</h2>
-    <p>Kriteria jurusan terletak dalam tabel <i>acuan_nilai_jurusan</i>. Jika anda ingin menambahkan jurusan beserta dengan kriterianya, anda dipersilahkan untuk menambahnya disini.</p>
     <table>
         <thead>
         <tr>
+            <th>ID Jurusan</th>
             <th>Nama Jurusan</th>
             <th>IPA</th>
             <th>IPS</th>
@@ -67,51 +69,88 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </tr>
         </thead>
         <tbody>
-        <?php while($row = $result->fetch_assoc()): ?>
-            <tr>
-                <td><?php echo htmlspecialchars($row['nama_jurusan']); ?></td>
-                <td><?php echo htmlspecialchars($row['ipa']); ?></td>
-                <td><?php echo htmlspecialchars($row['ips']); ?></td>
-                <td><?php echo htmlspecialchars($row['bahasa']); ?></td>
-                <td><?php echo htmlspecialchars($row['praktek']); ?></td>
-                <td><?php echo htmlspecialchars($row['politik']); ?></td>
-                <td><?php echo htmlspecialchars($row['seni']); ?></td>
-                <td><?php echo htmlspecialchars($row['R']); ?></td>
-                <td><?php echo htmlspecialchars($row['I']); ?></td>
-                <td><?php echo htmlspecialchars($row['A']); ?></td>
-                <td><?php echo htmlspecialchars($row['S']); ?></td>
-                <td><?php echo htmlspecialchars($row['E']); ?></td>
-                <td><?php echo htmlspecialchars($row['C']); ?></td>
-            </tr>
-        <?php endwhile; ?>
+        <?php
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["id_jurusan"] . "</td>";
+                echo "<td>" . $row["nama_jurusan"] . "</td>";
+                echo "<td>" . $row["ipa"] . "</td>";
+                echo "<td>" . $row["ips"] . "</td>";
+                echo "<td>" . $row["bahasa"] . "</td>";
+                echo "<td>" . $row["praktek"] . "</td>";
+                echo "<td>" . $row["politik"] . "</td>";
+                echo "<td>" . $row["seni"] . "</td>";
+                echo "<td>" . $row["R"] . "</td>";
+                echo "<td>" . $row["I"] . "</td>";
+                echo "<td>" . $row["A"] . "</td>";
+                echo "<td>" . $row["S"] . "</td>";
+                echo "<td>" . $row["E"] . "</td>";
+                echo "<td>" . $row["C"] . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='14'>No data available</td></tr>";
+        }
+        ?>
         </tbody>
     </table>
-    <form action="edit_jurusan.php" method="post">
-        <label for="nama_jurusan">Nama Jurusan:</label>
-        <input type="text" name="nama_jurusan" id="nama_jurusan" required>
-        <label for="ipa">IPA:</label>
-        <input type="number" name="ipa" id="ipa" required>
-        <label for="ips">IPS:</label>
-        <input type="number" name="ips" id="ips" required>
-        <label for="bahasa">Bahasa:</label>
-        <input type="number" name="bahasa" id="bahasa" required>
-        <label for="praktek">Praktek:</label>
-        <input type="number" name="praktek" id="praktek" required>
-        <label for="politik">Politik:</label>
-        <input type="number" name="politik" id="politik" required>
-        <label for="seni">Seni:</label>
-        <input type="number" name="seni" id="seni" required>
-        <label for="R">R:</label>
-        <input type="number" name="R" id="R" required>
-        <label for="I">I:</label>
-        <input type="number" name="I" id="I" required>
-        <label for="A">A:</label>
-        <input type="number" name="A" id="A" required>
-        <label for="S">S:</label>
-        <input type="number" name="S" id="S" required>
-        <label for="E">E:</label>
-        <input type="number" name="E" id="E" required>
-        <label for="C">C:</label>
-        <input type="number" name="C" id="C" required>
-        <input type="submit" value="Tambahkan">
+    <h2>Tambah Jurusan Baru</h2>
+    <form id="addRowForm" method="post" action="edit_jurusan.php">
+        <label for="nama_jurusan">Nama Jurusan:</label><br>
+        <input type="text" id="nama_jurusan" name="nama_jurusan"><br>
+        <label for="ipa">IPA:</label><br>
+        <input type="text" id="ipa" name="ipa"><br>
+        <label for="ips">IPS:</label><br>
+        <input type="text" id="ips" name="ips"><br>
+        <label for="bahasa">Bahasa:</label><br>
+        <input type="text" id="bahasa" name="bahasa"><br>
+        <label for="praktek">Praktek:</label><br>
+        <input type="text" id="praktek" name="praktek"><br>
+        <label for="politik">Politik:</label><br>
+        <input type="text" id="politik" name="politik"><br>
+        <label for="seni">Seni:</label><br>
+        <input type="text" id="seni" name="seni"><br>
+        <label for="R">R:</label><br>
+        <input type="text" id="R" name="R"><br>
+        <label for="I">I:</label><br>
+        <input type="text" id="I" name="I"><br>
+        <label for="A">A:</label><br>
+        <input type="text" id="A" name="A"><br>
+        <label for="S">S:</label><br>
+        <input type="text" id="S" name="S"><br>
+        <label for="E">E:</label><br>
+        <input type="text" id="E" name="E"><br>
+        <label for="C">C:</label><br>
+        <input type="text" id="C" name="C"><br>
+        <button type="submit">Add Row</button>
     </form>
+
+    <script>
+        document.getElementById('addRowForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+
+            fetch('edit_jurusan.php', {
+                method: 'POST',
+                body: data
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Row added successfully!');
+                        location.reload();
+                    } else {
+                        alert('Failed to add row. ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error adding row.');
+                });
+        });
+    </script>
+</main>
+</body>
+</html>
