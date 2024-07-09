@@ -18,7 +18,7 @@
     </header>
     <main>
         <h1>Dashboard</h1>
-        <p>Selamat datang, <?php echo $_SESSION['nama_siswa']?>! Anda berasal dari <?php echo $_SESSION['asal_sekolah']?></p>
+        <p>Selamat datang, <?php echo $_SESSION['nama_siswa']?>! </p>
         <p>Untuk mendapatkan rekomendasi jurusan, silahkan mulai dari mengisi nilai rapot berdasarkan semester terbaru, lalu dilanjutkan dengan tes RIASEC untuk mengukur bakat dan minat. Setelah itu, anda bisa melihat hasil rekomendasi jurusan beserta dengan penjelasannya.</p>
         <ul>
             <li><a href="nilai_rapot.php">Input Nilai Rapot</a></li>

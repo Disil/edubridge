@@ -20,10 +20,10 @@
     <p>Selamat datang di EduBridge. Silahkan login atau register untuk melanjutkan.</p>
     <p>EduBridge adalah situs yang dirancang untuk membantu kamu dalam menentukan pilihan jurusan di perguruan tinggi. Caranya adalah dengan memasukkan nilai rapot serta melakukan tes minat bakat yang berbentuk tes RIASEC.</p>
     <p>Setelah itu, kamu akan mendapatkan rekomendasi jurusan yang sesuai dengan nilai rapot dan tes minat bakat yang kamu kerjakan.</p>
-    <p>Jika kamu belum pernah memakai EduBridge sebelumnya, silahkan daftar terlebih dahulu.</p>
+    <p>Jika kamu belum pernah memakai EduBridge sebelumnya, silahkan buat akun terlebih dahulu.</p>
     <ul>
         <li><a href="login.php">Login</a></li>
-        <li><a href="register.php">Daftar</a></li>
+        <li><a href="register.php">Buat Akun Baru</a></li>
     </ul>
 </main>
 <footer><?php include 'structure/footer.php'; ?></footer>

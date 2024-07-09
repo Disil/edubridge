@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <h1>Register</h1>
 <header>
-    <?php include 'structure/header.php'; ?>
+    <?php include 'structure/header_no_account.php'; ?>
 </header>
 <form action="register.php" method="post">
     <fieldset>

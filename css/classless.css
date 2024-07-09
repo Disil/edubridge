@@ -9,23 +9,20 @@ Table of Contents:
 */
 
 /* 1. Theme Settings ––––––––––––––––––––-–––––––––––––– */
-
-@import url('fonts/Raleway/Raleway-VariableFont_wght.ttf');
-:root, html[data-theme='light'] {
-	--rem: 12pt;
-	--width: 50rem;
-	--navpos: absolute;  /* fixed | absolute */
-	--font-p: 1em/1.7  'Raleway', 'DejaVu Sans', FreeSans, Helvetica, sans-serif;
-	--font-h: .9em/1.5 'Raleway', 'DejaVu Sans', FreeSans, Helvetica, sans-serif;
-	--font-c: .9em/1.4 'DejaVu Sans Mono', monospace;
-	--border: 1px solid var(--cmed);
-	--ornament: "‹‹‹ ›››";
+html[data-theme='sepia']{
+	--rem: 14pt;
+	--width: 48rem;
+	--font-p: 1em/1.6 'Libertinus Serif', Times, serif;
+	--font-h: 1em/1.6 'Libertinus Sans', Helvetica, sans;
+	--font-c: 85%/1.4 monospace;
+	--ornament: "∞ ∞ ∞";
+	/*--ornament: "❦ ❦ ❦"; "☙ ❧";*/
 	/* foreground   | background color */
-	--cfg:   #433;    --cbg:    #fff;
-	--cdark: #888;    --clight: #f5f6f7;
-	--cmed:  #d1d1d1;
-	--clink: #07c;
-	--cemph: #088;    --cemphbg: #0881;
+	--cfg:    #433;   --cbg: #fefbf4;
+	--cdark: #6c605c; --clight: #f5f6f7;
+	--cmed: #a8928e;
+	--clink: #bd0000;
+	--cemph: #a35403; --cemphbg:  #a3540310;
 }
 
 

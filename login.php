@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </head>
     <body>
     <header>
-        <?php include 'structure/header.php'; ?>
+        <?php include 'structure/header_no_account.php'; ?>
     </header>
     <main>
     <h1>Login</h1>
