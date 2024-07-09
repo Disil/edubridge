@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         } else {
             // The password is incorrect
-            echo "Invalid email or password";
+            echo "Password Salah";
         }
     } else {
         // The user doesn't exist
-        echo "Invalid email or password";
+        echo "User tidak ditemukan, silahkan buat akun terlebih dahulu";
     }
 }
 ?>
