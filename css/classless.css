@@ -9,7 +9,7 @@ Table of Contents:
 */
 
 /* 1. Theme Settings ––––––––––––––––––––-–––––––––––––– */
-html[data-theme='sepia']{
+:root, html[data-theme='sepia']{
 	--rem: 14pt;
 	--width: 48rem;
 	--font-p: 1em/1.6 'Libertinus Serif', Times, serif;
