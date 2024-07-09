@@ -1,3 +1,8 @@
+<?php
+if (isset($_GET['logged_out'])) {
+    echo "<script>alert('Anda telah keluar dari akun, terimakasih telah mencoba EduBridge!');</script>";
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>

@@ -27,14 +27,14 @@ if (!$id_siswa) {
 $scores = getRIASECScores($conn, $id_siswa);
 
 if (!$scores) {
-    echo "No scores found for this user. Please take the RIASEC test first.";
+    echo "<script>alert('Anda belum mengisi tes riasec. Anda akan dialihkan menuju halaman tes.'); window.location.href='tes_riasec.php';</script>";
     exit;
 }
 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <title>RIASEC Test Results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">

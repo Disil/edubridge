@@ -27,8 +27,8 @@ include 'database.php'
     <table>
         <thead>
         <tr>
-            <th>Jurusan</th>
-            <th>Value</th>
+            <th>Keterangan</th>
+            <th>Nama Jurusan</th>
         </tr>
         </thead>
         <tbody>

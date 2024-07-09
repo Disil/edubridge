@@ -1,8 +1,9 @@
 <?php
 include('structure/check_conn.php');
 include('database.php');
-/** @var int $id_siswa */
-/** @var mysqli $conn */
+global $conn;
+global $id_siswa;
+
 // SQL query to fetch the nilai_rapot_asli for the current user
 $query = "SELECT * FROM wpcguvfn_edubridge_db.nilai_rapot_asli WHERE id_siswa = $id_siswa";
 $result = mysqli_query($conn, $query);
@@ -21,8 +22,7 @@ if ($result) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
@@ -32,19 +32,50 @@ if ($result) {
 <body>
 <header><?php include "structure/header.php"?></header>
 <main>
-<h1>Tabel nilai rapot siswa</h1>
+    <h1>Tabel nilai rapot siswa</h1>
     <p>Sedang dalam proses pengerjaan. <a href ="tes_riasec_info.php">Klik disini</a> untuk lanjut ke tahapan tes riasec.</p>
-    <?php if (!empty($dataRapot)) {
-    echo '<table class="styled-table">';
-    echo '<thead><tr><th>ID Siswa</th><th>Matematika</th><th>Bahasa Indonesia</th><th>IPA</th><th>IPS</th></tr></thead>';
-    echo '<tbody>';
-    foreach ($dataRapot as $row) {
-        echo "<tr>";
-        echo "<td>{$row['id_siswa']}</td>"; }
-        echo "</tbody>";
-    }
-    echo "</table>";
-        ?>
+    <?php if (!empty($dataRapot)): ?>
+        <table class="styled-table">
+            <thead>
+            <tr>
+                <th>Mata Pelajaran</th>
+                <th>Nilai</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Matematika</td>
+                <td><?php echo htmlspecialchars($dataRapot['matematika']); ?></td>
+            </tr>
+            <tr>
+                <td>IPA</td>
+                <td><?php echo htmlspecialchars($dataRapot['ipa']); ?></td>
+            </tr>
+            <tr>
+                <td>IPS</td>
+                <td><?php echo htmlspecialchars($dataRapot['ips']); ?></td>
+            </tr>
+            <tr>
+                <td>Bahasa</td>
+                <td><?php echo htmlspecialchars($dataRapot['bahasa']); ?></td>
+            </tr>
+            <tr>
+                <td>Praktek</td>
+                <td><?php echo htmlspecialchars($dataRapot['praktek']); ?></td>
+            </tr>
+            <tr>
+                <td>Politik</td>
+                <td><?php echo htmlspecialchars($dataRapot['politik']); ?></td>
+            </tr>
+            <tr>
+                <td>Seni</td>
+                <td><?php echo htmlspecialchars($dataRapot['seni']); ?></td>
+            </tr>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No data found for the student.</p>
+    <?php endif; ?>
 </main>
 </body>
 </html>

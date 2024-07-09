@@ -270,7 +270,7 @@ article > h2:first-of-type + p:first-letter, .lettrine {
 	color: var(--cemph);
 }
 
-/* ornaments */
+/* ornaments and icons*/
 section:after {
 	display: block;
 	margin: 1em 0;
@@ -278,6 +278,12 @@ section:after {
 	text-align: center;
 	font-size: 1.5em;
 	content: var(--ornament);
+}
+.icon {
+	vertical-align: middle;
+	width: 24px;
+	height: 24px;
+	margin-right: 5px;
 }
 
 /* side menu (aside is not intended for use in a paragraph!) */

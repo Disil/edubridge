@@ -102,8 +102,8 @@ include 'structure/check_conn.php';
                 echo '<div class="question">';
                 echo '<p>' . $row["pertanyaan"] . '</p>';
                 echo '<div class="options">';
-                echo '<label><input type="radio" name="question_' . $row["id_pertanyaan"] . '_' . $row["kategori"] . '" value="1"> Iya</label>';
-                echo '<label><input type="radio" name="question_' . $row["id_pertanyaan"] . '_' . $row["kategori"] . '" value="0"> Tidak</label>';
+                echo '<label><input type="radio" name="question_' . $row["id_soal"] . '_' . $row["kategori"] . '" value="1"> Iya</label>';
+                echo '<label><input type="radio" name="question_' . $row["id_soal"] . '_' . $row["kategori"] . '" value="0"> Tidak</label>';
                 echo '</div>';
                 echo '</div>';
             }

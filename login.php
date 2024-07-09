@@ -54,11 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Untuk mengakses fitur Edubridge, silahkan login terlebih dahulu.</p>
         <form action="login.php" method="post">
             <fieldset>
-                <label for="email">Email</label>
+                <label for="email">📧 Email</label>
                 <input type="email" name="email" id="email" required autocomplete="email">
-                <label for="password">Password</label>
+                <label for="password">🔐 Password</label>
                 <input type="password" name="password" id="password" required autocomplete="current-password">
-                <button type="submit">Login</button>
+                <button type="submit"><img src="/img/icon/icons8-enter-50.svg" alt="login" class="icon">Login</button>
             </fieldset>
         </form>
         <a href="register.php">Register</a>
