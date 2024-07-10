@@ -344,8 +344,8 @@ p>select { padding: 0;      margin: 0 .5em; }
 	border: 1px solid #f5c6cb;
 }
 .floating-message {
-    position: fixed; /* or 'absolute' */
-    top: 20px;
+    position: absolute; /* or 'absolute' */
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000; /* Ensure it floats above other content */

@@ -68,7 +68,7 @@ if ($error) {
     <h1>Input Nilai rapor pelajaran</h1>
     <p>Silahkan masukkan nilai rapot semester terbaru. Jika kamu tidak punya nilai untuk mata pelajaran tersebut (misalnya kamu jurusan IPA dan tidak ada pelajaran ekonomi), maka kolomnya bisa tidak diisi ataupun diisi dengan 0.</p>
     <form action="input_nilai_rapot.php" method="post">
-         <fieldset>
+         <figure>
             <table>
                 <tr>
                     <th>Mata Pelajaran</th>
@@ -134,7 +134,7 @@ if ($error) {
                     <td colspan="2"><input type="submit" value="Submit"></td>
                 </tr>
             </table>
-        </fieldset>
+         </figure>
     </form>
 </body>
 </html>
