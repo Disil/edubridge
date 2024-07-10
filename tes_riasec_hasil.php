@@ -46,7 +46,7 @@ if (!$scores) {
         .chart-container {
             width: 80%;
             max-width: 600px;
-            margin-top: 20px;
+            margin: auto;
         }
         .scores-table {
             margin-top: 20px;
@@ -69,23 +69,6 @@ if (!$scores) {
     <div class="chart-container">
         <canvas id="riasecChart"></canvas>
     </div>
-
-    <table class="scores-table">
-        <tr>
-            <th>R</th>
-            <th>I</th>
-            <th>A</th>
-            <th>S</th>
-            <th>E</th>
-            <th>C</th>
-        </tr>
-        <tr>
-            <?php foreach ($scores as $score): ?>
-                <td><?php echo $score; ?></td>
-            <?php endforeach; ?>
-        </tr>
-    </table>
-
     <figure>
         <script>
         const ctx = document.getElementById('riasecChart').getContext('2d');
@@ -135,7 +118,7 @@ if (!$scores) {
     </figure>
 
     <h2>Penjelasan</h2>
-    <p>Hasil tes RIASEC menunjukkan minat dan bakat kamu dalam berbagai bidang. Kamu dominan pada bidang:</p>
+    <p>Menurut hasil Tes RIASEC, kamu dominan dalam bidang:</p>
     <?php $dominantType = array_keys($scores, max($scores))[0];
     $deskripsi = "";
     switch ($dominantType) {
@@ -158,8 +141,8 @@ if (!$scores) {
             $deskripsi = "Conventional (C) - Kamu suka bekerja dengan data, mengikuti aturan, dan bekerja dalam bidang administrasi.";
             break;
     } ?>
-    <p><b><?php echo $dominantType; ?></b></p>
-    <p>Penjelasan: <?php echo $deskripsi; ?></p>
+    <p style="text-align: center; font-size: 2em;"><b><?php echo $dominantType; ?></b></p>
+    <p>Yaitu: <?php echo $deskripsi; ?></p>
     <p>Jika kamu sudah mengisi nilai rapot dan tes riasec, silahkan klik tombol dibawah atau pergi ke halaman "Hasil rekomendasi" untuk melihat jurusan apa yang sesuai dengan kemampuan dan sifat kamu.</p>
     <button onclick="window.location.href='hasil_rekomendasi.php'">Lihat Hasil Rekomendasi Jurusan</button>
 </main>

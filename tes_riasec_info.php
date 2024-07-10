@@ -20,7 +20,7 @@
     <header><?php include 'structure/header.php'; ?></header>
     <main>
         <h1>Sekilas Mengenai Tes RIASEC</h1>
-        <h2>Apa itu tes RIASEC?</h2>
+        <h2>Apa Itu Tes RIASEC?</h2>
         <p>Tes RIASEC adalah sebuah tes minat dan bakat berdasarkan tipe kepribadian seseorang. Jika belum pernah mengikuti tes RIASEC, silahkan jawab pertanyaan berikut ini untuk mengetahui nilai anda.</p>
         <p>Tidak ada jawaban salah dan benar, jawablah sesuai keadaan anda.</p>
         <h2>Cara Mengerjakan Tes</h2>

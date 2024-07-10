@@ -16,16 +16,11 @@ include 'structure/check_conn.php';
     <link rel="stylesheet" href="css/themes.css">
     <title>EduBridge - Tes RIASEC</title>
     <style>
-        .form-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: auto;
-        }
         .question {
             margin-bottom: 20px;
             background-color: var(--clight);
             padding: 10px 10px 10px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .options {
             display: flex;
@@ -40,23 +35,18 @@ include 'structure/check_conn.php';
             width: 200px;
             margin: 20px auto;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #a35403;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-        @media (max-width: 768px) {
-            .column {
-                flex-basis: 100%;
-            }
         }
     </style>
 </head>
 <body>
 <header><?php include 'structure/header.php'; ?></header>
 <main>
-    <h1>Test RIASEC</h1>
+    <h1>Tes RIASEC</h1>
     <?php
     if (isset($_SESSION['submission_status'])) {
         if ($_SESSION['submission_status'] == "error") {
@@ -95,8 +85,6 @@ include 'structure/check_conn.php';
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo '<div class="form-container">';
-            echo '<div class="column">';
             echo '<form method="POST" action="">';
             while($row = $result->fetch_assoc()) {
                 echo '<div class="question">';
@@ -109,7 +97,6 @@ include 'structure/check_conn.php';
             }
             echo '<br><input type="submit" value="Submit">';
             echo '</form>';
-            echo '</div>';
             echo '</div>';
 
         } else {

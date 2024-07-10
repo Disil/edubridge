@@ -1,5 +1,6 @@
 <?php
 global $conn;
+global $id_siswa;
 include 'structure/check_conn.php';
 include 'database.php'
 ?>
@@ -14,41 +15,43 @@ include 'database.php'
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>Hasil Rekomendasi Jurusan</title>
+    <title>EduBridge - Hasil Rekomendasi</title>
 </head>
 <body>
 <header>
     <?php include 'structure/header.php'; ?>
 </header>
 <main>
-    <h1>Hasil Rekomendasi Jurusan</h1>
-    <p>Di halaman ini anda bisa melihat hasil rekomendasi jurusan berdasarkan nilai rapot dan tes minat yang sudah anda kerjakan sebelumnya.</p>
-    <h2>Informasi Jurusan</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Keterangan</th>
-            <th>Nama Jurusan</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.hasil_rekomendasi");
-        while ($row = mysqli_fetch_assoc($result)) {?>
+    <h1>Hasil Rekomendasi Jurusan Perguruan Tinggi</h1>
+    <p>Di halaman ini kamu bisa melihat hasil rekomendasi jurusan perguruan tinggi berdasarkan nilai rapot dan tes minat yang sudah anda kerjakan sebelumnya.</p>
+    <h2 style="text-align: center;">Informasi Jurusan</h2>
+    <figure>
+        <table>
+            <thead>
             <tr>
-                <td>Jurusan 1</td>
-                <td><?php echo $row['Jurusan_1'];?></td>
+                <th>Keterangan</th>
+                <th>Nama Jurusan</th>
             </tr>
-            <tr>
-                <td>Jurusan 2</td>
-                <td><?php echo $row['Jurusan_2'];?></td>
-            </tr>
-            <tr>
-                <td>Jurusan 3</td>
-                <td><?php echo $row['Jurusan_3'];?></td>
-            </tr>
-        <?php }?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <?php $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.hasil_rekomendasi WHERE id_siswa = '$id_siswa'");
+            while ($row = mysqli_fetch_assoc($result)) {?>
+                <tr>
+                    <td>Jurusan I</td>
+                    <td><?php echo $row['Jurusan_1'];?></td>
+                </tr>
+                <tr>
+                    <td>Jurusan II</td>
+                    <td><?php echo $row['Jurusan_2'];?></td>
+                </tr>
+                <tr>
+                    <td>Jurusan III</td>
+                    <td><?php echo $row['Jurusan_3'];?></td>
+                </tr>
+            <?php }?>
+            </tbody>
+        </table>
+    </figure>
 </main>
 <footer><?php include 'structure/footer.php'; ?></footer>
 </body>

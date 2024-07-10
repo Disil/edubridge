@@ -61,11 +61,12 @@ if ($error) {
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>Input Nilai Rapot</title>
+    <title>EduBridge - Input Nilai Rapot</title>
 </head>
 <body>
-    <header><?php include "structure/header.php"?></header>
-    <h1>Input Nilai rapor pelajaran</h1>
+<header><?php include "structure/header.php"?></header>
+<main>
+    <h1>Input Nilai Rapot Pelajaran</h1>
     <p>Silahkan masukkan nilai rapot semester terbaru. Jika kamu tidak punya nilai untuk mata pelajaran tersebut (misalnya kamu jurusan IPA dan tidak ada pelajaran ekonomi), maka kolomnya bisa tidak diisi ataupun diisi dengan 0.</p>
     <form action="input_nilai_rapot.php" method="post">
          <figure>
@@ -136,5 +137,7 @@ if ($error) {
             </table>
          </figure>
     </form>
+</main>
+<?php include "structure/footer.php"?>
 </body>
 </html>

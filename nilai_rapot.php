@@ -32,47 +32,67 @@ if ($result) {
 <body>
 <header><?php include "structure/header.php"?></header>
 <main>
-    <h1>Lihat nilai rapot</h1>
+    <h1>Lihat Nilai Rapot</h1>
     <p></p>
-    <?php if (!empty($dataRapot)): ?>
-        <table class="styled-table">
-            <thead>
-            <tr>
-                <th>Mata Pelajaran</th>
-                <th>Nilai</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>IPA</td>
-                <td><?php echo htmlspecialchars($dataRapot['ipa']); ?></td>
-            </tr>
-            <tr>
-                <td>IPS</td>
-                <td><?php echo htmlspecialchars($dataRapot['ips']); ?></td>
-            </tr>
-            <tr>
-                <td>Bahasa</td>
-                <td><?php echo htmlspecialchars($dataRapot['bahasa']); ?></td>
-            </tr>
-            <tr>
-                <td>Praktek</td>
-                <td><?php echo htmlspecialchars($dataRapot['praktek']); ?></td>
-            </tr>
-            <tr>
-                <td>Politik</td>
-                <td><?php echo htmlspecialchars($dataRapot['politik']); ?></td>
-            </tr>
-            <tr>
-                <td>Seni</td>
-                <td><?php echo htmlspecialchars($dataRapot['seni']); ?></td>
-            </tr>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>No data found for the student.</p>
-    <?php endif; ?>
-    <p><a href ="tes_riasec_info.php">Klik disini</a> untuk lanjut ke tahapan tes riasec.</p>
+    <div class="row">
+        <div class="col">
+            <br>
+            <p>Nilai yang ditampilkan disini adalah hasil perhitungan rata-rata nilai rapot asli yang telah dimasukkan. Adapun skemanya seperti ini:</p>
+            <ul>
+                <li>IPA: Matematika + Fisika + Kimia + Biologi</li>
+                <li>IPS: Matematika + Ekonomi + Geografi + Sosiologi</li>
+                <li>Bahasa: Bahasa Indonesia + Bahasa Inggris</li>
+                <li>Praktek: PJOK + Prakarya</li>
+                <li>Politik: Sejarah + PPKN</li>
+                <li>Seni: Seni Budaya</li>
+            </ul>
+
+        </div>
+        <div class="col-4">
+            <?php if (!empty($dataRapot)): ?>
+                <table class="styled-table">
+                    <thead>
+                    <tr>
+                        <th>Mata Pelajaran</th>
+                        <th>Nilai</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>IPA</td>
+                        <td><?php echo htmlspecialchars($dataRapot['ipa']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>IPS</td>
+                        <td><?php echo htmlspecialchars($dataRapot['ips']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Bahasa</td>
+                        <td><?php echo htmlspecialchars($dataRapot['bahasa']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Praktek</td>
+                        <td><?php echo htmlspecialchars($dataRapot['praktek']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Politik</td>
+                        <td><?php echo htmlspecialchars($dataRapot['politik']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Seni</td>
+                        <td><?php echo htmlspecialchars($dataRapot['seni']); ?></td>
+                    </tr>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No data found for the student.</p>
+            <?php endif; ?>
+        </div>
+
+    </div>
+    <p>Untuk melanjutkan ke tahapan Tes RIASEC, klik tombol dibawah</p>
+    <button onclick="window.location.href='tes_riasec.php';">Kerjakan Tes RIASEC</button>
 </main>
+<footer><?php include "structure/footer.php"?></footer>
 </body>
 </html>
