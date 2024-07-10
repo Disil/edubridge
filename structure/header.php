@@ -12,7 +12,8 @@
                 <li><a href="../tes_riasec_hasil.php">Lihat hasil Tes RIASEC</a></li>
             </ul>
         </li>
-        <li><a href="../hasil_rekomendasi.php"><img src="../img/icon/icons8-education.svg" alt="result" class="icon">Hasil Rekomendasi </a></li>
+        <li><a href="../hasil_rekomendasi.php"><img src="../img/icon/icons8-education.svg" alt="result" class="icon">Hasil</a></li>
+        <li><a href="../cara_kerja.php">ℹ Tentang</a></li>
         <li class="float-right"><a href="../logout.php"><img src="../img/icon/icons8-import-50.svg" alt="logout" class="icon">Log Out</a></li>
     </ul>
 </nav>
