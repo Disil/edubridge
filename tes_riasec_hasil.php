@@ -43,9 +43,6 @@ if (!$scores) {
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
     <style>
-        h1 {
-            text-align: center;
-        }
         .chart-container {
             width: 80%;
             max-width: 600px;
@@ -89,10 +86,11 @@ if (!$scores) {
         </tr>
     </table>
 
-    <script>
+    <figure>
+        <script>
         const ctx = document.getElementById('riasecChart').getContext('2d');
         new Chart(ctx, {
-            type: 'radar',
+            type: 'bar',
             data: {
                 labels: ['Realistic', 'Investigative', 'Artistic', 'Social', 'Enterprising', 'Conventional'],
                 datasets: [{
@@ -105,61 +103,37 @@ if (!$scores) {
                         <?php echo $scores['E']; ?>,
                         <?php echo $scores['C']; ?>
                     ],
-                    fill: true,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgb(54, 162, 235)',
-                    pointBackgroundColor: 'rgb(54, 162, 235)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgb(54, 162, 235)'
-                }]
-            },
-            options: {
-                elements: {
-                    line: {
-                        borderWidth: 3
-                    }
-                },
-                scales: {
-                    r: {
-                        angleLines: {
-                            display: false
-                        },
-                        suggestedMin: 0,
-                        suggestedMax: 15
-                    }
-                }
-            }
-        });
-    </script>
-    <script>
-        const ctx = document.getElementById('riasecChart').getContext('2d');
-        const riasecChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Realistic', 'Investigative', 'Artistic', 'Social', 'Enterprising', 'Conventional'],
-                datasets: [{
-
-                    label: 'RIASEC Scores',
-
-                    data: [<?php echo $scores['R']; ?>, <?php echo $scores['I']; ?>, <?php echo $scores['A']; ?>, <?php echo $scores['S']; ?>, <?php echo $scores['E']; ?>, <?php echo $scores['C']; ?>],
-
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', // Red
+                        'rgba(54, 162, 235, 0.2)', // Blue
+                        'rgba(255, 206, 86, 0.2)', // Yellow
+                        'rgba(75, 192, 192, 0.2)', // Green
+                        'rgba(153, 102, 255, 0.2)', // Purple
+                        'rgba(255, 159, 64, 0.2)' // Orange
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)', // Red
+                        'rgba(54, 162, 235, 1)', // Blue
+                        'rgba(255, 206, 86, 1)', // Yellow
+                        'rgba(75, 192, 192, 1)', // Green
+                        'rgba(153, 102, 255, 1)', // Purple
+                        'rgba(255, 159, 64, 1)' // Orange
+                    ],
                     borderWidth: 1
                 }]
             },
             options: {
-                scale: {
-                    ticks: {
+                scales: {
+                    y: {
                         beginAtZero: true,
-                        max: 10
+                        max: 15
                     }
                 }
             }
         });
-
     </script>
+    </figure>
+
     <h2>Penjelasan</h2>
     <p>Hasil tes RIASEC menunjukkan minat dan bakat kamu dalam berbagai bidang. Kamu dominan pada bidang:</p>
     <?php $dominantType = array_keys($scores, max($scores))[0];
