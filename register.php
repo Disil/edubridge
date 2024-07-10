@@ -32,23 +32,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>EduBridge - Register page</title>
+    <title>EduBridge - Daftar Akun Baru</title>
 </head>
 <body>
-<h1>Register</h1>
+<h1>Daftar Akun Baru</h1>
 <header>
     <?php include 'structure/header_no_account.php'; ?>
 </header>
+<p>Silahkan isi formulir di bawah ini untuk mendaftar akun baru.</p>
 <form action="register.php" method="post">
     <fieldset>
-        <label for="nama_siswa">Nama</label>
-        <input type="text" name="nama_siswa" id="nama_siswa" required autocomplete="name">
-        <label for="email">Alamat Email</label>
-        <input type="email" name="email" id="email" required autocomplete="email">
-        <label for="password">Sandi</label>
-        <input type="password" name="password" id="password" required autocomplete="new-password">
-        <label for="tanggal_lahir">Tanggal Lahir</label>
-        <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
+    <div class="row">
+        <div class="col">
+            <label for="nama_siswa">Nama</label>
+            <input type="text" name="nama_siswa" id="nama_siswa" required autocomplete="name">
+            <label for="email">Alamat Email</label>
+            <input type="email" name="email" id="email" required autocomplete="email">
+            <label for="password">Sandi</label>
+            <input type="password" name="password" id="password" required autocomplete="new-password">
+            <label for="tanggal_lahir">Tanggal Lahir</label>
+            <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
+        </div>
+        <div class="col">
         <label for="kelas">Kelas</label>
         <select name="kelas" id="kelas" required>
             <option value="10">10</option>
@@ -63,6 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="radio" id="wanita" name="jenis_kelamin" value="wanita">
         <label for="wanita">Wanita</label><br>
         <button type="submit">Register</button>
+        </div>
+    </div>
     </fieldset>
 </form>
 </body>
