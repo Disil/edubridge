@@ -1,6 +1,10 @@
 <?php
 if (isset($_GET['logged_out'])) {
-    echo "<script>alert('Anda telah keluar dari akun, terimakasih telah mencoba EduBridge!');</script>";
+    echo '<div id="message" class="message success floating-message">Kamu telah keluar dari akun</div>';
+    echo '<script>
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 3000) </script>';
 }
 ?>
 <!doctype html>

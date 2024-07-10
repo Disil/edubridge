@@ -17,6 +17,15 @@ if ($result) {
 } else {
     echo "Error: " . mysqli_error($conn);
 }
+
+//notif dari input nilai rapot
+if (isset($_GET['isi_nilai_berhasil'])) {
+    echo '<div id="message" class="message success floating-message">Nilai telah dimasukkan</div>';
+    echo '<script>
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 3000) </script>';
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,7 +46,7 @@ if ($result) {
     <div class="row">
         <div class="col">
             <br>
-            <p>Nilai yang ditampilkan disini adalah hasil perhitungan rata-rata nilai rapot asli yang telah dimasukkan. Adapun skemanya seperti ini:</p>
+            <p>Nilai yang ditampilkan di tabel adalah hasil perhitungan rata-rata nilai rapot asli yang telah dimasukkan. Adapun skemanya seperti ini:</p>
             <ul>
                 <li>IPA: Matematika + Fisika + Kimia + Biologi</li>
                 <li>IPS: Matematika + Ekonomi + Geografi + Sosiologi</li>

@@ -12,12 +12,22 @@ $error = false;
 foreach ($requiredFields as $field) {
     if (empty($_POST[$field])) {
         $error = true;
+        echo '<div id="message" class="message error floating-message">Periksa kembali nilai yang kamu masukkan.</div>';
+        echo '<script>
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 3000) </script>';
         break;
     }
 }
 
 if ($error) {
-    echo '<div class="message success floating-message">Isi data rapot terlebih dahulu</div>';
+    echo '<div id="message" class="message success floating-message">Isi data rapot terlebih dahulu.</div>';
+    echo '<script>
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 3000);
+</script>';
 } else {
     // Prepare the SQL statement
     $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_rapot_asli (id_siswa, matematika, fisika, kimia, biologi, ekonomi, geografi, sosiologi, bahasa_indonesia, bahasa_inggris, pjok, prakarya, sejarah, ppkn, seni_budaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -43,8 +53,7 @@ if ($error) {
 
     // Execute the statement
     if ($stmt->execute()) {
-        header("Location: nilai_rapot.php");
-        echo "Anda berhasil mengisi nilai rapot siswa.";
+        header("Location: nilai_rapot.php?isi_nilai_berhasil=true");
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -76,59 +85,59 @@ if ($error) {
                     <th>Nilai</th>
                 </tr>
                 <tr>
-                    <td><label for="matematika">Matematika:</label></td>
+                    <td><label for="matematika">➕ Matematika:</label></td>
                     <td><input type="number" id="matematika" name="matematika"></td>
                 </tr>
                 <tr>
-                    <td><label for="fisika">Fisika:</label></td>
+                    <td><label for="fisika">👨‍🔬 Fisika:</label></td>
                     <td><input type="number" id="fisika" name="fisika"></td>
                 </tr>
                 <tr>
-                    <td><label for="kimia">Kimia:</label></td>
+                    <td><label for="kimia">⚗️ Kimia:</label></td>
                     <td><input type="number" id="kimia" name="kimia"></td>
                 </tr>
                 <tr>
-                    <td><label for="biologi">Biologi:</label></td>
+                    <td><label for="biologi">🧬 Biologi:</label></td>
                     <td><input type="number" id="biologi" name="biologi"></td>
                 </tr>
                 <tr>
-                    <td><label for="ekonomi">Ekonomi:</label></td>
+                    <td><label for="ekonomi">💸 Ekonomi:</label></td>
                     <td><input type="number" id="ekonomi" name="ekonomi"></td>
                 </tr>
                 <tr>
-                    <td><label for="geografi">Geografi:</label></td>
+                    <td><label for="geografi">🌏 Geografi:</label></td>
                     <td><input type="number" id="geografi" name="geografi"></td>
                 </tr>
                 <tr>
-                    <td><label for="sosiologi">Sosiologi:</label></td>
+                    <td><label for="sosiologi">🧑‍🤝‍🧑 Sosiologi:</label></td>
                     <td><input type="number" id="sosiologi" name="sosiologi"></td>
                 </tr>
                 <tr>
-                    <td><label for="bahasa_indonesia">Bahasa Indonesia:</label></td>
+                    <td><label for="bahasa_indonesia">🇮🇩 Bahasa Indonesia:</label></td>
                     <td><input type="number" id="bahasa_indonesia" name="bahasa_indonesia"></td>
                 </tr>
                 <tr>
-                    <td><label for="bahasa_inggris">Bahasa Inggris:</label></td>
+                    <td><label for="bahasa_inggris">🇬🇧 Bahasa Inggris:</label></td>
                     <td><input type="number" id="bahasa_inggris" name="bahasa_inggris"></td>
                 </tr>
                 <tr>
-                    <td><label for="pjok">PJOK:</label></td>
+                    <td><label for="pjok">🤸‍♀️ PJOK:</label></td>
                     <td><input type="number" id="pjok" name="pjok"></td>
                 </tr>
                 <tr>
-                    <td><label for="prakarya">Prakarya:</label></td>
+                    <td><label for="prakarya">🧵 Prakarya:</label></td>
                     <td><input type="number" id="prakarya" name="prakarya"></td>
                 </tr>
                 <tr>
-                    <td><label for="sejarah">Sejarah:</label></td>
+                    <td><label for="sejarah">🕰️ Sejarah:</label></td>
                     <td><input type="number" id="sejarah" name="sejarah"></td>
                 </tr>
                 <tr>
-                    <td><label for="ppkn">PPKN:</label></td>
+                    <td><label for="ppkn">🫡 PPKN:</label></td>
                     <td><input type="number" id="ppkn" name="ppkn"></td>
                 </tr>
                 <tr>
-                    <td><label for="seni_budaya">Seni Budaya:</label></td>
+                    <td><label for="seni_budaya">🎨 Seni Budaya:</label></td>
                     <td><input type="number" id="seni_budaya" name="seni_budaya"></td>
                 </tr>
                 <tr>

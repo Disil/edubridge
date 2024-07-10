@@ -19,7 +19,7 @@
     <main>
         <h1>Dashboard</h1>
         <p>Selamat datang, <?php echo $_SESSION['nama_siswa']?>! </p>
-        <p>Untuk mendapatkan rekomendasi jurusan, silahkan mulai dari mengisi nilai rapot berdasarkan semester terbaru, lalu dilanjutkan dengan tes RIASEC untuk mengukur bakat dan minat. Setelah itu, anda bisa melihat hasil rekomendasi jurusan beserta dengan penjelasannya.</p>
+        <p>Untuk mendapatkan rekomendasi jurusan, silahkan mulai dari mengisi nilai rapot berdasarkan semester terbaru, lalu dilanjutkan dengan tes RIASEC untuk mengukur bakat dan minat. Setelah itu, kamu bisa melihat hasil rekomendasi jurusan beserta dengan penjelasannya.</p>
         <button onclick="window.location.href='input_nilai_rapot.php';">Input Nilai Rapot</button><br>
         <button onclick="window.location.href='tes_riasec_info.php';">Tes RIASEC</button><br>
         <button onclick="window.location.href='hasil_rekomendasi.php';">Lihat hasil rekomendasi</button>

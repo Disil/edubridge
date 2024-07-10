@@ -346,7 +346,8 @@ p>select { padding: 0;      margin: 0 .5em; }
 	border: 1px solid #f5c6cb;
 }
 .floating-message {
-    position: absolute; /* or 'absolute' */
+    position: fixed; /* or 'absolute' */
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     top: 60px;
     left: 50%;
     transform: translateX(-50%);
@@ -365,7 +366,16 @@ p>select { padding: 0;      margin: 0 .5em; }
 .row .col-4 { flex: 0 0 33.33%; max-width: 33.33%; }
 .row .col-5 { flex: 0 0 41.66%; max-width: 41.66%; }
 .row .col-6 { flex: 0 0 50%; max-width: 50%; }
-@media (max-width: 40rem) { .row { flex-direction: column; } }
+@media (max-width: 40rem) {
+	.row { flex-direction: column; align-items: center; justify-content: center}
+	.row .col   { flex: 1 1 100%; align-items: center; justify-content: center}
+	.row .col-2 { flex: 0 0 16.66%; max-width: 100%; align-items: center; justify-content: center}
+	.row .col-3 { flex: 0 0 25%; max-width: 100%; align-items: center; justify-content: center}
+	.row .col-4 { flex: 0 0 33.33%; max-width: 100%; align-items: center; justify-content: center}
+	.row .col-5 { flex: 0 0 41.66%; max-width: 100%; align-items: center; justify-content: center}
+	.row .col-6 { flex: 0 0 50%; max-width: 100%; align-items: center; justify-content: center}
+
+}
 
 /* align */
 .text-left   { text-align: left; }
