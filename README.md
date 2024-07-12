@@ -3,11 +3,19 @@
 EduBridge adalah situs web yang akan membantu siswa sekolah menengah atas dalam memilih jurusan kuliah. Dengan memasukkan nilai rapor sekolah menengah dan mengikuti tes RIASEC, siswa dapat menerima rekomendasi yang dipersonalisasi berdasarkan algoritma fuzzy MCDM (Multi-Criteria Decision Making).
 
 ## Fitur
-Fitur yang ada dalam situs ini adalah sebagai berikut:
+Didalam situs ini, siswa dapat melakukan hal berikut:
 1. Penghitungan Nilai Rapot
 2. Mengambil Tes RIASEC
 3. Mendapatkan rekomendasi jurusan kuliah
 4. Mendapatkan pengetahuan mengenai prospek kerja pada suatu jurusan
+
+> Fitur dibawah ini masih dalam pengembangan...
+
+Sebagai admin, terdapat fitur untuk memudahkan pengelolaan data siswa dan acuan jurusan kuliah. Fitur ini meliputi:
+1. Menambahkan, mengubah, dan menghapus data siswa
+2. Menambahkan, mengubah, dan menghapus data jurusan kuliah
+3. Melihat data rekomendasi jurusan kuliah
+4. Melihat data nilai siswa
 
 ## Latar Belakang dan Tujuan
 
