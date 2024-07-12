@@ -12,12 +12,6 @@ $error = false;
 foreach ($requiredFields as $field) {
     if (empty($_POST[$field])) {
         $error = true;
-        echo '<div id="message" class="message error floating-message">Periksa kembali nilai yang kamu masukkan.</div>';
-        echo '<script>
-    setTimeout(function() {
-        document.getElementById("message").style.display = "none";
-    }, 3000) </script>';
-        break;
     }
 }
 
