@@ -100,7 +100,7 @@ if (isset($_GET['isi_nilai_berhasil'])) {
 
     </div>
     <p>Untuk melanjutkan ke tahapan Tes RIASEC, klik tombol dibawah</p>
-    <button onclick="window.location.href='tes_riasec.php';">Kerjakan Tes RIASEC</button>
+    <button onclick="window.location.href='tes_riasec_info.php';">Kerjakan Tes RIASEC</button>
 </main>
 <footer><?php include "structure/footer.php"?></footer>
 </body>

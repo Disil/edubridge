@@ -74,11 +74,26 @@ include 'structure/check_conn.php';
             }
         }
 
+        // fungsi untuk menghitung hasil rekomendasi jurusan
+        $buat_rekomendasi_jurusan = "CALL buat_rekomendasi_jurusan";
+
+        // hitung nilai riasec
         $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("iiiiiii", $id_siswa, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
-        $stmt->execute();
+        if ($stmt->execute()) {
+            echo "<p><b>Terima kasih telah mengerjakan tes ini. Silahkan <a href='tes_riasec_hasil.php'>Lihat hasilnya disini.</a></b></p>";
+        } else {
+            echo "<p>Terjadi kesalahan saat menyimpan jawaban. Silahkan coba lagi.</p>";
+        }
         $stmt->close();
-        echo "<p>Anda telah mengerjakan tes ini. Silahkan <a href='tes_riasec_hasil.php'>Lihat hasilnya disini.</a></p>";
+
+        $stmt = $conn->prepare($buat_rekomendasi_jurusan);
+        if ($stmt->execute()) {
+            echo "<p><b>Rekomendasi jurusan telah dibuat.</b></p>";
+            header("Location: tes_riasec_hasil.php");
+        } else {
+            echo "<p>Terjadi kesalahan saat membuat rekomendasi jurusan. Silahkan coba lagi.</p>";
+        }
 
     } else {
         $sql = "SELECT * FROM wpcguvfn_edubridge_db.soal_riasec ORDER BY id_soal";
