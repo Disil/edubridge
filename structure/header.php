@@ -1,9 +1,8 @@
 <!-- nav.html -->
 <nav>
     <ul>
-        <li><img src="../favicon.ico" alt="logo" class="icon">EduBridge</li>
+        <li><img src="../favicon.ico" alt="logo" class="icon"><a href="../dashboard.php">EduBridge</a></li>
         <li class="float-right sticky"><a href="../identitas.php"><img src="../img/icon/icons8-edit-profile-50.svg" alt="edit" class="icon">Akun</a></li>
-        <li><a href="../dashboard.php"><img src="../img/icon/icons8-home-50.svg" alt="Home" class="icon">Dashboard</a></li>
         <li><a href="#"><img src="../img/icon/icons8-test-50.svg" alt="input" class="icon">Input ▾</a>
             <ul>
                 <li><a href="../input_nilai_rapot.php">Input Nilai Rapot</a></li>
@@ -13,7 +12,8 @@
             </ul>
         </li>
         <li><a href="../hasil_rekomendasi.php"><img src="../img/icon/icons8-education.svg" alt="result" class="icon">Hasil</a></li>
-        <li><a href="../cara_kerja.php">ℹ Tentang</a></li>
+        <li><a href="../jurusan/list_jurusan.php">🏫 Jurusan</a></li>
+        <li><a href="../cara_kerja.php">🌏 Tentang</a></li>
         <li class="float-right"><a href="../logout.php"><img src="../img/icon/icons8-import-50.svg" alt="logout" class="icon">Log Out</a></li>
     </ul>
 </nav>
