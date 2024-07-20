@@ -75,7 +75,7 @@ include 'structure/check_conn.php';
         }
 
         // fungsi untuk menghitung hasil rekomendasi jurusan
-        $buat_rekomendasi_jurusan = "CALL buat_rekomendasi_jurusan";
+        $buat_rekomendasi_jurusan = "CALL buat_rekomendasi_jurusan()";
 
         // hitung nilai riasec
         $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
