@@ -42,7 +42,6 @@ if (isset($_GET['isi_nilai_berhasil'])) {
 <header><?php include "structure/header.php"?></header>
 <main>
     <h1>Lihat Nilai Rapot</h1>
-    <p></p>
     <div class="row">
         <div class="col">
             <br>
