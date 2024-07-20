@@ -3,27 +3,28 @@ include 'structure/check_conn.php';
 global $conn;
 global $id_siswa;
 
-//masukkan nilai minat
-$stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-//amankan data
-$stmt->bind_param("iiiiiiiii",
-    $id_siswa,
-    $_POST['logika'],
-    $_POST['sains'],
-    $_POST['soshum'],
-    $_POST['bisnis'],
-    $_POST['kreatif'],
-    $_POST['terapan'],
-    $_POST['administratif'],
-    $_POST['sastra']
-);
+    $stmt->bind_param("iiiiiiiii",
+        $id_siswa,
+        $_POST['logika'],
+        $_POST['sains'],
+        $_POST['soshum'],
+        $_POST['bisnis'],
+        $_POST['kreatif'],
+        $_POST['terapan'],
+        $_POST['administratif'],
+        $_POST['sastra']
+    );
 
-//eksekusi form
-if ($stmt->execute()) {
-    header("Location: minat.php?isi_minat_berhasil=true");
-} else {
-    echo "Error: " . $stmt->error;
+    // Execute the query
+    if ($stmt->execute()) {
+        header("Location: minat.php?isi_minat_berhasil=true");
+        exit; // Stop executing the script
+    } else {
+        echo "Error: " . $stmt->error;
+    }
 }
 ?>
 
@@ -38,6 +39,33 @@ if ($stmt->execute()) {
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
     <title>EduBridge - Input Minat</title>
+    <style>
+        .question {
+            margin-bottom: 20px;
+            background-color: var(--clight);
+            padding: 10px 10px 10px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .options label {
+            margin: 0 10px;
+        }
+        input[type="submit"] {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #a35403;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <?php include 'structure/header.php'; ?>
@@ -46,24 +74,94 @@ if ($stmt->execute()) {
     <p>Silahkan isi formulir dibawah ini dengan sejujur-jujurnya.</p>
     <p>Cara menjawab: jika kamu sangat setuju dengan pernyataan tersebut, maka <i>slider</i> bisa digeser ke nomor 5. Jika kamu tidak setuju, geser <i>slider</i> ke sebelah 0.</p>
     <form action="input_minat.php" method="post">
-        <label for="logika">Logika</label>
-        <input type="range" id="logika" name="logika" min="0" max="5" value="3">
-        <label for="sains">Sains</label>
-        <input type="range" id="sains" name="sains" min="0" max="5" value="3">
-        <label for="soshum">Sosial Humaniora</label>
-        <input type="range" id="soshum" name="soshum" min="0" max="5" value="3">
-        <label for="bisnis">bisnis</label>
-        <input type="range" id="bisnis" name="bisnis" min="0" max="5" value="3">
-        <label for="kreatif">Kreatif</label>
-        <input type="range" id="kreatif" name="kreatif" min="0" max="5" value="3">
-        <label for="terapan">Terapan</label>
-        <input type="range" id="terapan" name="terapan" min="0" max="5" value="3">
-        <label for="administratif">Administratif</label>
-        <input type="range" id="administratif" name="administratif" min="0" max="5" value="3">
-        <label for="sastra">Sastra</label>
-        <input type="range" id="sastra" name="sastra" min="0" max="5" value="3">
-        <button type="submit">Kirim</button>
-    </form>
+
+        <div class="question">
+            <label for="logika">Logika</label>
+            <div class="options">
+                <label><input type="radio" id="logika" name="logika" value="1"> 1</label>
+                <label><input type="radio" id="logika" name="logika" value="2"> 2</label>
+                <label><input type="radio" id="logika" name="logika" value="3"> 3</label>
+                <label><input type="radio" id="logika" name="logika" value="4"> 4</label>
+                <label><input type="radio" id="logika" name="logika" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="sains">Sains</label>
+            <div class="options">
+                <label><input type="radio" id="sains" name="sains" value="1"> 1</label>
+                <label><input type="radio" id="sains" name="sains" value="2"> 2</label>
+                <label><input type="radio" id="sains" name="sains" value="3"> 3</label>
+                <label><input type="radio" id="sains" name="sains" value="4"> 4</label>
+                <label><input type="radio" id="sains" name="sains" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="soshum">Sosial Humaniora</label>
+            <div class="options">
+                <label><input type="radio" id="soshum" name="soshum" value="1"> 1</label>
+                <label><input type="radio" id="soshum" name="soshum" value="2"> 2</label>
+                <label><input type="radio" id="soshum" name="soshum" value="3"> 3</label>
+                <label><input type="radio" id="soshum" name="soshum" value="4"> 4</label>
+                <label><input type="radio" id="soshum" name="soshum" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="bisnis">Bisnis</label>
+            <div class="options">
+                <label><input type="radio" id="bisnis" name="bisnis" value="1"> 1</label>
+                <label><input type="radio" id="bisnis" name="bisnis" value="2"> 2</label>
+                <label><input type="radio" id="bisnis" name="bisnis" value="3"> 3</label>
+                <label><input type="radio" id="bisnis" name="bisnis" value="4"> 4</label>
+                <label><input type="radio" id="bisnis" name="bisnis" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="kreatif">Kreatif</label>
+            <div class="options">
+                <label><input type="radio" id="kreatif" name="kreatif" value="1"> 1</label>
+                <label><input type="radio" id="kreatif" name="kreatif" value="2"> 2</label>
+                <label><input type="radio" id="kreatif" name="kreatif" value="3"> 3</label>
+                <label><input type="radio" id="kreatif" name="kreatif" value="4"> 4</label>
+                <label><input type="radio" id="kreatif" name="kreatif" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="terapan">terapan</label>
+            <div class="options">
+                <label><input type="radio" id="terapan" name="terapan" value="1"> 1</label>
+                <label><input type="radio" id="terapan" name="terapan" value="2"> 2</label>
+                <label><input type="radio" id="terapan" name="terapan" value="3"> 3</label>
+                <label><input type="radio" id="terapan" name="terapan" value="4"> 4</label>
+                <label><input type="radio" id="terapan" name="terapan" value="5"> 5</label>
+            </div>
+        </div>
+        <div class="question">
+            <label for="administratif">administratif</label>
+            <div class="options">
+                <label><input type="radio" id="administratif" name="administratif" value="1"> 1</label>
+                <label><input type="radio" id="administratif" name="administratif" value="2"> 2</label>
+                <label><input type="radio" id="administratif" name="administratif" value="3"> 3</label>
+                <label><input type="radio" id="administratif" name="administratif" value="4"> 4</label>
+                <label><input type="radio" id="administratif" name="administratif" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label for="sastra">sastra</label>
+            <div class="options">
+                <label><input type="radio" id="sastra" name="sastra" value="1"> 1</label>
+                <label><input type="radio" id="sastra" name="sastra" value="2"> 2</label>
+                <label><input type="radio" id="sastra" name="sastra" value="3"> 3</label>
+                <label><input type="radio" id="sastra" name="sastra" value="4"> 4</label>
+                <label><input type="radio" id="sastra" name="sastra" value="5"> 5</label>
+            </div>
+        </div>
+        <input type="submit" value="Submit">
 </main>
 </body>
 <?php include 'structure/footer.php'; ?>

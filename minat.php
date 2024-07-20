@@ -19,7 +19,7 @@ if ($result) {
 
 // notif dari input nilai minat
 if (isset($_GET['isi_minat_berhasil'])) {
-    echo '<div id="message" class="message success floating-message">Minat telah diisi</div>';
+    echo '<div id="message" class="message success floating-message">Pengisian data berhasil!</div>';
     echo '<script>
     setTimeout(function() {
         document.getElementById("message").style.display = "none";
@@ -42,28 +42,50 @@ if (isset($_GET['isi_minat_berhasil'])) {
 <main>
     <h1>Lihat Minat</h1>
     <p> Berikut adalah nilai minat yang telah kamu masukkan:</p>
-    <table>
+    <figure>
+        <table>
+        <thead>
         <tr>
-            <th>Logika</th>
-            <th>Sains</th>
-            <th>Sosial Humaniora</th>
-            <th>Bisnis</th>
-            <th>Kreatif</th>
-            <th>Terapan</th>
-            <th>Administratif</th>
-            <th>Sastra</th>
+            <th>Minat</th>
+            <th>Poin</th>
         </tr>
-        <tr>
-            <td><?php echo $dataMinat['logika'] ?></td>
-            <td><?php echo $dataMinat['sains'] ?></td>
-            <td><?php echo $dataMinat['soshum'] ?></td>
-            <td><?php echo $dataMinat['bisnis'] ?></td>
-            <td><?php echo $dataMinat['kreatif'] ?></td>
-            <td><?php echo $dataMinat['terapan'] ?></td>
-            <td><?php echo $dataMinat['administratif'] ?></td>
-            <td><?php echo $dataMinat['sastra'] ?></td>
-        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Logika & Matematika</td>
+                <td><?php echo $dataMinat['logika'] ?></td>
+            </tr>
+            <tr>
+                <td>Sains</td>
+                <td><?php echo $dataMinat['sains'] ?></td>
+            </tr>
+            <tr>
+                <td>Sosial & Humaniora</td>
+                <td><?php echo $dataMinat['soshum'] ?></td>
+            </tr>
+            <tr>
+                <td>Bisnis & Manajemen</td>
+                <td><?php echo $dataMinat['bisnis'] ?></td>
+            </tr>
+            <tr>
+                <td>Kreativitas</td>
+                <td><?php echo $dataMinat['kreatif'] ?></td>
+            </tr>
+            <tr>
+                <td>Terapan & Praktek</td>
+                <td><?php echo $dataMinat['terapan'] ?></td>
+            </tr>
+            <tr>
+                <td>Administrasi</td>
+                <td><?php echo $dataMinat['administratif'] ?></td>
+            </tr>
+            <tr>
+                <td>Sastra dan Bahasa</td>
+                <td><?php echo $dataMinat['sastra'] ?></td>
+            </tr>
+        </tbody>
     </table>
+    </figure>
 </main>
 <?php include "structure/footer.php"?>
 </body>
