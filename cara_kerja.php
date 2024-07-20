@@ -17,6 +17,7 @@
 </header>
 <main>
     <h1>Cara Kerja Situs</h1>
+    <p>EduBridge bekerja dengan cara menghitung nilai fuzzy berdasarkan mata pelajaran yang dipilih dan juga menghitung nilai minat bakat. Nantinya, akan didefinisikan untuk setiap mapel. Contohnya seperti yang dibawah ini.</p>
 </main>
 </body>
 </html>

@@ -169,6 +169,8 @@ BEGIN
 END //
 DELIMITER ;
 
+
+
 DELIMITER //
 CREATE TRIGGER gabung_nilai_rapot
     AFTER INSERT ON nilai_rapot_asli
@@ -742,24 +744,21 @@ BEGIN
     SELECT
         nj.id_jurusan,
         nj.nama_jurusan,
-        SUM(
                 ((nr.ipa * rr.ipa) + (nr.ips * rr.ips) + (nr.bahasa * rr.bahasa) +
                  (nr.praktek * rr.praktek) + (nr.politik * rr.politik) + (nr.seni * rr.seni) +
                  (nr.R * rr.R) + (nr.I * rr.I) + (nr.A * rr.A) +
                  (nr.S * rr.S) + (nr.E * rr.E) + (nr.C * rr.C))/12
-        ) AS Y,
-        SUM(
+        AS Y,
                 ((ns.ipa * rs.ipa) + (ns.ips * rs.ips) + (ns.bahasa * rs.bahasa) +
                  (ns.praktek * rs.praktek) + (ns.politik * rs.politik) + (ns.seni * rs.seni) +
                  (ns.R * rs.R) + (ns.I * rs.I) + (ns.A * rs.A) +
                  (ns.S * rs.S) + (ns.E * rs.E) + (ns.C * rs.C))/12
-        ) AS Q,
-        SUM(
+        AS Q,
                 ((nt.ipa * rt.ipa) + (nt.ips * rt.ips) + (nt.bahasa * rt.bahasa) +
                  (nt.praktek * rt.praktek) + (nt.politik * rt.politik) + (nt.seni * rt.seni) +
                  (nt.R * rt.R) + (nt.I * rt.I) + (nt.A * rt.A) +
                  (nt.S * rt.S) + (nt.E * rt.E) + (nt.C * rt.C))/12
-        ) AS Z
+        AS Z
     FROM
         acuan_nilai_jurusan nj
             CROSS JOIN tabel_rapot_rendah rr
