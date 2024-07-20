@@ -2,8 +2,24 @@
 include 'structure/check_conn.php';
 global $conn;
 global $id_siswa;
+$id_siswa = $_SESSION['id_siswa'];
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$requiredFields =['logika', 'sains', 'soshum', 'bisnis', 'kreatif', 'terapan', 'administratif', 'sastra'];
+$error = false;
+foreach ($requiredFields as $field) {
+    if (empty($_POST[$field])) {
+        $error = true;
+    }
+}
+
+if ($error) {
+    echo '<div id="message" class="message success floating-message">Isi data minat terlebih dahulu.</div>';
+    echo '<script>
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 3000);
+</script>';
+} else {
     $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
     $stmt->bind_param("iiiiiiiii",
@@ -21,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Execute the query
     if ($stmt->execute()) {
         header("Location: minat.php?isi_minat_berhasil=true");
-        exit; // Stop executing the script
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -72,9 +87,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <main>
     <h1>Minat Kamu</h1>
     <p>Silahkan isi formulir dibawah ini dengan sejujur-jujurnya.</p>
-    <p>Cara menjawab: jika kamu sangat setuju dengan pernyataan tersebut, maka <i>slider</i> bisa digeser ke nomor 5. Jika kamu tidak setuju, geser <i>slider</i> ke sebelah 0.</p>
+    <p>Cara menjawab: jika kamu sangat setuju dengan pernyataan tersebut, maka pilih nomor 5. Jika kamu sangat tidak setuju, pilih nomor 0.</p>
     <form action="input_minat.php" method="post">
-
         <div class="question">
             <label for="logika">Logika</label>
             <div class="options">
@@ -162,6 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
         <input type="submit" value="Submit">
+    </form>
 </main>
 </body>
 <?php include 'structure/footer.php'; ?>
