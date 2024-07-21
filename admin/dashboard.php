@@ -1,5 +1,6 @@
-<?php include '../structure/check_conn.php'; ?>
-<?php include '../database.php'; ?>
+<?php include '../structure/check_conn_admin.php';
+include '../database.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,15 +15,11 @@
 </head>
 <body>
 <header>
-    <?php include '../structure/navbar.php'; ?>
+    <?php include '../structure/navbar_admin.php'; ?>
 </header>
 <main>
     <h1>Dashboard</h1>
-    <p>Selamat datang, <?php echo $_SESSION['nama_siswa']?></p>
-    <p>Untuk melihat daftar siswa, silahkan klik tombol dibawah ini.</p>
-    <ul>
-        <li><a href="list_siswa.php">Lihat Daftar Siswa</a></li>
-    </ul>
+    <p>Selamat datang, <?php echo $_SESSION['username']?></p>
 </main>
 <footer><?php include '../structure/footer.php'; ?></footer>
 </body>
