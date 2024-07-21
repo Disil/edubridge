@@ -13,7 +13,7 @@
     <title>EduBridge - Info Jurusan</title>
 </head>
 <body>
-    <?php include 'structure/header_no_account.php'; ?>
+    <?php include 'structure/navbar_no_account.php'; ?>
 <main>
     <h1>Informasi Jurusan</h1>
     <p>Di halaman ini kamu bisa melihat informasi dan prospek kerja dari berbagai jurusan yang ada di perguruan tinggi.</p>

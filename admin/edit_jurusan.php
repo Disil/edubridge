@@ -46,7 +46,7 @@ if ($stmt->execute()) {
 </head>
 <body>
 <header>
-    <?php include '../structure/header.php'; ?>
+    <?php include '../structure/navbar.php'; ?>
 </header>
 <main>
     <table>

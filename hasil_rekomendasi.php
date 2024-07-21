@@ -19,7 +19,7 @@ include 'database.php'
 </head>
 <body>
 <header>
-    <?php include 'structure/header.php'; ?>
+    <?php include 'structure/navbar.php'; ?>
 </header>
 <main>
     <h1>Hasil Rekomendasi Jurusan Perguruan Tinggi</h1>

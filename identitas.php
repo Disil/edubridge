@@ -22,7 +22,7 @@ $user = mysqli_fetch_assoc($result);
 </head>
 <body>
 <header>
-    <?php include 'structure/header.php'; ?>
+    <?php include 'structure/navbar.php'; ?>
 </header>
 <main>
     <h1>Edit Identitas Anda</h1>

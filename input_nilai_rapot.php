@@ -67,7 +67,7 @@ if ($error) {
     <title>EduBridge - Input Nilai Rapot</title>
 </head>
 <body>
-<header><?php include "structure/header.php"?></header>
+<header><?php include "structure/navbar.php" ?></header>
 <main>
     <h1>Input Nilai Rapot Pelajaran</h1>
     <p>Silahkan masukkan nilai rapot semester terbaru. Jika kamu tidak punya nilai untuk mata pelajaran tersebut (misalnya kamu jurusan IPA dan tidak ada pelajaran ekonomi), maka kolomnya bisa tidak diisi ataupun diisi dengan 0.</p>

@@ -38,7 +38,7 @@ if (isset($_GET['isi_minat_berhasil'])) {
     <title>EduBridge - Lihat Nilai Rapot</title>
 </head>
 <body>
-<?php include "structure/header.php"?>
+<?php include "structure/navbar.php" ?>
 <main>
     <h1>Lihat Minat</h1>
     <p> Berikut adalah nilai minat yang telah kamu masukkan:</p>

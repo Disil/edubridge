@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <h1>Daftar Akun Baru</h1>
 <header>
-    <?php include 'structure/header_no_account.php'; ?>
+    <?php include 'structure/navbar_no_account.php'; ?>
 </header>
 <p>Silahkan isi formulir di bawah ini untuk mendaftar akun baru.</p>
 <form action="register.php" method="post">

@@ -17,7 +17,7 @@
     <title>EduBridge - Informasi Tes RIASEC</title>
 </head>
 <body>
-    <header><?php include 'structure/header.php'; ?></header>
+    <header><?php include 'structure/navbar.php'; ?></header>
     <main>
         <h1>Sekilas Mengenai Tes RIASEC</h1>
         <h2>Apa Itu Tes RIASEC?</h2>

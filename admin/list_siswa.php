@@ -27,7 +27,7 @@ if ($searchTerm) {
 </head>
 <body>
 <header>
-    <?php include '../structure/header.php'; ?>
+    <?php include '../structure/navbar.php'; ?>
 </header>
 <main>
     <h1>List Siswa - for Admin</h1>

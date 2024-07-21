@@ -19,7 +19,7 @@ global $conn;
 </head>
 <body>
 <header>
-    <?php include 'structure/header.php'; ?>
+    <?php include 'structure/navbar.php'; ?>
 </header>
 <main>
     <h1>Profil Anda</h1>

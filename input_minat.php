@@ -83,7 +83,7 @@ if ($error) {
     </style>
 </head>
 <body>
-<?php include 'structure/header.php'; ?>
+<?php include 'structure/navbar.php'; ?>
 <main>
     <h1>Minat Kamu</h1>
     <p>Silahkan isi formulir dibawah ini dengan sejujur-jujurnya.</p>

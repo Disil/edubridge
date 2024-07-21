@@ -21,7 +21,7 @@ if (isset($_GET['logged_out'])) {
 </head>
 <body>
 <header>
-    <?php include 'structure/header_no_account.php'; ?>
+    <?php include 'structure/navbar_no_account.php'; ?>
 </header>
 <main>
     <h1>EduBridge - Situs Pemilihan Jurusan Perguruan Tinggi</h1>

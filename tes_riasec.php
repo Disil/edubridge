@@ -44,7 +44,7 @@ include 'structure/check_conn.php';
     </style>
 </head>
 <body>
-<header><?php include 'structure/header.php'; ?></header>
+<header><?php include 'structure/navbar.php'; ?></header>
 <main>
     <h1>Tes RIASEC</h1>
     <?php

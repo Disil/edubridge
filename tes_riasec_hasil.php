@@ -64,7 +64,7 @@ if (!$scores) {
 </head>
 <body>
 <h1>Hasil Tes RIASEC Kamu</h1>
-<?php include "structure/header.php"?>
+<?php include "structure/navbar.php" ?>
 <main>
     <div class="chart-container">
         <canvas id="riasecChart"></canvas>

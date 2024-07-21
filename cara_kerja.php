@@ -13,7 +13,7 @@
 </head>
 <body>
 <header>
-    <?php include 'structure/header.php'; ?>
+    <?php include 'structure/navbar.php'; ?>
 </header>
 <main>
     <h1>Cara Kerja Situs</h1>
