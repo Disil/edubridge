@@ -61,7 +61,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button type="submit"><img src="/img/icon/icons8-enter-50.svg" alt="login" class="icon">Login</button>
             </fieldset>
         </form>
-        <a href="register.php">Register</a>
+        <div class="row">
+            <div class="col-4">
+                <a href="forgot_password.php">Lupa password?</a>
+            </div>
+            <div class="col-4">
+                <a href="register.php">Belum punya akun?</a>
+            </div>
+            <div class="col-4">
+                <a href="admin/login_admin.php">Login Akun Admin</a>
+            </div>
+        </div>
     </main>
     </body>
     </html>

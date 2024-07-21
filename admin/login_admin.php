@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Login</h1>
     <p><b>Khusus Admin.</b></p>
     <p>Untuk mengakses fitur Edubridge, silahkan login terlebih dahulu.</p>
-    <form action="login.php" method="post">
+    <form action="login_admin.php" method="post">
         <fieldset>
             <label for="username">Nama Pengguna (username)</label>
             <input type="text" name="username" id="username" required autocomplete="username">

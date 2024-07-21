@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "INSERT INTO wpcguvfn_edubridge_db.siswa (nama_siswa, email, password, tanggal_lahir, asal_sekolah, kelas, jenis_kelamin) VALUES ('$nama_siswa', '$email', '$hashed_password', '$tanggal_lahir', '$asal_sekolah', '$kelas', '$jenis_kelamin')";
     if ($conn->query($sql) === TRUE) {
-        header("Location: login.php");
+        header("Location: login_admin.php");
         echo '<div class="message success floating-message">Registration successful. Silahkan login.</div>';
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
