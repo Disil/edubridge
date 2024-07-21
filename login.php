@@ -43,35 +43,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Edubridge - Login file</title>
+        <title>Edubridge - Login Siswa</title>
     </head>
     <body>
     <header>
         <?php include 'structure/navbar_no_account.php'; ?>
     </header>
     <main>
-    <h1>Login</h1>
+    <h1>Login - Siswa</h1>
         <p>Untuk mengakses fitur Edubridge, silahkan login terlebih dahulu.</p>
         <form action="login.php" method="post">
             <fieldset>
-                <label for="email">📧 Email</label>
+                <legend>Masuk Akun</legend>
+                <label for="email">📧 Email (surel)</label>
                 <input type="email" name="email" id="email" required autocomplete="email">
-                <label for="password">🔐 Password</label>
+                <label for="password">🔐 Kata sandi</label>
                 <input type="password" name="password" id="password" required autocomplete="current-password">
                 <button type="submit"><img src="/img/icon/icons8-enter-50.svg" alt="login" class="icon">Login</button>
             </fieldset>
         </form>
-        <div class="row">
-            <div class="col-4">
-                <a href="forgot_password.php">Lupa password?</a>
+        <fieldset>
+            <legend>Opsi Lainnya</legend>
+            <div class="row">
+                <div class="col-4">
+                    <button disabled onclick="window.location.href='forgot_password.php';">🔑 Lupa kata sandi?</button>
+                </div>
+                <div class="col-4">
+                    <button onclick="window.location.href='register.php';">🌐 Belum punya akun?</button>
+                </div>
+                <div class="col-4">
+                    <button onclick="window.location.href='admin/login_admin.php';">🗝️ Login khusus admin</button>
+                </div>
             </div>
-            <div class="col-4">
-                <a href="register.php">Belum punya akun?</a>
-            </div>
-            <div class="col-4">
-                <a href="admin/login_admin.php">Login Akun Admin</a>
-            </div>
-        </div>
+    </fieldset>
     </main>
     </body>
     </html>
