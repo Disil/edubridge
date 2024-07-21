@@ -60,6 +60,7 @@ global $conn;
         }
         ?>
         </tbody>
+    </table>
 </main>
 </body>
 <?php include '../structure/footer.php'; ?>
