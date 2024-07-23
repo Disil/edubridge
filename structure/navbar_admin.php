@@ -17,7 +17,7 @@
                 <li><a href="../admin/list_rekomendasi_jurusan.php">Hasil Rekomendasi </a></li>
             </ul>
         </li>
-        <li><a href="#">📖 Jurusan</a>
+        <li><a href="#">📖 Jurusan ▾</a>
             <ul>
                 <li><a href="../admin/list_jurusan.php">Lihat Tabel Jurusan</a></li>
                 <li><a href="../admin/edit_jurusan.php">Edit Tabel Jurusan</a></li>

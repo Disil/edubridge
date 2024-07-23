@@ -14,3 +14,6 @@ if (isset($_SESSION['id_siswa'])) {
 } else {
     echo "id_siswa is not set in the session";
 }
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
