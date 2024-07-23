@@ -93,7 +93,7 @@ if (isset($_GET['isi_nilai_berhasil'])) {
                     </tbody>
                 </table>
             <?php else: ?>
-                <p>No data found for the student.</p>
+                <p>Kamu <b>belum mengisi</b> data rapot. Silahkan isi terlebih dahulu.</p>
             <?php endif; ?>
         </div>
 
