@@ -4,7 +4,7 @@ include 'structure/check_conn.php';
 global $conn;
 // Function to get id_siswa from session
 function getIdSiswa() {
-    return isset($_SESSION['id_siswa']) ? $_SESSION['id_siswa'] : null;
+    return $_SESSION['id_siswa'] ?? null;
 }
 
 // Function to get RIASEC scores for a specific user
@@ -20,15 +20,23 @@ function getRIASECScores($conn, $id_siswa) {
 $id_siswa = getIdSiswa();
 
 if (!$id_siswa) {
-    echo "No user session found. Please take the RIASEC test first.";
+    echo "Anda tidak login";
     exit;
 }
 
 $scores = getRIASECScores($conn, $id_siswa);
 
 if (!$scores) {
-    echo "<script>alert('Anda belum mengisi tes riasec. Anda akan dialihkan menuju halaman tes.'); window.location.href='tes_riasec.php';</script>";
+    echo "<script>alert('Anda belum mengisi tes riasec. Anda akan dialihkan menuju halaman tes.'); window.location.href='tes_riasec_info.php';</script>";
     exit;
+}
+
+if (isset($_GET['isi_riasec_berhasil'])) {
+    echo '<div id="message" class="message success floating-message">Berhasil mengisi tes RIASEC</div>';
+    echo '<script>
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 2000) </script>';
 }
 
 ?>
@@ -47,10 +55,6 @@ if (!$scores) {
             width: 80%;
             max-width: 600px;
             margin: auto;
-        }
-        .scores-table {
-            margin-top: 20px;
-            border-collapse: collapse;
         }
         .scores-table th, .scores-table td {
             border: 1px solid #ddd;
@@ -143,8 +147,8 @@ if (!$scores) {
     } ?>
     <p style="text-align: center; font-size: 2em;"><b><?php echo $dominantType; ?></b></p>
     <p>Yaitu: <?php echo $deskripsi; ?></p>
-    <p>Jika kamu sudah mengisi nilai rapot dan tes riasec, silahkan klik tombol dibawah atau pergi ke halaman "Hasil rekomendasi" untuk melihat jurusan apa yang sesuai dengan kemampuan dan sifat kamu.</p>
-    <button onclick="window.location.href='hasil_rekomendasi.php'">Lihat Hasil Rekomendasi Jurusan</button>
+    <p>Klik tombol dibawah untuk melanjutkan ke pengisian minat.</p>
+    <button onclick="window.location.href='input_minat.php'">Isi Minat</button>
 </main>
 <?php include "structure/footer.php"?>
 </body>

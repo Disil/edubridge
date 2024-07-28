@@ -5,6 +5,9 @@ include('database.php');
 global $conn;
 global $id_siswa;
 
+// by default tidak ada data rapot
+$adaRapot = false;
+
 // Cek apakah semua field wajib diisi
 $requiredFields = ['matematika', 'bahasa_indonesia', 'bahasa_inggris', 'pjok', 'prakarya', 'sejarah', 'ppkn', 'seni_budaya'];
 $error = false;
@@ -62,7 +65,7 @@ if ($error) {
         $adaRapot = false;
         // Jika data belum ada, lakukan INSERT
         $insertStmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_rapot_asli (id_siswa, matematika, fisika, kimia, biologi, ekonomi, geografi, sosiologi, bahasa_indonesia, bahasa_inggris, pjok, prakarya, sejarah, ppkn, seni_budaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE 
-
+:
         matematika = VALUES(matematika), 
         fisika = VALUES(fisika), 
         kimia = VALUES(kimia), 
@@ -121,7 +124,7 @@ if ($error) {
 <header><?php include "structure/navbar.php" ?></header>
 <main>
     <h1>Input Nilai Rapot Pelajaran</h1>
-    <?php if ($adaRapot=true) {
+    <?php if ($adaRapot) {
     echo '<p>Kamu <b>telah</b> memasukkan nilai rapot. Jika kamu salah memasukkan nilai, silahkan ubah lalu klik submit.</p>';
 } else {
         echo '<p>Silahkan masukkan nilai rapot semester terbaru. Jika kamu tidak punya nilai untuk mata pelajaran tersebut (misalnya kamu jurusan IPA dan tidak ada pelajaran ekonomi), maka kolomnya bisa tidak diisi ataupun diisi dengan 0.</p>';

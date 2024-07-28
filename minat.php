@@ -51,6 +51,7 @@ if (isset($_GET['isi_minat_berhasil'])) {
         </tr>
         </thead>
         <tbody>
+        <?php if ($dataMinat != null): ?>
             <tr>
                 <td>Logika & Matematika</td>
                 <td><?php echo $dataMinat['logika'] ?></td>
@@ -83,6 +84,11 @@ if (isset($_GET['isi_minat_berhasil'])) {
                 <td>Sastra dan Bahasa</td>
                 <td><?php echo $dataMinat['sastra'] ?></td>
             </tr>
+        <?php else: ?>
+        <tr>
+            <td colspan="2">Belum ada data minat yang dimasukkan.<br> Silahkan masukkan minat terlebih dahulu<br> <a href="input_minat.php">di link ini</a>.</td>
+        </tr>
+        <?php endif; ?>
         </tbody>
     </table>
     </figure>

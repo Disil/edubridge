@@ -17,7 +17,7 @@ if ($error) {
     echo '<script>
     setTimeout(function() {
         document.getElementById("message").style.display = "none";
-    }, 3000);
+    }, 2000);
 </script>';
 } else {
     $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -37,6 +37,7 @@ if ($error) {
     // Execute the query
     if ($stmt->execute()) {
         header("Location: minat.php?isi_minat_berhasil=true");
+        exit;
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -87,7 +88,7 @@ if ($error) {
 <main>
     <h1>Minat Kamu</h1>
     <p>Silahkan isi formulir dibawah ini dengan sejujur-jujurnya.</p>
-    <p>Cara menjawab: jika kamu sangat setuju dengan pernyataan tersebut, maka pilih nomor 5. Jika kamu sangat tidak setuju, pilih nomor 0.</p>
+    <p>Cara menjawab: jika kamu sangat setuju dengan pernyataan tersebut, maka pilih nomor 5. Jika kamu sangat tidak setuju, pilih nomor 1.</p>
     <form action="input_minat.php" method="post">
         <div class="question">
             <label for="logika">Logika</label>

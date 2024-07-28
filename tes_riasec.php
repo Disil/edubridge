@@ -89,7 +89,8 @@ include 'structure/check_conn.php';
 
         $stmt = $conn->prepare($buat_rekomendasi_jurusan);
         if ($stmt->execute()) {
-            header("Location: tes_riasec_hasil.php");
+            header("Location: tes_riasec_hasil.php?isi_riasec_berhasil=true");
+            exit;
         } else {
             echo "<p>Terjadi kesalahan saat membuat rekomendasi jurusan. Silahkan coba lagi.</p>";
         }
