@@ -15,7 +15,7 @@ include '../database.php'; ?>
 </head>
 <body>
 <header>
-    <?php include 'structure/navbar.php'; ?>
+    <?php include '../structure/navbar.php'; ?>
 </header>
 <main>
     <h1>Jurusan Matematika dan Ilmu Pengetahuan Alam (MIPA)</h1>
@@ -31,3 +31,7 @@ include '../database.php'; ?>
         <li>Astronomi: Studi tentang benda langit di luar atmosfer Bumi. Astronomi mencakup penelitian tentang planet, bintang, galaksi, dan kosmologi.</li>
         <li>Geologi: Studi tentang bumi, struktur, proses, dan sejarahnya. Geologi digunakan dalam pemahaman tentang bencana alam, sumber daya alam, dan lingkungan.</li>
     </ul>
+</main>
+</body>
+<?php include '../structure/footer.php'; ?>
+</html>

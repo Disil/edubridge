@@ -39,7 +39,7 @@ if (isset($_GET['isi_nilai_berhasil'])) {
     <title>EduBridge - Lihat Nilai Rapot</title>
 </head>
 <body>
-<header><?php include "structure/navbar.php" ?></header>
+<?php include "structure/navbar.php" ?>
 <main>
     <h1>Lihat Nilai Rapot</h1>
     <div class="row">

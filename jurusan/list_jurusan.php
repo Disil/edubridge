@@ -14,15 +14,16 @@ include '../database.php'; ?>
 </head>
 <body>
 <header>
-    <?php include 'structure/navbar.php'; ?>
+    <?php include '../structure/navbar.php'; ?>
 </header>
 <main>
     <h1>Daftar Jurusan</h1>
     <p>Di sini kamu bisa melihat informasi lebih lanjut terkait dengan jurusan-jurusan yang ada di EduBridge.</p>
     <ul>
         <li><a href="teknik.php">Jurusan Teknik</a></li>
+        <li><a href="mipa.php">Jurusan MIPA (IPA Murni)</a></li>
     </ul>
 </main>
 </body>
-<?php include 'structure/footer.php'; ?>
+<?php include '../structure/footer.php'; ?>
 </html>

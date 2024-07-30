@@ -67,7 +67,7 @@ if ($error) {
         $insertStmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_rapot_asli (id_siswa, matematika, fisika, kimia, biologi, ekonomi, geografi, sosiologi, bahasa_indonesia, bahasa_inggris, pjok, prakarya, sejarah, ppkn, seni_budaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE 
 :
         matematika = VALUES(matematika), 
-        fisika = VALUES(fisika), 
+        fisika = VALUES(fisika),
         kimia = VALUES(kimia), 
         biologi = VALUES(biologi), 
         ekonomi = VALUES(ekonomi), 

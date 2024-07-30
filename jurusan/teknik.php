@@ -14,7 +14,7 @@ include '../database.php'; ?>
 </head>
 <body>
 <header>
-    <?php include 'structure/navbar.php'; ?>
+    <?php include '../structure/navbar.php'; ?>
 </header>
 <main>
     <h1>Jurusan Teknik</h1>
@@ -63,6 +63,6 @@ include '../database.php'; ?>
     <h3>8. Akademisi</h3>
     <p>Anda juga dapat menjadi dosen atau peneliti di perguruan tinggi atau lembaga penelitian.</p>
 </main>
-<footer><?php include 'structure/footer.php'; ?></footer>
+<footer><?php include '../structure/footer.php'; ?></footer>
 </body>
 </html>

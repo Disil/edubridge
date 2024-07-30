@@ -18,6 +18,7 @@
                 <li><a href="../hasil_rekomendasi.php">Lihat Rekomendasi Jurusan</a></li>
             </ul>
         </li>
+        <li><a href="../jurusan/list_jurusan.php">📖 Jurusan</a></li>
         <li><a href="../cara_kerja.php">🌏 Tentang</a></li>
         <li class="float-right"><a href="../logout.php"><img src="../img/icon/icons8-import-50.svg" alt="logout" class="icon">Log Out</a></li>
     </ul>
