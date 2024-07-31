@@ -4,43 +4,40 @@ global $conn;
 global $id_siswa;
 $id_siswa = $_SESSION['id_siswa'];
 
-$requiredFields =['logika', 'sains', 'soshum', 'bisnis', 'kreatif', 'terapan', 'administratif', 'sastra'];
-$error = false;
-foreach ($requiredFields as $field) {
-    if (empty($_POST[$field])) {
-        $error = true;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $logika = $_POST['logika'];
+    $sains = $_POST['sains'];
+    $soshum = $_POST['soshum'];
+    $bisnis = $_POST['bisnis'];
+    $kreatif = $_POST['kreatif'];
+    $terapan = $_POST['terapan'];
+    $administratif = $_POST['administratif'];
+    $sastra = $_POST['sastra'];
+
+    // Check if data already exists
+    $checkStmt = $conn->prepare("SELECT id_siswa FROM wpcguvfn_edubridge_db.nilai_minat WHERE id_siswa = ?");
+    $checkStmt->bind_param("i", $id_siswa);
+    $checkStmt->execute();
+    $checkStmt->store_result();
+    $dataExists = $checkStmt->num_rows > 0;
+    $checkStmt->close();
+
+    if ($dataExists) {
+        // Update existing record
+        $stmt = $conn->prepare("UPDATE wpcguvfn_edubridge_db.nilai_minat SET logika = ?, sains = ?, soshum = ?, bisnis = ?, kreatif = ?, terapan = ?, administratif = ?, sastra = ? WHERE id_siswa = ?");
+        $stmt->bind_param("iiiiiiiii", $logika, $sains, $soshum, $bisnis, $kreatif, $terapan, $administratif, $sastra, $id_siswa);
+    } else {
+        // Insert new record
+        $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("iiiiiiiii", $id_siswa, $logika, $sains, $soshum, $bisnis, $kreatif, $terapan, $administratif, $sastra);
     }
-}
 
-if ($error) {
-    echo '<div id="message" class="message success floating-message">Isi data minat terlebih dahulu.</div>';
-    echo '<script>
-    setTimeout(function() {
-        document.getElementById("message").style.display = "none";
-    }, 2000);
-</script>';
-} else {
-    $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-    $stmt->bind_param("iiiiiiiii",
-        $id_siswa,
-        $_POST['logika'],
-        $_POST['sains'],
-        $_POST['soshum'],
-        $_POST['bisnis'],
-        $_POST['kreatif'],
-        $_POST['terapan'],
-        $_POST['administratif'],
-        $_POST['sastra']
-    );
-
-    // Execute the query
     if ($stmt->execute()) {
         header("Location: minat.php?isi_minat_berhasil=true");
-        exit;
     } else {
-        echo "Error: " . $stmt->error;
+        echo "<p>Terjadi kesalahan saat menyimpan data minat. Silahkan coba lagi.</p>";
     }
+    $stmt->close();
 }
 ?>
 

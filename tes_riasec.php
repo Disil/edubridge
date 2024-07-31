@@ -73,15 +73,29 @@ include 'structure/check_conn.php';
                 $scores[$category]++;
             }
         }
+        // cek data sudah ada atau belum
+        $checkStmt = $conn->prepare("SELECT id_siswa FROM wpcguvfn_edubridge_db.nilai_riasec WHERE id_siswa = ?");
+        $checkStmt->bind_param("i", $id_siswa);
+        $checkStmt->execute();
+        $checkStmt->store_result();
+        $dataExists = $checkStmt->num_rows > 0;
+        $checkStmt->close();
 
         // fungsi untuk menghitung hasil rekomendasi jurusan
-        $buat_rekomendasi_jurusan = "CALL buat_rekomendasi_jurusan()";
+        $buat_rekomendasi_jurusan = "CALL buat_rekomendasi_jurusan();";
 
-        // hitung nilai riasec
-        $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("iiiiiii", $id_siswa, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
+        if ($dataExists) {
+            // Update existing record
+            $stmt = $conn->prepare("UPDATE wpcguvfn_edubridge_db.nilai_riasec SET R = ?, I = ?, A = ?, S = ?, E = ?, C = ? WHERE id_siswa = ?");
+            $stmt->bind_param("iiiiiii", $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C'], $id_siswa);
+        } else {
+            // Insert new record
+            $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("iiiiiii", $id_siswa, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
+        }
+
         if ($stmt->execute()) {
-            header("Location: tes_riasec_hasil.php");
+            header("Location: tes_riasec_hasil.php?isi_riasec_berhasil=true");
         } else {
             echo "<p>Terjadi kesalahan saat menyimpan jawaban. Silahkan coba lagi.</p>";
         }

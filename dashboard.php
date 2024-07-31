@@ -1,5 +1,8 @@
-<?php include 'structure/check_conn.php'; ?>
-<?php include 'database.php'; ?>
+<?php include 'structure/check_conn.php';
+include 'database.php';
+global $conn;
+global $id_siswa;
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,6 +26,64 @@
         <button onclick="window.location.href='input_nilai_rapot.php';">Input Nilai Rapot</button><br>
         <button onclick="window.location.href='tes_riasec_info.php';">Tes RIASEC</button><br>
         <button onclick="window.location.href='hasil_rekomendasi.php';">Lihat hasil rekomendasi</button>
+        <h2>Progress pengisian</h2>
+        <figure>
+            <table>
+                <thead>
+                <tr>
+                    <th>Langkah</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Input Nilai Rapot</td>
+                    <td>
+                        <?php
+                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.nilai_rapot WHERE id_siswa = '$id_siswa'");
+                        if (!$result) {
+                            echo "<p>Error: " . mysqli_error($conn) . "</p>";
+                        } elseif (mysqli_num_rows($result) == 0) {
+                            echo "<p>Belum diisi</p>";
+                        } else {
+                            echo "<p>Sudah diisi</p>";
+                        }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tes RIASEC</td>
+                    <td>
+                        <?php
+                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.nilai_riasec WHERE id_siswa = '$id_siswa'");
+                        if (!$result) {
+                            echo "<p>Error: " . mysqli_error($conn) . "</p>";
+                        } elseif (mysqli_num_rows($result) == 0) {
+                            echo "<p>Belum diisi</p>";
+                        } else {
+                            echo "<p>Sudah diisi</p>";
+                        }
+                        ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Minat</td>
+                    <td>
+                        <?php
+                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.nilai_minat WHERE id_siswa = '$id_siswa'");
+                        if (!$result) {
+                            echo "<p>Error: " . mysqli_error($conn) . "</p>";
+                        } elseif (mysqli_num_rows($result) == 0) {
+                            echo "<p>Belum diisi</p>";
+                        } else {
+                            echo "<p>Sudah diisi</p>";
+                        }
+                        ?>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </figure>
     </main>
 <footer><?php include 'structure/footer.php'; ?></footer>
 </body>

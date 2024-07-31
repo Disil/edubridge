@@ -92,6 +92,8 @@ if (isset($_GET['isi_minat_berhasil'])) {
         </tbody>
     </table>
     </figure>
+    <p>Untuk melihat hasil rekomendasi, silahkan klik tombol dibawah berikut</p>
+    <button onclick="window.location.href='hasil_rekomendasi.php'">Lihat Hasil Rekomendasi</button>
 </main>
 <?php include "structure/footer.php"?>
 </body>
