@@ -22,6 +22,14 @@ include '../database.php'; ?>
     <ul>
         <li><a href="teknik.php">Jurusan Teknik</a></li>
         <li><a href="mipa.php">Jurusan MIPA (IPA Murni)</a></li>
+        <li><a href="kedokteran.php">Jurusan Kedokteran dan Keperawatan</a></li>
+        <li><a href="ekonomi_manajemen.php">Jurusan Ekonomi, Akuntansi, dan Manajemen</a></li>
+        <li><a href="sospol.php">Jurusan Ilmu Sosial dan Politik</a></li>
+        <li><a href="farmasi.php">Jurusan Farmasi dan Kesehatan Masyarakat</a></li>
+        <li><a href="sekretaris.php">Jurusan Sekretaris dan Kearsipan</a></li>
+        <li><a href="psikologi.php">Jurusan Psikologi</a></li>
+        <li><a href="bahasa.php">Jurusan Bahasa dan Sastra</a></li>
+        <li><a href="kehutanan_pertanian.php">Jurusan Kehutanan dan Pertanian</a></li>
     </ul>
 </main>
 </body>
