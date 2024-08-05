@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p>Cara menjawab: jika kamu sangat setuju dengan pernyataan tersebut, maka pilih nomor 5. Jika kamu sangat tidak setuju, pilih nomor 1.</p>
     <form action="input_minat.php" method="post">
         <div class="question">
-            <label for="logika">Logika</label>
+            <label for="logika">Apakah kamu suka bidang yang menuntut kemampuan berpikir analitis dan memecahkan masalah kompleks?</label>
             <div class="options">
                 <label><input type="radio" id="logika" name="logika" value="1"> 1</label>
                 <label><input type="radio" id="logika" name="logika" value="2"> 2</label>
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="question">
-            <label for="sains">Sains</label>
+            <label for="sains">Apakah kamu suka bidang yang mempelajari tentang alam semesta dan segala isinya melalui observasi dan eksperimen (minat biologi)?</label>
             <div class="options">
                 <label><input type="radio" id="sains" name="sains" value="1"> 1</label>
                 <label><input type="radio" id="sains" name="sains" value="2"> 2</label>
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="question">
-            <label for="soshum">Sosial Humaniora</label>
+            <label for="soshum">Apakah kamu suka bidang yang mempelajari tentang hubungan antar manusia, budaya, dan sejarah?</label>
             <div class="options">
                 <label><input type="radio" id="soshum" name="soshum" value="1"> 1</label>
                 <label><input type="radio" id="soshum" name="soshum" value="2"> 2</label>
@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="question">
-            <label for="bisnis">Bisnis</label>
+            <label for="bisnis">Apakah kamu suka bidang yang berhubungan dengan pengelolaan keuangan, pemasaran, dan pengembangan usaha?</label>
             <div class="options">
                 <label><input type="radio" id="bisnis" name="bisnis" value="1"> 1</label>
                 <label><input type="radio" id="bisnis" name="bisnis" value="2"> 2</label>
@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="question">
-            <label for="kreatif">Kreatif</label>
+            <label for="kreatif">Apakah kamu suka bidang yang melibatkan imajinasi, seni, dan ekspresi diri?</label>
             <div class="options">
                 <label><input type="radio" id="kreatif" name="kreatif" value="1"> 1</label>
                 <label><input type="radio" id="kreatif" name="kreatif" value="2"> 2</label>
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="question">
-            <label for="terapan">terapan</label>
+            <label for="terapan">Apakah kamu suka bidang yang mengaplikasikan pengetahuan teoritis untuk memecahkan masalah praktis di dunia nyata?</label>
             <div class="options">
                 <label><input type="radio" id="terapan" name="terapan" value="1"> 1</label>
                 <label><input type="radio" id="terapan" name="terapan" value="2"> 2</label>
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
         <div class="question">
-            <label for="administratif">administratif</label>
+            <label for="administratif">Apakah kamu suka bidang yang melibatkan pengelolaan data, pengorganisasian, dan koordinasi kegiatan?</label>
             <div class="options">
                 <label><input type="radio" id="administratif" name="administratif" value="1"> 1</label>
                 <label><input type="radio" id="administratif" name="administratif" value="2"> 2</label>
@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div class="question">
-            <label for="sastra">sastra</label>
+            <label for="sastra">Apakah kamu suka bidang yang mempelajari tentang karya tulis seperti puisi, novel, dan drama?</label>
             <div class="options">
                 <label><input type="radio" id="sastra" name="sastra" value="1"> 1</label>
                 <label><input type="radio" id="sastra" name="sastra" value="2"> 2</label>
