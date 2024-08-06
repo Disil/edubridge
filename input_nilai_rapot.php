@@ -129,6 +129,7 @@ if ($error) {
 } else {
         echo '<p>Silahkan masukkan nilai rapot semester terbaru. Jika kamu tidak punya nilai untuk mata pelajaran tersebut (misalnya kamu jurusan IPA dan tidak ada pelajaran ekonomi), maka kolomnya bisa tidak diisi ataupun diisi dengan 0.</p>';
         echo '<p>Nilai yang dimasukkan boleh diambil dari nilai semester terbaru, ataupun rata-rata keseluruhan.</p>';
+        echo '<p>Nilai yang dimasukkan harus dalam bentuk angka bulat (tanpa koma), dari rentang 1-100.</p>';
     }
     ?>
     <form action="input_nilai_rapot.php" method="post">
@@ -140,8 +141,8 @@ if ($error) {
                 </tr>
                 <tr>
                     <td><label for="matematika">➕ Matematika:</label></td>
-                    <td><input type="number" id="matematika" name="matematika"</td>
-                </tr>
+                    <td><input type="number" id="matematika" name="matematika"></td>
+                </tr>Agustus 03
                 <tr>
                     <td><label for="fisika">👨‍🔬 Fisika:</label></td>
                     <td><input type="number" id="fisika" name="fisika"></td>
