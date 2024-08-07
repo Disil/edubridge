@@ -1,6 +1,8 @@
 <?php include '../structure/check_conn_admin.php';
 include '../database.php';
 global $conn;
+
+$searchTerm = $_GET['search'];
 ?>
 
 <!doctype html>
@@ -21,7 +23,21 @@ global $conn;
 </header>
 <main>
     <h1>Daftar Nilai Rapot Siswa</h1>
-    <p>Tabel nilai rapot asli milik siswa</p>
+    <div class="row">
+        <div class="col-6">
+            <p>Tabel nilai rapot asli milik siswa</p>
+        </div>
+        <div class="col-6">
+            <form action="list_nilai_rapot.php" method="get">
+                <label for="search">Cari nilai rapot siswa berdasarkan nama</label>
+                <input type="text" name="search" id="search" placeholder="Masukkan nama siswa">
+                <button type="submit">Cari</button>
+            </form>
+        </div>
+    </div>
+    <?php if ($searchTerm) {
+        echo "<b>Hasil pencarian: " . htmlspecialchars($searchTerm) . "</b>";
+    } ?>
     <table>
         <thead>
         <tr>
@@ -48,31 +64,35 @@ global $conn;
         $sql = "SELECT nra.*, s.nama_siswa
             FROM nilai_rapot_asli nra 
             JOIN siswa s ON nra.id_siswa = s.id_siswa";
+
+        if ($searchTerm) {
+            $sql .= " WHERE s.nama_siswa LIKE '%$searchTerm%'";
+        }
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row["id_siswa"] . "</td>";
-                echo "<td>" . $row["nama_siswa"] . "</td>";
-                echo "<td>" . $row["matematika"] . "</td>";
-                echo "<td>" . $row["fisika"] . "</td>";
-                echo "<td>" . $row["kimia"] . "</td>";
-                echo "<td>" . $row["biologi"] . "</td>";
-                echo "<td>" . $row["ekonomi"] . "</td>";
-                echo "<td>" . $row["geografi"] . "</td>";
-                echo "<td>" . $row["sosiologi"] . "</td>";
-                echo "<td>" . $row["bahasa_indonesia"] . "</td>";
-                echo "<td>" . $row["bahasa_inggris"] . "</td>";
-                echo "<td>" . $row["pjok"] . "</td>";
-                echo "<td>" . $row["prakarya"] . "</td>";
-                echo "<td>" . $row["sejarah"] . "</td>";
-                echo "<td>" . $row["ppkn"] . "</td>";
-                echo "<td>" . $row["seni_budaya"] . "</td>";
+                echo "<td>" . htmlspecialchars($row["id_siswa"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["nama_siswa"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["matematika"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["fisika"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["kimia"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["biologi"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["ekonomi"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["geografi"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["sosiologi"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["bahasa_indonesia"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["bahasa_inggris"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["pjok"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["prakarya"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["sejarah"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["ppkn"]) . "</td>";
+                echo "<td>" . htmlspecialchars($row["seni_budaya"]) . "</td>";
                 echo "</tr>";
             }
         } else {
-            echo "0 results";
+            echo "Belum ada nilai rapot yang dimasukkan.";
         }
         ?>
         </tbody>
