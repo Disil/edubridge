@@ -90,7 +90,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Sekretaris dan Kearsipan</b></p>
-                <img src="" alt="Ilustrasi Jurusan Sekretaris dan Kearsipan">
+                <img src="../img/ilustrasi_jurusan/isometric-disposal-of-archives-in-paper-shredder.svg" alt="Ilustrasi Jurusan Sekretaris dan Kearsipan">
                 <p>Jurusan Sekretaris dan Kearsipan adalah jurusan yang mempelajari tentang ilmu sekretaris dan kearsipan.</p>
                 <button onclick="window.location.href='sekretaris.php';">Info Selengkapnya</button>
             </div>
@@ -98,7 +98,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Psikologi</b></p>
-                <img src="" alt="Ilustrasi Jurusan Psikologi">
+                <img src="../img/ilustrasi_jurusan/bloom-42.svg" alt="Ilustrasi Jurusan Psikologi">
                 <p>Jurusan Psikologi adalah jurusan yang mempelajari tentang ilmu psikologi.</p>
                 <button onclick="window.location.href='psikologi.php';">Info Selengkapnya</button>
             </div>
@@ -108,7 +108,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Bahasa dan Sastra</b></p>
-                <img src="" alt="Ilustrasi Jurusan Bahasa dan Sastra">
+                <img src="../img/ilustrasi_jurusan/isometric-language-learning-app-on-smartphone-screen.svg" alt="Ilustrasi Jurusan Bahasa dan Sastra">
                 <p>Jurusan Bahasa dan Sastra adalah jurusan yang mempelajari tentang ilmu bahasa dan sastra.</p>
                 <button onclick="window.location.href='bahasa.php';">Info Selengkapnya</button>
             </div>
@@ -116,7 +116,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Kehutanan dan Pertanian</b></p>
-                <img src="" alt="Ilustrasi Jurusan Kehutanan dan Pertanian">
+                <img src="../img/ilustrasi_jurusan/stripy-lumberjack-with-an-ax-in-the-forest.svg" alt="Ilustrasi Jurusan Kehutanan dan Pertanian">
                 <p>Jurusan Kehutanan dan Pertanian adalah jurusan yang mempelajari tentang ilmu kehutanan dan pertanian.</p>
                 <button onclick="window.location.href='kehutanan_pertanian.php';">Info Selengkapnya</button>
             </div>
@@ -126,7 +126,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Peternakan dan Perikanan</b></p>
-                <img src="" alt="Ilustrasi Peternakan dan Perikanan">
+                <img src="../img/ilustrasi_jurusan/pablo-cow-grazing-in-a-pasture.svg" alt="Ilustrasi Peternakan dan Perikanan">
                 <p>Jurusan Peternakan dan Perikanan adalah jurusan yang mempelajari tentang ilmu peternakan dan perikanan.</p>
                 <button onclick="window.location.href='peternakan_perikanan.php';">Info Selengkapnya</button>
             </div>
@@ -134,7 +134,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Desain dan Seni</b></p>
-                <img src="" alt="Ilustrasi Jurusan Desain dan Seni">
+                <img src="../img/ilustrasi_jurusan/isometric-computer-and-drawing-tablet-for-a-digital-artist.svg" alt="Ilustrasi Jurusan Desain dan Seni">
                 <p>Jurusan Desain dan Seni adalah jurusan yang mempelajari tentang ilmu desain dan seni.</p>
                 <button onclick="window.location.href='seni.php';">Info Selengkapnya</button>
             </div>
@@ -144,7 +144,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Filsafat</b></p>
-                <img src="" alt="Ilustrasi Filsafat">
+                <img src="../img/ilustrasi_jurusan/isometric-man-watching-tv-at-home.svg" alt="Ilustrasi Filsafat">
                 <p>Jurusan Filsafat adalah jurusan yang mempelajari tentang ilmu filsafat.</p>
                 <button onclick="window.location.href='filsafat.php';">Info Selengkapnya</button>
             </div>
@@ -152,7 +152,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Kependidikan</b></p>
-                <img src="" alt="Ilustrasi Jurusan Kependidikan">
+                <img src="../img/ilustrasi_jurusan/isometric-backpack-and-stationery-for-going-back-to-school.svg" alt="Ilustrasi Jurusan Kependidikan">
                 <p>Jurusan Kependidikan adalah jurusan yang mempelajari tentang ilmu kependidikan.</p>
                 <button onclick="window.location.href='kependidikan.php';">Info Selengkapnya</button>
             </div>
@@ -162,7 +162,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Pariwisata dan Perhotelan</b></p>
-                <img src="" alt="Ilustrasi Jurusan Pariwisata dan Perhotelan">
+                <img src="../img/ilustrasi_jurusan/isometric-travel-plans-including-hotel-booking-plane-tickets-and-suitcase.svg" alt="Ilustrasi Jurusan Pariwisata dan Perhotelan">
                 <p>Jurusan Pariwisata dan Perhotelan adalah jurusan yang mempelajari tentang ilmu pariwisata dan perhotelan.</p>
                 <button onclick="window.location.href='pariwisata.php';">Info Selengkapnya</button>
             </div>
@@ -170,7 +170,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Meteorologi dan Geologi</b></p>
-                <img src="" alt="Ilustrasi Jurusan Meteorologi dan Geologi">
+                <img src="../img/ilustrasi_jurusan/lounge-searching-and-star-gazing.svg" alt="Ilustrasi Jurusan Meteorologi dan Geologi">
                 <p>Jurusan Meteorologi dan Geologi adalah jurusan yang mempelajari tentang ilmu meteorologi dan geologi.</p>
                 <button onclick="window.location.href='meteorologi.php';">Info Selengkapnya</button>
             </div>
@@ -180,7 +180,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Astronomi</b></p>
-                <img src="" alt="Ilustrasi Jurusan Astronomi">
+                <img src="../img/ilustrasi_jurusan/lounge-searching-and-star-gazing.svg" alt="Ilustrasi Jurusan Astronomi">
                 <p>Jurusan Astronomi adalah jurusan yang mempelajari tentang ilmu astronomi.</p>
                 <button onclick="window.location.href='astronomi.php';">Info Selengkapnya</button>
             </div>
