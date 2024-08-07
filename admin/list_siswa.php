@@ -1,17 +1,9 @@
 <?php include '../structure/check_conn_admin.php';
 include '../database.php';
 global $conn;
-if ($conn === null) {
-    die('Database connection is null');
-}
-$searchTerm = $_GET['search'] ?? '';
 
-if ($searchTerm) {
-    $searchTerm = mysqli_real_escape_string($conn, $searchTerm);
-    $list_user = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa WHERE nama LIKE '%$searchTerm%'");
-} else {
-    $list_user = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa");
-}
+$searchTerm = $_GET['cari'] ?? '';
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,12 +23,18 @@ if ($searchTerm) {
 </header>
 <main>
     <h1>List Siswa - for Admin</h1>
-    <p>Daftar siswa yang terdaftar di EduBridge</p>
-    <form method="get" action="list_siswa.php">
-        <label for="search">Search:</label>
-        <input type="text" name="search" id="search" placeholder="Search...">
-        <input type="submit" value="Search">
-    </form>
+    <div class="row">
+        <div class="col-6">
+            <p>Daftar siswa yang terdaftar di EduBridge. Semua data yang ada di sini adalah data yang valid dan telah terverifikasi.</p>
+        </div>
+        <div class="col">
+            <form method="get" action="list_siswa.php">
+                <label for="cari">Pencarian Nama Siswa:</label>
+                <input type="text" name="cari" id="cari" placeholder="Cari siswa berdasarkan nama..">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
     <table>
         <tr>
             <th>Nama Siswa</th>
@@ -48,20 +46,24 @@ if ($searchTerm) {
             <th>Gender</th>
         </tr>
         <?php
-        $list_user = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa");
-        while ($query = mysqli_fetch_array($list_user)) {
-            ?>
-            <tr>
-                <td><?php echo $query['nama_siswa']; ?></td>
-                <td><?php echo $query['email']; ?></td>
-                <td><?php echo $query['tanggal_lahir']; ?></td>
-                <td><?php echo $query['asal_sekolah']; ?></td>
-                <td><?php echo $query['kelas']; ?></td>
-                <td><?php echo $query['tgl_buat_akun']; ?></td>
-                <td><?php echo $query['jenis_kelamin']; ?></td>
-        <?php
-        }  ?>
-            </tr>
+        $query = "SELECT * FROM wpcguvfn_edubridge_db.siswa";
+        if ($searchTerm) {
+            $query .= " WHERE nama_siswa LIKE '%" . mysqli_real_escape_string($conn, $searchTerm) . "%'";
+        }
+
+        $list_user = mysqli_query($conn, $query);
+        while ($row = mysqli_fetch_array($list_user)) {
+        ?>
+        <tr>
+            <td><?php echo htmlspecialchars($row['nama_siswa']); ?></td>
+            <td><?php echo htmlspecialchars($row['email']); ?></td>
+            <td><?php echo htmlspecialchars($row['tanggal_lahir']); ?></td>
+            <td><?php echo htmlspecialchars($row['asal_sekolah']); ?></td>
+            <td><?php echo htmlspecialchars($row['kelas']); ?></td>
+            <td><?php echo htmlspecialchars($row['tgl_buat_akun']); ?></td>
+            <td><?php echo htmlspecialchars($row['jenis_kelamin']); ?></td>
+        </tr>
+        <?php } ?>
     </table>
     <?php include '../structure/footer.php'; ?>
 </main>
