@@ -122,6 +122,96 @@ include '../database.php'; ?>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Peternakan dan Perikanan</b></p>
+                <img src="" alt="Ilustrasi Peternakan dan Perikanan">
+                <p>Jurusan Peternakan dan Perikanan adalah jurusan yang mempelajari tentang ilmu peternakan dan perikanan.</p>
+                <button onclick="window.location.href='peternakan_perikanan.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Desain dan Seni</b></p>
+                <img src="" alt="Ilustrasi Jurusan Desain dan Seni">
+                <p>Jurusan Desain dan Seni adalah jurusan yang mempelajari tentang ilmu desain dan seni.</p>
+                <button onclick="window.location.href='seni.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Filsafat</b></p>
+                <img src="" alt="Ilustrasi Filsafat">
+                <p>Jurusan Filsafat adalah jurusan yang mempelajari tentang ilmu filsafat.</p>
+                <button onclick="window.location.href='filsafat.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Kependidikan</b></p>
+                <img src="" alt="Ilustrasi Jurusan Kependidikan">
+                <p>Jurusan Kependidikan adalah jurusan yang mempelajari tentang ilmu kependidikan.</p>
+                <button onclick="window.location.href='kependidikan.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Pariwisata dan Perhotelan</b></p>
+                <img src="" alt="Ilustrasi Jurusan Pariwisata dan Perhotelan">
+                <p>Jurusan Pariwisata dan Perhotelan adalah jurusan yang mempelajari tentang ilmu pariwisata dan perhotelan.</p>
+                <button onclick="window.location.href='pariwisata.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Meteorologi dan Geologi</b></p>
+                <img src="" alt="Ilustrasi Jurusan Meteorologi dan Geologi">
+                <p>Jurusan Meteorologi dan Geologi adalah jurusan yang mempelajari tentang ilmu meteorologi dan geologi.</p>
+                <button onclick="window.location.href='meteorologi.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Astronomi</b></p>
+                <img src="" alt="Ilustrasi Jurusan Astronomi">
+                <p>Jurusan Astronomi adalah jurusan yang mempelajari tentang ilmu astronomi.</p>
+                <button onclick="window.location.href='astronomi.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Antropologi dan Sejarah</b></p>
+                <img src="" alt="Ilustrasi Jurusan Antropologi dan Sejarah">
+                <p>Jurusan Antropologi dan Sejarah adalah jurusan yang mempelajari tentang ilmu antropologi dan sejarah.</p>
+                <button onclick="window.location.href='antropologi.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Komunikasi</b></p>
+                <img src="" alt="Ilustrasi Jurusan Komunikasi">
+                <p>Jurusan Komunikasi adalah jurusan yang mempelajari tentang ilmu komunikasi.</p>
+                <button onclick="window.location.href='komunikasi.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card info">
+                <p><b>Jurusan Lingkungan Hidup</b></p>
+                <img src="" alt="Ilustrasi Jurusan Lingkungan Hidup">
+                <p>Jurusan Lingkungan Hidup adalah jurusan yang mempelajari tentang ilmu lingkungan hidup.</p>
+                <button onclick="window.location.href='lingkungan.php';">Info Selengkapnya</button>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 <?php include '../structure/footer.php'; ?>
