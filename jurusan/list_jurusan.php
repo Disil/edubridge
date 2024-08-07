@@ -10,6 +10,18 @@ include '../database.php'; ?>
     <link rel="stylesheet" href="../css/classless.css">
     <link rel="stylesheet" href="../css/tabbox.css">
     <link rel="stylesheet" href="../css/themes.css">
+    <script rel="script" src="../js/cekwarnadominan.js"></script>
+    <style>
+        img, svg {
+            max-width: 70%;
+            height: auto;
+            margin: auto;
+            display: inherit;
+        }
+        card {
+            filter: blur(10px);
+        }
+    </style>
     <title>EduBridge - Daftar Jurusan</title>
 </head>
 <body>
