@@ -6,10 +6,9 @@ EduBridge adalah situs web yang akan membantu siswa sekolah menengah atas dalam 
 Didalam situs ini, siswa dapat melakukan hal berikut:
 1. Penghitungan Nilai Rapot
 2. Mengambil Tes RIASEC
-3. Mendapatkan rekomendasi jurusan kuliah
-4. Mendapatkan pengetahuan mengenai prospek kerja pada suatu jurusan
-
-> Fitur dibawah ini masih dalam pengembangan...
+3. Memasukkan minat pribadi
+4. Mendapatkan rekomendasi jurusan kuliah
+5. Mendapatkan pengetahuan mengenai kegiatan pembelajaran serta prospek karir pada suatu jurusan kuliah
 
 Sebagai admin, terdapat fitur untuk memudahkan pengelolaan data siswa dan acuan jurusan kuliah. Fitur ini meliputi:
 1. Menambahkan, mengubah, dan menghapus data siswa
@@ -21,7 +20,7 @@ Sebagai admin, terdapat fitur untuk memudahkan pengelolaan data siswa dan acuan 
 
 EduBridge lahir dari keresahan peneliti terhadap kondisi perkuliahan di Indonesia saat ini. Faktanya, banyak mahasiswa yang merasa tidak cocok dengan jurusan yang mereka pilih. Hal ini disebabkan oleh berbagai faktor, seperti kurangnya informasi, tekanan dari orang tua, atau kurangnya pemahaman tentang minat dan bakat mereka sendiri.
 
-Oleh karena itu, kami tergerak untuk membuat situs EduBridge. Situs ini bertujuan untuk menyederhanakan proses ini dengan memberikan rekomendasi jurusan berdasarkan hasil analisis kinerja akademis siswa (dalam bentuk nilai rapot), menggabungkannya dengan hasil tes RIASEC (Realistic, Investigative, Artistic, Social, Enterprising, Conventional).
+Oleh karena itu, kami tergerak untuk membuat situs EduBridge. Situs ini bertujuan untuk menyederhanakan proses ini dengan memberikan rekomendasi jurusan berdasarkan hasil analisis kinerja akademis siswa (dalam bentuk nilai rapot), menggabungkannya dengan hasil tes RIASEC (Realistic, Investigative, Artistic, Social, Enterprising, Conventional), dan juga digabungkan dengan minat siswa.
 
 ## Teknologi
 
@@ -30,9 +29,14 @@ Teknologi yang digunakan dalam projek ini adalah sebagai berikut:
 - Frontend: HTML, CSS, JavaScript
 - Framework: ~~Bootstrap 5~~ (dihapus karena tidak digunakan)
 - Backend: PHP
-- Database: MariaDB (MySQL versi open-source)
+- Database: MariaDB (MySQL)
 - Algoritma: Fuzzy MCDM (Multi-Criteria Decision Making) berbasis Fuzzy Triangle Number
-- IDE: PhpStorm (JetBrains IDE) dan Visual Studio Code di Debian 12
+- IDE: IntelliJIDEA (JetBrains IDE) di Debian 12
+
+## Cara Penggunaan
+Buka halaman situs [edubridge.my.id](https://edubridge.my.id), Anda bisa menggunakan akun siswa untuk login, dan jika belum ada, silahkan daftar akun terlebih dahulu.
+
+~~Selama masa pengembangan, peneliti menggunakan PHP-Builtin server dalam menjalankan website. Jikalau anda ingin menjalankannya, silahkan menggunakan XAMPP dan import database yang sudah disediakan ke dalam *data source* MySQL. Jika sudah, silahkan buka situs ini di browser dengan mengetikkan `localhost/edubridge`.~~
 
 ## OPSI 2024
 
@@ -50,18 +54,9 @@ EduBridge dikembangkan oleh tim peneliti Edulogy yang berasal dari SMA Negeri 1 
 
 Terima kasih kepada Ibu Nur Asmainah, S.Kom. selaku pembimbing sejak awal hingga saat ini. Tak lupa pula terima kasih kepada orang tua, teman-teman, dan semua pihak yang telah membantu dalam proses pengembangan projek ini.
 
-## Cara Penggunaan
-
-> **Catatan**: Website belum selesai dibuat, masih dalam tahap pengembangan.
-
-Selama masa pengembangan, peneliti menggunakan PHP-Builtin server dalam menjalankan website. Jikalau anda ingin menjalankannya, silahkan menggunakan XAMPP dan import database yang sudah disediakan ke dalam *data source* MySQL. Jika sudah, silahkan buka situs ini di browser dengan mengetikkan `localhost/edubridge`.
-
-## Kontribusi
-
-Projek ini bersifat *open-source*, yang berarti semua orang boleh memodifikasi dan mempublish ulang source code ini. Kami mendukung penelitian lebih lanjut untuk pengembangan sistem pendukung keputusan (SPK) dalam bidang pendidikan. Jika anda tertarik untuk berkontribusi, silahkan fork projek ini dan buat _pull request_.
-
 ---
+## Hak Cipta dan Kontribusi
 
-## Lisensi
+Projek ini bersifat *open-source*, yang berarti siapapun boleh memodifikasi dan mempublish ulang _source code_ ini. Kami mendukung penelitian lebih lanjut untuk pengembangan sistem pendukung keputusan (SPK) dalam bidang pendidikan. Jika anda tertarik untuk berkontribusi, silahkan fork projek ini dan buat _pull request_.
 
-Proyek ini menggunakan lisensi GPLv3 - silahkan lihat [LICENSE.md](LICENSE) untuk informasi lebih lanjut.
+Projek ini menggunakan lisensi GPLv3 - silahkan lihat [LICENSE.md](LICENSE) untuk informasi lebih lanjut.
