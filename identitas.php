@@ -29,9 +29,9 @@ $user = mysqli_fetch_assoc($result);
     <p>Anda dapat mengubah informasi identitas Anda di sini.</p>
     <form action="identitas.php" method="post">
         <fieldset>
-            <label for="nama">Nama</label>
-            <input type="text" name="nama" id="nama" value="<?php echo $user['nama']; ?>" required disabled>
-            <button type="button" onclick="document.getElementById('nama').disabled = false;">Edit</button>
+            <label for="nama_siswa">Nama</label>
+            <input type="text" name="nama_siswa" id="nama_siswa" value="<?php echo $user['nama_siswa']; ?>" required disabled>
+            <button type="button" onclick="document.getElementById('nama_siswa').disabled = false;">Edit</button>
             <br><br>
 
             <label for="email">Alamat Email</label>
@@ -63,10 +63,10 @@ $user = mysqli_fetch_assoc($result);
             <button type="button" onclick="document.getElementById('asal_sekolah').disabled = false;">Edit</button>
             <br><br>
 
-            <label for="gender">Gender:</label><br>
-            <input type="radio" id="Pria" name="gender" value="Pria" <?php if ($user['gender'] == 'Pria') echo 'checked'; ?> disabled>
+            <label for="jenis_kelamin">Jenis Kelamin:</label><br>
+            <input type="radio" id="Pria" name="jenis_kelamin" value="Pria" <?php if ($user['jenis_kelamin'] == 'Pria') echo 'checked'; ?> disabled>
             <label for="Pria">Pria</label><br>
-            <input type="radio" id="Wanita" name="gender" value="Wanita" <?php if ($user['gender'] == 'Wanita') echo 'checked'; ?> disabled>
+            <input type="radio" id="Wanita" name="jenis_kelamin" value="Wanita" <?php if ($user['jenis_kelamin'] == 'Wanita') echo 'checked'; ?> disabled>
             <label for="Wanita">Wanita</label><br>
             <button type="button" onclick="document.getElementById('Pria').disabled = false; document.getElementById('Wanita').disabled = false;">Edit</button>
             <br><br>
