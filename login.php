@@ -3,32 +3,30 @@ include "database.php";
 global $conn;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = $_POST['password']; // Don't escape passwords
+    $password = $_POST['password'];
 
-    // Look up the user in the database
+    // Cek siswa apakah ada di database
     $result = mysqli_query($conn, "SELECT * FROM siswa WHERE email = '$email'");
     $user = mysqli_fetch_assoc($result);
 
     if ($user) {
-        // Verify the password using password_verify()
+        // Verifikasi password apakah sesuai
         if (password_verify($password, $user['password'])) {
-            // The password is correct, so start a session
             session_start();
             $_SESSION['email'] = $user['email'];
             $_SESSION['id_siswa'] = $user['id_siswa'];
             $_SESSION['nama_siswa'] = $user['nama_siswa'];
             $_SESSION['asal_sekolah'] = $user['asal_sekolah'];
 
-            // Redirect the user to the dashboard or wherever you want them to go after logging in
             header('Location: dashboard.php');
             exit;
         } else {
-            // The password is incorrect
+            // Password Salah
             echo '<div class="message error floating-message">Password salah, silahkan coba lagi</div>';
         }
     } else {
-        // The user doesn't exist
-        echo '<div class="message error floating-message">User tidak ditemukan</div>';
+        // User tidak ada
+        echo '<div class="message error floating-message">Akun tidak ditemukan, silahkan buat akun terlebih dahulu</div>';
     }
 }
 ?>
@@ -51,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
     <main>
     <h1>Login - Siswa</h1>
-        <p>Untuk mengakses fitur Edubridge, silahkan login terlebih dahulu.</p>
+    <p>Selamat datang di Edubridge!</p>
+        <p>Untuk memulai menggunakan EduBridge, silahkan login akun terlebih dahulu.</p>
         <form action="login.php" method="post">
             <fieldset>
                 <legend>Masuk Akun</legend>
@@ -65,13 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <fieldset>
             <legend>Opsi Lainnya</legend>
             <div class="row">
-                <div class="col-4">
-                    <button disabled onclick="window.location.href='forgot_password.php';">🔑 Lupa kata sandi?</button>
-                </div>
-                <div class="col-4">
+                <div class="col-6">
                     <button onclick="window.location.href='register.php';">🌐 Belum punya akun?</button>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <button onclick="window.location.href='admin/login_admin.php';">🗝️ Login khusus admin</button>
                 </div>
             </div>
