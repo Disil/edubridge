@@ -188,7 +188,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Antropologi dan Sejarah</b></p>
-                <img src="" alt="Ilustrasi Jurusan Antropologi dan Sejarah">
+                <img src="../img/ilustrasi_jurusan/tiny-woman-and-a-man-studying-history.svg" alt="Ilustrasi Jurusan Antropologi dan Sejarah">
                 <p>Jurusan Antropologi dan Sejarah adalah jurusan yang mempelajari tentang ilmu antropologi dan sejarah.</p>
                 <button onclick="window.location.href='antropologi.php';">Info Selengkapnya</button>
             </div>
@@ -198,7 +198,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Komunikasi</b></p>
-                <img src="" alt="Ilustrasi Jurusan Komunikasi">
+                <img src="../img/ilustrasi_jurusan/isometric-people-talking-on-online-dating-platform.svg" alt="Ilustrasi Jurusan Komunikasi">
                 <p>Jurusan Komunikasi adalah jurusan yang mempelajari tentang ilmu komunikasi.</p>
                 <button onclick="window.location.href='komunikasi.php';">Info Selengkapnya</button>
             </div>
@@ -206,7 +206,7 @@ include '../database.php'; ?>
         <div class="col-6">
             <div class="card info">
                 <p><b>Jurusan Lingkungan Hidup</b></p>
-                <img src="" alt="Ilustrasi Jurusan Lingkungan Hidup">
+                <img src="../img/ilustrasi_jurusan/urban-line-eco-planet.svg" alt="Ilustrasi Jurusan Lingkungan Hidup">
                 <p>Jurusan Lingkungan Hidup adalah jurusan yang mempelajari tentang ilmu lingkungan hidup.</p>
                 <button onclick="window.location.href='lingkungan.php';">Info Selengkapnya</button>
             </div>

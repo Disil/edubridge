@@ -1,4 +1,5 @@
 [Dolphin]
-Timestamp=2024,8,7,21,19,15.052
+SortRole=modificationtime
+Timestamp=2024,8,8,17,31,26.292
 Version=4
 VisibleRoles=Details_text,Details_size,Details_modificationtime,Details_type,CustomizedDetails
