@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sastra = $_POST['sastra'];
 
     // Check if data already exists
-    $checkStmt = $conn->prepare("SELECT id_siswa FROM wpcguvfn_edubridge_db.nilai_minat WHERE id_siswa = ?");
+    $checkStmt = $conn->prepare("SELECT id_siswa FROM wpcguvfn_db.nilai_minat WHERE id_siswa = ?");
     $checkStmt->bind_param("i", $id_siswa);
     $checkStmt->execute();
     $checkStmt->store_result();
@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($dataExists) {
         // Update existing record
-        $stmt = $conn->prepare("UPDATE wpcguvfn_edubridge_db.nilai_minat SET logika = ?, sains = ?, soshum = ?, bisnis = ?, kreatif = ?, terapan = ?, administratif = ?, sastra = ? WHERE id_siswa = ?");
+        $stmt = $conn->prepare("UPDATE wpcguvfn_db.nilai_minat SET logika = ?, sains = ?, soshum = ?, bisnis = ?, kreatif = ?, terapan = ?, administratif = ?, sastra = ? WHERE id_siswa = ?");
         $stmt->bind_param("iiiiiiiii", $logika, $sains, $soshum, $bisnis, $kreatif, $terapan, $administratif, $sastra, $id_siswa);
     } else {
         // Insert new record
-        $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO wpcguvfn_db.nilai_minat (id_siswa, logika, sains, soshum, bisnis, kreatif, terapan, administratif, sastra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("iiiiiiiii", $id_siswa, $logika, $sains, $soshum, $bisnis, $kreatif, $terapan, $administratif, $sastra);
     }
 

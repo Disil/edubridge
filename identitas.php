@@ -3,7 +3,7 @@
     global $conn;
     global $id_siswa;
 // Execute SQL query
-$result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.siswa WHERE id_siswa = $id_siswa");
+$result = mysqli_query($conn, "SELECT * FROM siswa WHERE id_siswa = $id_siswa");
 
 // Fetch data
 $user = mysqli_fetch_assoc($result);
@@ -18,14 +18,14 @@ $user = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="css/classless.css">
     <link rel="stylesheet" href="css/tabbox.css">
     <link rel="stylesheet" href="css/themes.css">
-    <title>Edubridge - Edit Identitas Anda</title>
+    <title>Edubridge - Edit Identitas</title>
 </head>
 <body>
 <header>
     <?php include 'structure/navbar.php'; ?>
 </header>
 <main>
-    <h1>Edit Identitas Anda</h1>
+    <h1>Edit Identitas</h1>
     <p>Anda dapat mengubah informasi identitas Anda di sini.</p>
     <form action="identitas.php" method="post">
         <fieldset>

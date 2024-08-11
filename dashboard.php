@@ -40,7 +40,7 @@ global $id_siswa;
                     <td>Input Nilai Rapot</td>
                     <td>
                         <?php
-                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.nilai_rapot WHERE id_siswa = '$id_siswa'");
+                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_db.nilai_rapot WHERE id_siswa = '$id_siswa'");
                         if (!$result) {
                             echo "<p>Error: " . mysqli_error($conn) . "</p>";
                         } elseif (mysqli_num_rows($result) == 0) {
@@ -55,7 +55,7 @@ global $id_siswa;
                     <td>Tes RIASEC</td>
                     <td>
                         <?php
-                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.nilai_riasec WHERE id_siswa = '$id_siswa'");
+                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_db.nilai_riasec WHERE id_siswa = '$id_siswa'");
                         if (!$result) {
                             echo "<p>Error: " . mysqli_error($conn) . "</p>";
                         } elseif (mysqli_num_rows($result) == 0) {
@@ -70,7 +70,7 @@ global $id_siswa;
                     <td>Minat</td>
                     <td>
                         <?php
-                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.nilai_minat WHERE id_siswa = '$id_siswa'");
+                        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_db.nilai_minat WHERE id_siswa = '$id_siswa'");
                         if (!$result) {
                             echo "<p>Error: " . mysqli_error($conn) . "</p>";
                         } elseif (mysqli_num_rows($result) == 0) {

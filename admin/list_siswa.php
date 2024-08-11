@@ -46,7 +46,7 @@ $searchTerm = $_GET['cari'] ?? '';
             <th>Gender</th>
         </tr>
         <?php
-        $query = "SELECT * FROM wpcguvfn_edubridge_db.siswa";
+        $query = "SELECT * FROM wpcguvfn_db.siswa";
         if ($searchTerm) {
             $query .= " WHERE nama_siswa LIKE '%" . mysqli_real_escape_string($conn, $searchTerm) . "%'";
         }

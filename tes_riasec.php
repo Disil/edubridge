@@ -74,7 +74,7 @@ include 'structure/check_conn.php';
             }
         }
         // cek data sudah ada atau belum
-        $checkStmt = $conn->prepare("SELECT id_siswa FROM wpcguvfn_edubridge_db.nilai_riasec WHERE id_siswa = ?");
+        $checkStmt = $conn->prepare("SELECT id_siswa FROM wpcguvfn_db.nilai_riasec WHERE id_siswa = ?");
         $checkStmt->bind_param("i", $id_siswa);
         $checkStmt->execute();
         $checkStmt->store_result();
@@ -86,11 +86,11 @@ include 'structure/check_conn.php';
 
         if ($dataExists) {
             // Update existing record
-            $stmt = $conn->prepare("UPDATE wpcguvfn_edubridge_db.nilai_riasec SET R = ?, I = ?, A = ?, S = ?, E = ?, C = ? WHERE id_siswa = ?");
+            $stmt = $conn->prepare("UPDATE wpcguvfn_db.nilai_riasec SET R = ?, I = ?, A = ?, S = ?, E = ?, C = ? WHERE id_siswa = ?");
             $stmt->bind_param("iiiiiii", $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C'], $id_siswa);
         } else {
             // Insert new record
-            $stmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO wpcguvfn_db.nilai_riasec (id_siswa, R, I, A, S, E, C) VALUES (?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("iiiiiii", $id_siswa, $scores['R'], $scores['I'], $scores['A'], $scores['S'], $scores['E'], $scores['C']);
         }
 
@@ -110,7 +110,7 @@ include 'structure/check_conn.php';
         }
 
     } else {
-        $sql = "SELECT * FROM wpcguvfn_edubridge_db.soal_riasec ORDER BY id_soal";
+        $sql = "SELECT * FROM wpcguvfn_db.soal_riasec ORDER BY id_soal";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {

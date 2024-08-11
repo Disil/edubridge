@@ -4,7 +4,7 @@ global $conn;
 global $id_siswa;
 
 // kueri untuk lihat minat yg sudah dimasukkan
-$query = "SELECT * FROM wpcguvfn_edubridge_db.nilai_minat WHERE id_siswa = $id_siswa";
+$query = "SELECT * FROM wpcguvfn_db.nilai_minat WHERE id_siswa = $id_siswa";
 $result = mysqli_query($conn, $query);
 $dataMinat = [];
 

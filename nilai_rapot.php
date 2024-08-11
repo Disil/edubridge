@@ -5,7 +5,7 @@ global $conn;
 global $id_siswa;
 
 // SQL query to fetch the nilai_rapot_asli for the current user
-$query = "SELECT * FROM wpcguvfn_edubridge_db.nilai_rapot WHERE id_siswa = $id_siswa";
+$query = "SELECT * FROM wpcguvfn_db.nilai_rapot WHERE id_siswa = $id_siswa";
 $result = mysqli_query($conn, $query);
 $dataRapot = [];
 
@@ -41,7 +41,7 @@ if (isset($_GET['isi_nilai_berhasil'])) {
 <body>
 <?php include "structure/navbar.php" ?>
 <main>
-    <h1>Lihat Nilai Rapot</h1>
+    <h1>Perhitungan Nilai Rapot</h1>
     <div class="row">
         <div class="col">
             <br>

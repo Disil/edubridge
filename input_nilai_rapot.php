@@ -37,7 +37,7 @@ if ($error) {
         $adaRapot = true;
 
         // Prosedur untuk UPDATE nilai rapot
-        $updateStmt = $conn->prepare("UPDATE wpcguvfn_edubridge_db.nilai_rapot_asli SET matematika = ?, fisika = ?, kimia = ?, biologi = ?, ekonomi = ?, geografi = ?, sosiologi = ?, bahasa_indonesia = ?, bahasa_inggris = ?, pjok = ?, prakarya = ?, sejarah = ?, ppkn = ?, seni_budaya = ? WHERE id_siswa = ?");
+        $updateStmt = $conn->prepare("UPDATE wpcguvfn_db.nilai_rapot_asli SET matematika = ?, fisika = ?, kimia = ?, biologi = ?, ekonomi = ?, geografi = ?, sosiologi = ?, bahasa_indonesia = ?, bahasa_inggris = ?, pjok = ?, prakarya = ?, sejarah = ?, ppkn = ?, seni_budaya = ? WHERE id_siswa = ?");
         $updateStmt->bind_param("iiiiiiiiiiiiiii",
             $_POST['matematika'],
             $_POST['fisika'],
@@ -64,7 +64,7 @@ if ($error) {
     } else {
         $adaRapot = false;
         // Jika data belum ada, lakukan INSERT
-        $insertStmt = $conn->prepare("INSERT INTO wpcguvfn_edubridge_db.nilai_rapot_asli (id_siswa, matematika, fisika, kimia, biologi, ekonomi, geografi, sosiologi, bahasa_indonesia, bahasa_inggris, pjok, prakarya, sejarah, ppkn, seni_budaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE 
+        $insertStmt = $conn->prepare("INSERT INTO wpcguvfn_db.nilai_rapot_asli (id_siswa, matematika, fisika, kimia, biologi, ekonomi, geografi, sosiologi, bahasa_indonesia, bahasa_inggris, pjok, prakarya, sejarah, ppkn, seni_budaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE 
 :
         matematika = VALUES(matematika), 
         fisika = VALUES(fisika),

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "wpcguvfn_user";
 $password = "EduBridgeID";
-$dbname = "wpcguvfn_edubridge_db";
+$dbname = "wpcguvfn_db";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

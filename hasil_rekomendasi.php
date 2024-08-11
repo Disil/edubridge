@@ -46,7 +46,7 @@ if (isset($_POST['buat_rekomendasi'])) {
     <h2 style="text-align: center;">Informasi Jurusan</h2>
     <figure>
         <?php
-        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_edubridge_db.hasil_rekomendasi WHERE id_siswa = '$id_siswa'");
+        $result = mysqli_query($conn, "SELECT * FROM wpcguvfn_db.hasil_rekomendasi WHERE id_siswa = '$id_siswa'");
         if (!$result) {
             echo "<p>Error: " . mysqli_error($conn) . "</p>";
         } elseif (mysqli_num_rows($result) == 0) {
