@@ -12,6 +12,7 @@ if (isset($_POST['buat_rekomendasi'])) {
         setTimeout(function() {
             document.getElementById("message").style.display = "none";
         }, 1000);
+        document.getElementById("form_rekomendasi").style.display = "none";
     </script>';
     } else {
         echo "Gagal membuat rekomendasi jurusan: " . mysqli_error($conn);
@@ -38,8 +39,8 @@ if (isset($_POST['buat_rekomendasi'])) {
 <main>
     <h1>Hasil Rekomendasi Jurusan Perguruan Tinggi</h1>
     <p>Di halaman ini kamu bisa melihat hasil rekomendasi jurusan perguruan tinggi berdasarkan nilai rapot dan tes minat yang sudah anda kerjakan sebelumnya.</p>
-    <p>Silahkan klik tombol dibawah ini untuk melihat hasil rekomendasi jurusan perguruan tinggi.</p>
-    <form method="post">
+    <p id="form_rekomendasi">Silahkan klik tombol dibawah ini untuk melihat hasil rekomendasi jurusan perguruan tinggi.</p>
+    <form id="form_rekomendasi" method="post">
         <button type="submit" name="buat_rekomendasi">Buat Rekomendasi Jurusan</button>
     </form>
     <h2 style="text-align: center;">Informasi Jurusan</h2>
