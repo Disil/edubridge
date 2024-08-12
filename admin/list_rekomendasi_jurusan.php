@@ -21,8 +21,40 @@ global $conn;
 <main>
     <h1>Hasil Rekomendasi Jurusan PT Siswa</h1>
     <p>Tabel hasil rekomendasi jurusan PT siswa</p>
+    <table>
+        <thead>
+        <tr>
+            <th>ID Siswa</th>
+            <th>Nama</th>
+            <th>Rekomendasi Jurusan</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $sql = "SELECT hr.*, s.nama_siswa
+            FROM hasil_rekomendasi hr 
+            JOIN siswa s ON hr.id_siswa = s.id_siswa";
+        $result = $conn->query($sql);
 
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>" . $row["id_siswa"] . "</td>";
+                echo "<td>" . $row["nama_siswa"] . "</td>";
+                echo "<td>" . $row["Jurusan_1"] . "</td>";
+                echo "<td>" . $row["Jurusan_2"] . "</td>";
+                echo "<td>" . $row["Jurusan_3"] . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='3'>Tidak ada data</td></tr>";
+        }
+        ?>
+        </tbody>
+    </table>
 </main>
-<?php include "../structure/footer.php" ?>
+<footer>
+    <?php include '../structure/footer.php'; ?>
+</footer>
 </body>
 </html>

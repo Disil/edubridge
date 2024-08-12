@@ -20,6 +20,7 @@ include '../database.php';
 <main>
     <h1>Dashboard</h1>
     <p>Selamat datang, <?php echo $_SESSION['username']?></p>
+    <p>Sebagai admin, Anda dapat melihat daftar siswa dan melihat nilai rapot, riasec, serta hasil analisis minat mereka.</p>
 </main>
 <footer><?php include '../structure/footer.php'; ?></footer>
 </body>
