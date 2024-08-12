@@ -36,7 +36,7 @@
             <label for="realistic">Realistic</label>
             <div class="tab">
                 <h4>Realistic</h4>
-                <p>Orang yang memiliki tipe kepribadian ini cenderung suka bekerja dengan hal-hal yang konkret dan praktis. Mereka biasanya menyukai aktivitas yang melibatkan keterampilan fisik dan mekanis.</p>
+                <p>Orang yang memiliki tipe kepribadian ini cenderung suka bekerja dengan hal-hal yang konkret dan praktis. Mereka biasanya menyukai aktivitas yang melibatkan keterampilan fisik dan mekanik.</p>
             </div>
 
             <input type="radio" name="tabs" id="investigative">

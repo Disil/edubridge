@@ -27,7 +27,7 @@ if ($error) {
     </script>';
 } else {
     // Periksa apakah data sudah ada di database
-    $checkStmt = $conn->prepare("SELECT id_siswa FROM nilai_rapot_asli WHERE id_siswa = ?");
+    $checkStmt = $conn->prepare("SELECT id_siswa FROM wpcguvfn_db.nilai_rapot_asli WHERE id_siswa = ?");
     $checkStmt->bind_param("i", $_SESSION['id_siswa']);
     $checkStmt->execute();
     $checkStmt->store_result();
@@ -65,7 +65,6 @@ if ($error) {
         $adaRapot = false;
         // Jika data belum ada, lakukan INSERT
         $insertStmt = $conn->prepare("INSERT INTO wpcguvfn_db.nilai_rapot_asli (id_siswa, matematika, fisika, kimia, biologi, ekonomi, geografi, sosiologi, bahasa_indonesia, bahasa_inggris, pjok, prakarya, sejarah, ppkn, seni_budaya) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE 
-:
         matematika = VALUES(matematika), 
         fisika = VALUES(fisika),
         kimia = VALUES(kimia), 
@@ -142,7 +141,7 @@ if ($error) {
                 <tr>
                     <td><label for="matematika">➕ Matematika:</label></td>
                     <td><input type="number" id="matematika" name="matematika"></td>
-                </tr>Agustus 03
+                </tr>
                 <tr>
                     <td><label for="fisika">👨‍🔬 Fisika:</label></td>
                     <td><input type="number" id="fisika" name="fisika"></td>
