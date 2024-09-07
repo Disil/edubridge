@@ -27,21 +27,18 @@ Oleh karena itu, kami tergerak untuk membuat situs EduBridge. Situs ini bertujua
 Teknologi yang digunakan dalam projek ini adalah sebagai berikut:
 
 - Frontend: HTML, CSS, JavaScript
-- Framework: ~~Bootstrap 5~~ (dihapus karena tidak digunakan)
 - Backend: PHP
 - Database: MariaDB (MySQL)
 - Algoritma: Fuzzy MCDM (Multi-Criteria Decision Making) berbasis Fuzzy Triangle Number
-- IDE: IntelliJIDEA (JetBrains IDE) di Debian 12
+- IDE: PhpStorm (JetBrains IDE) di Debian 12
 
 ## Cara Penggunaan
 Buka halaman situs [edubridge.my.id](https://edubridge.my.id), Anda bisa menggunakan akun siswa untuk login, dan jika belum ada, silahkan daftar akun terlebih dahulu.
 
-~~Selama masa pengembangan, peneliti menggunakan PHP-Builtin server dalam menjalankan website. Jikalau anda ingin menjalankannya, silahkan menggunakan XAMPP dan import database yang sudah disediakan ke dalam *data source* MySQL. Jika sudah, silahkan buka situs ini di browser dengan mengetikkan `localhost/edubridge`.~~
-
 ## OPSI 2024
 
 EduBridge dibuat dalam rangka [Olimpiade Penelitian Siswa Indonesia (OPSI) 2024](https://sma.pusatprestasinasional.kemdikbud.go.id/opsi/).
-Kami berharap dengan adanya situs ini, siswa dapat memilih jurusan kuliah mereka dengan lebih bijak dan sesuai dengan minat dan bakat mereka. Tentu, banyak faktor lain yang harus dipertimbangkan. Namun kami harap, situs ini dapat membantu meyakinkan diri sendiri jika _galau_ terkait dengan pilihan jurusan.
+Kami berharap dengan adanya situs ini, siswa dapat memilih jurusan kuliah mereka dengan lebih bijak dan sesuai dengan minat dan bakat mereka. Tentu, banyak faktor lain yang harus dipertimbangkan. Namun kami harap, situs ini dapat membantu meyakinkan diri sendiri jika merasa ragu dengan pilihan jurusan sebelumnya.
 
 ### Tim Pengembang
 
@@ -49,10 +46,6 @@ EduBridge dikembangkan oleh tim peneliti Edulogy yang berasal dari SMA Negeri 1 
 
 1. Satria Nugraha (Peneliti 1)
 2. Muhammad Raja Ghathfaan (Peneliti 2)
-
-### Ucapan Terima Kasih
-
-Terima kasih kepada Ibu Nur Asmainah, S.Kom. selaku pembimbing sejak awal hingga saat ini. Tak lupa pula terima kasih kepada orang tua, teman-teman, dan semua pihak yang telah membantu dalam proses pengembangan projek ini.
 
 ---
 ## Hak Cipta dan Kontribusi
