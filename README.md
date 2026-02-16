@@ -33,7 +33,8 @@ Teknologi yang digunakan dalam projek ini adalah sebagai berikut:
 - IDE: PhpStorm (JetBrains IDE) di Debian 12
 
 ## Cara Penggunaan
-Buka halaman situs [edubridge.my.id](https://edubridge.my.id), Anda bisa menggunakan akun siswa untuk login, dan jika belum ada, silahkan daftar akun terlebih dahulu.
+~~Buka halaman situs [edubridge.my.id](https://edubridge.my.id), Anda bisa menggunakan akun siswa untuk login, dan jika belum ada, silahkan daftar akun terlebih dahulu.~~
+Saat ini sedang dalam rewrite, mengganti base MariaDB menjadi postgreSQL.
 
 ## OPSI 2024
 
